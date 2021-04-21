@@ -29,7 +29,8 @@ public class Main{
 		MyFrame mainFrame = new MyFrame();
 		mainFrame.add(p_startGame);
 		mainFrame.pack();
-		mainFrame.setLocationRelativeTo(null);	
+		mainFrame.setResizable(false);
+		mainFrame.setLocationRelativeTo(null);
 	}
 	
 	public static void load() {

@@ -6,7 +6,8 @@ import java.awt.event.KeyListener;
 import javax.swing.JFrame;
 
 public class MyFrame extends JFrame implements KeyListener{
-	
+
+
 	/**
 	 * 
 	 */
@@ -15,7 +16,9 @@ public class MyFrame extends JFrame implements KeyListener{
 	MyFrame() {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setTitle("GridRacer by B.S.O.D");
-		this.setVisible(true);
+
+		this.setLocationRelativeTo(null);
+		this.setVisible(true);		
 	}
 
 	@Override

@@ -1,6 +1,5 @@
 package StartGame;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -13,7 +12,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -59,7 +57,7 @@ public class Panel_startGame extends JPanel implements KeyListener, ActionListen
 		this.setVisible(false);
 		this.removeAll();
 		this.getParent().add(p_mainMenue);
-		
+		this.getParent().remove(this);
 	}
 
 
