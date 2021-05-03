@@ -1,4 +1,4 @@
-package StartGame;
+package startGame;
 
 import java.awt.Color;
 import java.awt.Dimension;

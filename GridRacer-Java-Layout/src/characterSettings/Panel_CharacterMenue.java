@@ -1,4 +1,4 @@
-package Character_Settings;
+package characterSettings;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -9,14 +9,14 @@ import javax.swing.JPanel;
 
 
 public class Panel_CharacterMenue extends JPanel {
-	JButton btn_back = new JButton();
-	JButton btn_charOne = new JButton();
-	JButton btn_charTwo = new JButton();
-	JButton btn_charThree = new JButton();
+	JButton btn_back = new JButton("Back");
+	JButton btn_charOne = new JButton("Character 1");
+	JButton btn_charTwo = new JButton("Character 2");
+	JButton btn_charThree = new JButton("Character 3");
 
-	JLabel jl_charOne = new JLabel();
-	JLabel jl_charTwo = new JLabel();
-	JLabel jl_charThree = new JLabel();
+	JLabel jl_charOne = new JLabel("Charakter1");
+	JLabel jl_charTwo = new JLabel("Charakter2");
+	JLabel jl_charThree = new JLabel("Charakter3");
 
 	
 	private static final long serialVersionUID = -715260095579860078L;
@@ -28,32 +28,22 @@ public class Panel_CharacterMenue extends JPanel {
 	}
 	
 	public void createComponents() {
-		btn_back.setText("Back");
-		
 		btn_back.addActionListener(e -> btn_back_clicked());
-		btn_charOne.setText("Character 1");
-		
 		btn_charOne.addActionListener(e -> btn_charOne_clicked());
-		btn_charTwo.setText("Character 2");
 		btn_charTwo.addActionListener(e -> btn_charTwo_clicked());
-		
-		btn_charThree.setText("Character 3");
 		btn_charThree.addActionListener(e -> btn_charThree_clicked());
 		
 		jl_charOne.setPreferredSize(new Dimension(160,200));
 		jl_charOne.setBackground(Color.black);
 		jl_charOne.setOpaque(true);
-		jl_charOne.setText("Charakter1");
 		
 		jl_charTwo.setPreferredSize(new Dimension(160,200));
 		jl_charTwo.setBackground(Color.black);
 		jl_charTwo.setOpaque(true);
-		jl_charTwo.setText("Charakter2");
 		
 		jl_charThree.setPreferredSize(new Dimension(160,200));
 		jl_charThree.setBackground(Color.black);
 		jl_charThree.setOpaque(true);
-		jl_charThree.setText("Charakter3");
 	}
 	
     private void addComponents() {  

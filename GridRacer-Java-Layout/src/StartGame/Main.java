@@ -1,4 +1,4 @@
-package StartGame;
+package startGame;
 
 import javax.swing.JFrame;
 import javax.swing.JProgressBar;
