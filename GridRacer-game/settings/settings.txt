@@ -1,0 +1,3 @@
+playername:Seligger
+score:50
+char:1
