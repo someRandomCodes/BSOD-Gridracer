@@ -42,7 +42,6 @@ public class Panel_MainMenue extends JPanel {
 		this.add(btn_CharacterSettings);
 		this.add(btn_Settings);
 		this.add(btn_Website);	
-		
 	}
 	
     private void btn_website_clicked() {
@@ -54,8 +53,7 @@ public class Panel_MainMenue extends JPanel {
 			} catch (URISyntaxException e) {
 				e.printStackTrace();
 			}
-		}
-		
+		}	
 	}
     
     private void btn_StartSingleplayer_clicked() {
