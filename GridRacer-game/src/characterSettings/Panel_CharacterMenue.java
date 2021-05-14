@@ -6,7 +6,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-
+// Lukas -> Layout anpassen
 
 public class Panel_CharacterMenue extends JPanel {
 	JButton btn_back = new JButton("Back");
@@ -23,11 +23,7 @@ public class Panel_CharacterMenue extends JPanel {
 
 	public Panel_CharacterMenue() {
 		this.setPreferredSize(new Dimension(1280, 640));
-		createComponents();
-		addComponents();
-	}
-	
-	public void createComponents() {
+
 		btn_back.addActionListener(e -> btn_back_clicked());
 		btn_charOne.addActionListener(e -> btn_charOne_clicked());
 		btn_charTwo.addActionListener(e -> btn_charTwo_clicked());
@@ -44,9 +40,7 @@ public class Panel_CharacterMenue extends JPanel {
 		jl_charThree.setPreferredSize(new Dimension(160,200));
 		jl_charThree.setBackground(Color.black);
 		jl_charThree.setOpaque(true);
-	}
-	
-    private void addComponents() {  
+
 		this.add(btn_back);
 		this.add(jl_charOne);
 		this.add(btn_charOne);
@@ -54,8 +48,7 @@ public class Panel_CharacterMenue extends JPanel {
 		this.add(btn_charTwo);
 		this.add(jl_charThree);
 		this.add(btn_charThree);
-    }
-    
+	}
     
     private void btn_back_clicked() {
 		this.setVisible(false);
