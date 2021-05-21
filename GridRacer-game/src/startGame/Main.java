@@ -4,14 +4,11 @@ import javax.swing.JFrame;
 import javax.swing.JProgressBar;
 
 public class Main{
-	
-	private static JFrame frame = new JFrame();
 	private static JProgressBar LoadingBar = new JProgressBar();
-	private static Panel_startGame p_startGame = new Panel_startGame();
-	
+ 
 	/*
-	 * method load let the loading bar get to 100 percent
-	 * and creates the player
+	 * Method load let the loading bar get to 100 percent
+	 * and creates the player.
 	 */
 	private static void load() {
 		while(LoadingBar.getValue() < 100) {
@@ -22,39 +19,34 @@ public class Main{
 			}
 			LoadingBar.setValue(LoadingBar.getValue() + 1);
 		}
+		
 	}
 	
+	/*
+	 * Main method, starts the whole Game.
+	 * Create the first Frame and add the first Panel.
+	 */
 	public static void main(String[] args) {
-		
+		MyFrame mainFrame = new MyFrame();		
 		LoadingBar.setValue(0);
 		LoadingBar.setStringPainted(true);
 		
-		frame.add(LoadingBar);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setTitle("Unnecessary loading Screen");
-		frame.setSize(420, 98);
-		frame.setResizable(false);
-		frame.setLocationRelativeTo(null);
-		frame.setVisible(true);		
+		mainFrame.add(LoadingBar);
+		mainFrame.pack();
+		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		mainFrame.setTitle("Unnecessary loading Screen");
+		mainFrame.setResizable(false);
+		mainFrame.setLocationRelativeTo(null);
+		mainFrame.setVisible(true);	
+		
 		load();
 		
-		
+		Panel_startGame p_startGame = new Panel_startGame();
 		p_startGame.setFocusable(true);
 		
-	
-		frame.setVisible(false);
-		MyFrame mainFrame = new MyFrame();
+		mainFrame.remove(LoadingBar);
 		mainFrame.add(p_startGame);
 		mainFrame.pack();
 		mainFrame.setLocationRelativeTo(null);
-		
-		Character player1 = new Character
-				(Loadsave.loadName(),
-				 Loadsave.loadScore(),
-				 Loadsave.loadCharacter());
-		
-		System.out.println("Spielername: " + player1.getName());
-		System.out.println("Score: " +player1.getScore());
-		System.out.println("character: " +player1.getCharacter());
 	}
 }

@@ -18,6 +18,7 @@ public class Panel_SettingMenue extends JPanel {
 
 	public Panel_SettingMenue() {
 		this.setPreferredSize(new Dimension(1280, 640));
+		
 		createComponents();
 		addComponents();
 	}

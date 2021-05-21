@@ -1,4 +1,4 @@
-package startGame;
+package characterSettings;
 
 import java.io.File;
 import java.io.FileNotFoundException;

@@ -1,4 +1,4 @@
-package startGame;
+package characterSettings;
 
 public class Character {
 	private String name;
