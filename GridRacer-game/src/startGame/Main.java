@@ -5,6 +5,7 @@ import javax.swing.JProgressBar;
 
 public class Main{
 	private static JProgressBar LoadingBar = new JProgressBar();
+	static JFrame mainFrame = new JFrame();
  
 	/*
 	 * Method load let the loading bar get to 100 percent
@@ -27,7 +28,6 @@ public class Main{
 	 * Create the first Frame and add the first Panel.
 	 */
 	public static void main(String[] args) {
-		MyFrame mainFrame = new MyFrame();		
 		LoadingBar.setValue(0);
 		LoadingBar.setStringPainted(true);
 		
@@ -45,6 +45,7 @@ public class Main{
 		p_startGame.setFocusable(true);
 		
 		mainFrame.remove(LoadingBar);
+		mainFrame.setTitle("GridRacer by B.S.O.D");
 		mainFrame.add(p_startGame);
 		mainFrame.pack();
 		mainFrame.setLocationRelativeTo(null);
