@@ -32,7 +32,7 @@ public class Main{
 		LoadingBar.setStringPainted(true);
 		
 		mainFrame.add(LoadingBar);
-		mainFrame.pack();
+		mainFrame.setSize(400,200);
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mainFrame.setTitle("Unnecessary loading Screen");
 		mainFrame.setResizable(false);
