@@ -1,12 +1,18 @@
 package settingMenue;
 
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import characterSettings.Panel_CharacterMenue;
+
 // Aman
 
 public class Panel_SettingMenue extends JPanel {
+	Panel_Credits p_credits = new Panel_Credits();
+	JPanel northMenue = new JPanel();
+	
 	JButton btn_back = new JButton();
 	JButton btn_sound = new JButton();
 	JButton btn_updates = new JButton();
@@ -17,8 +23,8 @@ public class Panel_SettingMenue extends JPanel {
 	private static final long serialVersionUID = -715260095579860078L;
 
 	public Panel_SettingMenue() {
-		this.setPreferredSize(new Dimension(1280, 640));
-		
+		setPreferredSize(new Dimension(1280, 640));
+		setLayout(new BorderLayout());
 		createComponents();
 		addComponents();
 	}
@@ -34,14 +40,19 @@ public class Panel_SettingMenue extends JPanel {
 		btn_doNotPress.addActionListener(e -> btn_doNotPress_clicked());
 		btn_credits.setText("Credits");
 		btn_credits.addActionListener(e -> btn_credits_clicked());
+		
+		northMenue.setPreferredSize(new Dimension(1280,100));
 	}
 	
     private void addComponents() {  
-		this.add(btn_back);
-		this.add(btn_sound);
-		this.add(btn_updates);
-		this.add(btn_doNotPress);
-		this.add(btn_credits);
+    	northMenue.add(btn_back);
+    	northMenue.add(btn_sound);
+    	northMenue.add(btn_updates);
+    	northMenue.add(btn_doNotPress);
+    	northMenue.add(btn_credits);
+    	
+    	this.add(northMenue, BorderLayout.NORTH);
+    	add(p_credits, BorderLayout.CENTER); // so sind die credits erstmal sichtbar und bearbeitbar 
     }
     
     
@@ -64,6 +75,6 @@ public class Panel_SettingMenue extends JPanel {
     }
     
     private void btn_credits_clicked() {
-    	
+
     }
 }

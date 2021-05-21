@@ -36,7 +36,7 @@ public class Panel_startGame extends JPanel implements KeyListener, ActionListen
 
 		img = new ImageIcon("src/assets/img/background_start.png").getImage();
 		
-		timer = new Timer(20, this);
+		timer = new Timer(200, this);
 		timer.start();
 	}
 	
@@ -74,6 +74,12 @@ public class Panel_startGame extends JPanel implements KeyListener, ActionListen
 			backGroundMoveLeft = backGroundMoveLeft - 10;
 		}
 		repaint();
+
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		loadMenue();
 	}
 
 	@Override
@@ -83,14 +89,8 @@ public class Panel_startGame extends JPanel implements KeyListener, ActionListen
 	}
 
 	@Override
-	public void keyPressed(KeyEvent e) {
-		loadMenue();
-	}
-
-	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
-
 }

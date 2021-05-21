@@ -6,7 +6,7 @@ public class MyFrame extends JFrame{
 
 
 	/**
-	 * 
+	 * creates the standard Frame
 	 */
 	private static final long serialVersionUID = 140453441694353650L;
 	

@@ -9,7 +9,11 @@ import java.util.Scanner;
 
 public class Loadsave {
 	static File settings = new File("settings\\settings.txt");
-
+	
+	/*
+	 * load the player name from file
+	 * @return String playername
+	 */
 	public static String loadName() {
 		try {
 			Scanner scan = new Scanner(settings);
@@ -28,6 +32,10 @@ public class Loadsave {
 		return "player1";
 	}
 	
+	/*
+	 * load the score from file
+	 * @return int score
+	 */
 	public static int loadScore() {
 		try {
 			Scanner scan = new Scanner(settings);
@@ -45,6 +53,10 @@ public class Loadsave {
 		return 0;
 	}
 	
+	/*
+	 * load the chosen char from file
+	 * @return char character
+	 */
 	public static char loadCharacter() {
 		try {
 			Scanner scan = new Scanner(settings);
@@ -62,6 +74,9 @@ public class Loadsave {
 		return '1';
 	}
 	
+	/*
+	 * save the player settings in file
+	 */
 	public static void savePlayer(String name, int score, char character) {
 		try {
 			settings.createNewFile();
