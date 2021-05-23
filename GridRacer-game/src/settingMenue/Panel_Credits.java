@@ -18,12 +18,9 @@ public class Panel_Credits extends JPanel {
 	
 	public void createComponents() {
 		btn_back.setText("Bgehhe");
-
-
 	}
 	
     private void addComponents() {  
 		this.add(btn_back);
-
     }
 }

@@ -65,7 +65,7 @@ public class Panel_CharacterMenue extends JPanel {
     }
     
     private void btn_charThree_clicked() {
-    	
+
     }
     
 }
