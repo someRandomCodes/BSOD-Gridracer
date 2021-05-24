@@ -6,6 +6,7 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -17,9 +18,9 @@ import startGame.Panel_startGame;
 
 public class Panel_CharacterMenue extends JPanel {
 	JButton btn_back = new JButton("Back");
-	JButton btn_charOne = new JButton("Character 1");
-	JButton btn_charTwo = new JButton("Character 2");
-	JButton btn_charThree = new JButton("Character 3");
+	JButton btn_charOne = new JButton("Lvl 1 crook");
+	JButton btn_charTwo = new JButton("Lvl 69 gangster");
+	JButton btn_charThree = new JButton("Lvl 1000 mafia boss");
 	JButton btn_save = new JButton("Save");
 
 	JLabel jl_charOne = new JLabel("Charakter1");
@@ -48,16 +49,19 @@ public class Panel_CharacterMenue extends JPanel {
 		btn_charThree.addActionListener(e -> btn_charThree_clicked());
 		btn_save.addActionListener(e -> btn_save_clicked());
 		
-		jl_charOne.setPreferredSize(new Dimension(160,200));
+		jl_charOne.setPreferredSize(new Dimension(300,400));
 		jl_charOne.setBackground(Color.red);
+		jl_charOne.setIcon(new ImageIcon("C:\\Users\\User\\OneDrive - Hochschule Hamm-Lippstadt\\Documents\\GitHub\\BSOD-Gridracer\\GridRacer-game\\bin\\assets\\img\\character1.png"));
 		jl_charOne.setOpaque(true);
 		
-		jl_charTwo.setPreferredSize(new Dimension(160,200));
+		jl_charTwo.setPreferredSize(new Dimension(300,400));
 		jl_charTwo.setBackground(Color.green);
+		jl_charTwo.setIcon(new ImageIcon("C:\\Users\\User\\OneDrive - Hochschule Hamm-Lippstadt\\Documents\\GitHub\\BSOD-Gridracer\\GridRacer-game\\bin\\assets\\img\\character2.png"));
 		jl_charTwo.setOpaque(true);
 		
-		jl_charThree.setPreferredSize(new Dimension(160,200));
+		jl_charThree.setPreferredSize(new Dimension(300,400));
 		jl_charThree.setBackground(Color.blue);
+		jl_charThree.setIcon(new ImageIcon("C:\\Users\\User\\OneDrive - Hochschule Hamm-Lippstadt\\Documents\\GitHub\\BSOD-Gridracer\\GridRacer-game\\bin\\assets\\img\\character3.png"));
 		jl_charThree.setOpaque(true);
 		
 		gbc.gridx = 0;
