@@ -30,15 +30,13 @@ public class Main{
 	 * Create the first Frame and add the first Panel.
 	 */
 	public static void main(String[] args) {
-		Loadsave.savePlayer("Thomas", 9000, '2');
+		Loadsave.savePlayer("Marie", 581, '3');
 		System.out.println(Loadsave.loadName());
 		LoadingBar.setValue(0);
 		LoadingBar.setStringPainted(true);
 		
 		mainFrame.add(LoadingBar);
 		mainFrame.setSize(400,200);
-		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		mainFrame.setTitle("Unnecessary loading Screen");
 		mainFrame.setVisible(true);	
 		
 		load();
@@ -47,7 +45,6 @@ public class Main{
 		p_startGame.setFocusable(true);
 		
 		mainFrame.remove(LoadingBar);
-		mainFrame.setTitle("GridRacer by B.S.O.D");
 		mainFrame.add(p_startGame);
 		mainFrame.pack();
 		mainFrame.setLocationRelativeTo(null);
