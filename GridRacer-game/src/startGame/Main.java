@@ -3,9 +3,11 @@ package startGame;
 import javax.swing.JFrame;
 import javax.swing.JProgressBar;
 
+import characterSettings.Loadsave;
+
 public class Main{
 	private static JProgressBar LoadingBar = new JProgressBar();
-	static JFrame mainFrame = new JFrame();
+	static MyFrame mainFrame = new MyFrame();
  
 	/*
 	 * Method load let the loading bar get to 100 percent
@@ -28,6 +30,8 @@ public class Main{
 	 * Create the first Frame and add the first Panel.
 	 */
 	public static void main(String[] args) {
+		Loadsave.savePlayer("Thomas", 9000, '2');
+		System.out.println(Loadsave.loadName());
 		LoadingBar.setValue(0);
 		LoadingBar.setStringPainted(true);
 		
@@ -35,8 +39,6 @@ public class Main{
 		mainFrame.setSize(400,200);
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mainFrame.setTitle("Unnecessary loading Screen");
-		mainFrame.setResizable(false);
-		mainFrame.setLocationRelativeTo(null);
 		mainFrame.setVisible(true);	
 		
 		load();

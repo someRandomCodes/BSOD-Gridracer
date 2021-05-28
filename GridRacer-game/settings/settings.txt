@@ -1,3 +1,4 @@
-playername:Seligger
-score:50
-char:1
+playername:Xlsqew
+score:D444
+char:6
+rated:false

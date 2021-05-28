@@ -8,6 +8,7 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -17,7 +18,7 @@ import javax.swing.Timer;
 
 import menue.Panel_MainMenue;
 
-public class Panel_startGame extends JPanel implements KeyListener, ActionListener {
+public class Panel_startGame extends JPanel implements ActionListener {
 	private static final long serialVersionUID = -715260095579860078L;
 	int backGroundMoveLeft = 0;
 	boolean leftMove = true;
@@ -31,7 +32,12 @@ public class Panel_startGame extends JPanel implements KeyListener, ActionListen
 
 	Panel_startGame() {
 		this.setPreferredSize(new Dimension(1280, 640));
-		this.addKeyListener(this);
+		this.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				loadMenue();
+			}	
+		});
 		this.setFocusable(true);
 
 		img = new ImageIcon("src/assets/img/background_start.png").getImage();
@@ -74,23 +80,5 @@ public class Panel_startGame extends JPanel implements KeyListener, ActionListen
 			backGroundMoveLeft = backGroundMoveLeft - 10;
 		}
 		repaint();
-
-	}
-
-	@Override
-	public void keyPressed(KeyEvent e) {
-		loadMenue();
-	}
-
-	@Override
-	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
 	}
 }
