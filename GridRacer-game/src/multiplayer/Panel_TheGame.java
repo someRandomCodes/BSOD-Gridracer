@@ -13,8 +13,9 @@ public class Panel_TheGame extends JPanel {
 	private int gameboardSizeH = 60;
 	private int gameboardSize = gameboardSizeH * gameboardSizeW;
 	private boolean gamerun = true;
-	private char moveSelfDirektion = 'd';
-	private movings thread1 = new movings();
+	private char moveSelfDirektion = 's';
+	private movings movingSelfThread = new movings();
+	private enemy enemyMovingThread = new enemy();
 	private Gameplace[] place = new Gameplace[gameboardSize];
 
 	/**
@@ -53,15 +54,32 @@ public class Panel_TheGame extends JPanel {
 			place[i].drawBorder();
 		}
 		
-		thread1.start();
+		movingSelfThread.start();
+		enemyMovingThread.start();
 		
+	}
+	
+	private class enemy extends Thread {
+		public void run() {
+			int enemyPos1 = 82;
+			while(gamerun) {
+				try {
+					Thread.sleep(40);
+					place[enemyPos1].drawEnemy();
+					if(enemyPos1 < gameboardSize) enemyPos1++;
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
 	}
 	
 	private class movings extends Thread {
 		
 		@SuppressWarnings("deprecation")
 		public void run() {
-			int i = 580;
+			int playerPos1 = 580;
 			System.out.println("voher");
 			while(gamerun) {
 				try {
@@ -70,36 +88,36 @@ public class Panel_TheGame extends JPanel {
 					System.out.println("nachher");
 					switch(moveSelfDirektion) {
 					case 'w':
-			            i-= gameboardSizeW;
-						if(place[i].getBackground() == Color.black) {
+						playerPos1-= gameboardSizeW;
+						if(place[playerPos1].getBackground() != Color.cyan) {
 							JOptionPane.showMessageDialog(null, "colide");							
-							thread1.stop();
+							movingSelfThread.stop();
 						}
-			            place[i].drawBorder();
+			            place[playerPos1].drawSelf();
 						break;
 					case 'a':
-						i-=1;
-						if(place[i].getBackground() == Color.black) {
+						playerPos1-=1;
+						if(place[playerPos1].getBackground() != Color.cyan) {
 							JOptionPane.showMessageDialog(null, "colide");							
-							thread1.stop();
+							movingSelfThread.stop();
 						}
-			            place[i].drawBorder();
+			            place[playerPos1].drawSelf();
 						break;
 					case 's':
-						i+= gameboardSizeW;
-						if(place[i].getBackground() == Color.black) {
+						playerPos1+= gameboardSizeW;
+						if(place[playerPos1].getBackground() != Color.cyan) {
 							JOptionPane.showMessageDialog(null, "colide");
-							thread1.stop();
+							movingSelfThread.stop();
 						}
-			            place[i].drawBorder();
+			            place[playerPos1].drawSelf();
 						break;
 					case 'd':
-						i+=1;
-						if(place[i].getBackground() == Color.black) {
+						playerPos1+=1;
+						if(place[playerPos1].getBackground() != Color.cyan) {
 							JOptionPane.showMessageDialog(null, "colide");							
-							thread1.stop();
+							movingSelfThread.stop();
 						}
-			            place[i].drawBorder();
+			            place[playerPos1].drawSelf();
 						break;
 					}
 				} catch (InterruptedException e) {

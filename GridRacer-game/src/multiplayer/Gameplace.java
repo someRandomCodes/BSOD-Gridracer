@@ -21,4 +21,14 @@ public class Gameplace extends JLabel {
 		this.setBackground(Color.black);
 		this.setOpaque(true);
 	}
+	
+	public void drawSelf() {
+		this.setBackground(Color.red);
+		this.setOpaque(true);
+	}
+	
+	public void drawEnemy() {
+		this.setBackground(Color.blue);
+		this.setOpaque(true);
+	}
 }
