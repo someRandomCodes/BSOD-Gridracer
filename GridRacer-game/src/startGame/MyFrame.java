@@ -1,8 +1,6 @@
 package startGame;
 
 import java.awt.Desktop;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
@@ -24,7 +22,7 @@ public class MyFrame extends JFrame {
 	/*
 	 * Create the Standard Frame
 	 */
-	MyFrame() {
+	public MyFrame() {
 		setResizable(false);
 		setLocationRelativeTo(null);
 		addWindowListener(new onClose());
@@ -40,18 +38,18 @@ public class MyFrame extends JFrame {
 		 * open a website by closing the Frame
 		 */
         public void windowClosing(WindowEvent e) {
-            if (!Loadsave.loadGamerated()) {
-        		if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
-        		    try {
-        				Desktop.getDesktop().browse(new URI("http://www.do7gt.de/"));
-        			} catch (IOException i) {
-        				i.printStackTrace();
-        			} catch (URISyntaxException i) {
-        				i.printStackTrace();
-        			}
-        		}	
-            }
-        	JOptionPane.showMessageDialog(null, "Auf wiedersehen" + Loadsave.loadName());
+//            if (!Loadsave.loadGamerated()) {
+//        		if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
+//        		    try {
+//        				Desktop.getDesktop().browse(new URI("http://www.do7gt.de/"));
+//        			} catch (IOException i) {
+//        				i.printStackTrace();
+//        			} catch (URISyntaxException i) {
+//        				i.printStackTrace();
+//        			}
+//        		}	
+//            }
+        	JOptionPane.showMessageDialog(null, "Auf wiedersehen " + Loadsave.loadName());
         }
 	}
 }

@@ -1,5 +1,7 @@
 package startGame;
 
+import java.awt.Container;
+
 import javax.swing.JFrame;
 import javax.swing.JProgressBar;
 
@@ -11,6 +13,7 @@ public class Main{
  
 	/*
 	 * Method load let the loading bar get to 100 percent
+	 * by let the thread sleep
 	 * and creates the player.
 	 */
 	private static void load() {
@@ -30,22 +33,25 @@ public class Main{
 	 * Create the first Frame and add the first Panel.
 	 */
 	public static void main(String[] args) {
-		Loadsave.savePlayer("Marie", 581, '3');
-		System.out.println(Loadsave.loadName());
+		Container frameContent = mainFrame.getContentPane();
+		Panel_startGame p_startGame = new Panel_startGame();
+		
+		//test save
+		Loadsave.savePlayer("Johannes", 581, '3');
+		
 		LoadingBar.setValue(0);
 		LoadingBar.setStringPainted(true);
 		
-		mainFrame.add(LoadingBar);
 		mainFrame.setSize(400,200);
+		frameContent.add(LoadingBar);
 		mainFrame.setVisible(true);	
 		
 		load();
 		
-		Panel_startGame p_startGame = new Panel_startGame();
 		p_startGame.setFocusable(true);
 		
-		mainFrame.remove(LoadingBar);
-		mainFrame.add(p_startGame);
+		frameContent.remove(LoadingBar);
+		frameContent.add(p_startGame);
 		mainFrame.pack();
 		mainFrame.setLocationRelativeTo(null);
 	}

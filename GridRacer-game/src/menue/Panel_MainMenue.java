@@ -7,12 +7,11 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 import javax.swing.JButton;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import characterSettings.Panel_CharacterMenue;
+import multiplayer.MultiplayerGame;
 import settingMenue.Panel_SettingMenue;
-import singleplayer.Game;
 import singleplayer.Snake;
 
 
@@ -61,7 +60,7 @@ public class Panel_MainMenue extends JPanel {
     }
     
     private void  btn_StartMultiplayer_clicked() {
-    	JOptionPane.showMessageDialog(null, "Als ob das schon geht!");
+    	new MultiplayerGame();
     }
     
     private void btn_CharacterSettings_clicked() {
