@@ -14,6 +14,7 @@ public class Panel_TheGame extends JPanel {
 	private int gameboardSize = gameboardSizeH * gameboardSizeW;
 	private boolean gamerun = true;
 	private char moveSelfDirektion = 's';
+	private char moveEnemyDirektion = 'k';
 	private movings movingSelfThread = new movings();
 	private enemy enemyMovingThread = new enemy();
 	private Gameplace[] place = new Gameplace[gameboardSize];
@@ -61,12 +62,47 @@ public class Panel_TheGame extends JPanel {
 	
 	private class enemy extends Thread {
 		public void run() {
-			int enemyPos1 = 82;
+			int enemypos = 600;
+			System.out.println("voher");
 			while(gamerun) {
 				try {
+					System.out.println("voher");
 					Thread.sleep(40);
-					place[enemyPos1].drawEnemy();
-					if(enemyPos1 < gameboardSize) enemyPos1++;
+					System.out.println("nachher");
+					switch(moveEnemyDirektion) {
+					case 'i':
+						enemypos-= gameboardSizeW;
+						if(place[enemypos].getBackground() != Color.cyan) {
+							JOptionPane.showMessageDialog(null, "colide");							
+							enemyMovingThread.stop();
+						}
+			            place[enemypos].drawEnemy();
+						break;
+					case 'j':
+						enemypos-=1;
+						if(place[enemypos].getBackground() != Color.cyan) {
+							JOptionPane.showMessageDialog(null, "colide");							
+							enemyMovingThread.stop();
+						}
+			            place[enemypos].drawEnemy();
+						break;
+					case 'k':
+						enemypos+= gameboardSizeW;
+						if(place[enemypos].getBackground() != Color.cyan) {
+							JOptionPane.showMessageDialog(null, "colide");
+							enemyMovingThread.stop();
+						}
+			            place[enemypos].drawEnemy();
+						break;
+					case 'l':
+						enemypos+=1;
+						if(place[enemypos].getBackground() != Color.cyan) {
+							JOptionPane.showMessageDialog(null, "colide");							
+							enemyMovingThread.stop();
+						}
+			            place[enemypos].drawEnemy();
+						break;
+					}
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -138,6 +174,11 @@ public class Panel_TheGame extends JPanel {
 					|| e.getKeyChar() == 'a' 
 					|| e.getKeyChar() == 's' 
 					|| e.getKeyChar() == 'd') moveSelfDirektion = e.getKeyChar();
+			
+			if (e.getKeyChar() == 'i' 
+					|| e.getKeyChar() == 'j' 
+					|| e.getKeyChar() == 'k' 
+					|| e.getKeyChar() == 'l') moveEnemyDirektion = e.getKeyChar();
 		}
 
 		@Override
