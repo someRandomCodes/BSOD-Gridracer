@@ -75,6 +75,9 @@ public class Panel_SettingMenue extends JPanel {
     }
     
     private void btn_credits_clicked() {
-
+	this.setVisible(false);
+	this.getParent().add(p_credits);
+	p_credits.setVisible(true);
+	new CreditsScreen();
     }
 }
