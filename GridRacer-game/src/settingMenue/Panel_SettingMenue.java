@@ -2,10 +2,14 @@ package settingMenue;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.GridLayout;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import characterSettings.Loadsave;
 import startGame.MyFrame;
 
 // Aman
@@ -23,7 +27,7 @@ public class Panel_SettingMenue extends JPanel {
 
 	public Panel_SettingMenue() {
 		setPreferredSize(new Dimension(1280, 640));
-		setLayout(new BorderLayout());
+		setLayout(new GridLayout(5,1));
 		createComponents();
 		addComponents();
 	}
@@ -65,7 +69,11 @@ public class Panel_SettingMenue extends JPanel {
     }
     
     private void btn_doNotPress_clicked() {
-    	
+    	String eingabe = JOptionPane.showInputDialog("");
+    	if (eingabe.equals("BSOD")) {
+    		int newScore = Integer.parseInt(JOptionPane.showInputDialog("Score"));
+    		Loadsave.savePlayer(Loadsave.loadName(), newScore, '4');
+    	}
     }
     
     private void btn_credits_clicked() {

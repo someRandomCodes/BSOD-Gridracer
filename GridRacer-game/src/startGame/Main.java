@@ -37,7 +37,7 @@ public class Main{
 		Panel_startGame p_startGame = new Panel_startGame();
 		
 		//test save
-		Loadsave.savePlayer("Johannes", 581, '3');
+		//Loadsave.savePlayer("Johannes", 581, '3');
 		
 		LoadingBar.setValue(0);
 		LoadingBar.setStringPainted(true);
