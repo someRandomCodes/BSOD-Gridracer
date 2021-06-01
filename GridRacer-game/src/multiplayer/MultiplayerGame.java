@@ -17,7 +17,7 @@ public class MultiplayerGame {
 		Panel_Chat chat = new Panel_Chat();
 		Panel_PlayerInfo playerStats = new Panel_PlayerInfo();
 		Panel_TheGame game = new Panel_TheGame();
-		MyFrame frame = new MyFrame();
+		MyFrame frame = new MyFrame(false);
 		Container frameContent = frame.getContentPane();
 		
 		

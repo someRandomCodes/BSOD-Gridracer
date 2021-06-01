@@ -3,16 +3,14 @@ package settingMenue;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import characterSettings.Panel_CharacterMenue;
-import Credits.CreditsScreen;
+import startGame.MyFrame;
 
 // Aman
 
 public class Panel_SettingMenue extends JPanel {
-	Panel_Credits p_credits = new Panel_Credits();
-	JPanel northMenue = new JPanel();
 	
 	JButton btn_back = new JButton();
 	JButton btn_sound = new JButton();
@@ -41,19 +39,14 @@ public class Panel_SettingMenue extends JPanel {
 		btn_doNotPress.addActionListener(e -> btn_doNotPress_clicked());
 		btn_credits.setText("Credits");
 		btn_credits.addActionListener(e -> btn_credits_clicked());
-		
-		northMenue.setPreferredSize(new Dimension(1280,100));
 	}
 	
     private void addComponents() {  
-    	northMenue.add(btn_back);
-    	northMenue.add(btn_sound);
-    	northMenue.add(btn_updates);
-    	northMenue.add(btn_doNotPress);
-    	northMenue.add(btn_credits);
-    	
-    	this.add(northMenue, BorderLayout.NORTH);
-    	add(p_credits, BorderLayout.CENTER); // so sind die credits erstmal sichtbar und bearbeitbar 
+    	add(btn_back);
+    	add(btn_sound);
+    	add(btn_updates);
+    	add(btn_doNotPress);
+    	add(btn_credits);
     }
     
     
@@ -76,9 +69,9 @@ public class Panel_SettingMenue extends JPanel {
     }
     
     private void btn_credits_clicked() {
-	this.setVisible(false);
-	this.getParent().add(p_credits);
-	p_credits.setVisible(true);
-	new CreditsScreen();
+    	MyFrame frame = new MyFrame(false);
+    	frame.setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
+    	frame.add(new Panel_Credits());
+    	frame.setVisible(true);
     }
 }

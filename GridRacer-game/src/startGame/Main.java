@@ -9,7 +9,7 @@ import characterSettings.Loadsave;
 
 public class Main{
 	private static JProgressBar LoadingBar = new JProgressBar();
-	static MyFrame mainFrame = new MyFrame();
+	static MyFrame mainFrame = new MyFrame(true);
  
 	/*
 	 * Method load let the loading bar get to 100 percent

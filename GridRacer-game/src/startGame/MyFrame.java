@@ -22,11 +22,11 @@ public class MyFrame extends JFrame {
 	/*
 	 * Create the Standard Frame
 	 */
-	public MyFrame() {
+	public MyFrame(Boolean realClose) {
 		setResizable(false);
 		setLocationRelativeTo(null);
-		addWindowListener(new onClose());
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		if (realClose) addWindowListener(new onClose());
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setTitle("GridRacer by B.S.O.D");
 	}
 	
@@ -38,18 +38,19 @@ public class MyFrame extends JFrame {
 		 * open a website by closing the Frame
 		 */
         public void windowClosing(WindowEvent e) {
-//            if (!Loadsave.loadGamerated()) {
-//        		if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
-//        		    try {
-//        				Desktop.getDesktop().browse(new URI("http://www.do7gt.de/"));
-//        			} catch (IOException i) {
-//        				i.printStackTrace();
-//        			} catch (URISyntaxException i) {
-//        				i.printStackTrace();
-//        			}
-//        		}	
-//            }
+            if (!Loadsave.loadGamerated()) {
+        		if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
+        		    try {
+        				Desktop.getDesktop().browse(new URI("http://www.do7gt.de/"));
+        			} catch (IOException i) {
+        				i.printStackTrace();
+        			} catch (URISyntaxException i) {
+        				i.printStackTrace();
+        			}
+        		}	
+            }
         	JOptionPane.showMessageDialog(null, "Auf wiedersehen " + Loadsave.loadName());
+        	System.exit(0);
         }
 	}
 }
