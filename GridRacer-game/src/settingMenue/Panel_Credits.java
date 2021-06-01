@@ -17,10 +17,16 @@ public class Panel_Credits extends JPanel {
 	}
 	
 	public void createComponents() {
-		btn_back.setText("Bgehhe");
+		btn_back.setText("Back");
+		btn_back.addActionListener(e -> btn_back_clicked());
 	}
 	
     private void addComponents() {  
 		this.add(btn_back);
     }
+  	 private void btn_back_clicked() {
+  		this.setVisible(false);
+  		this.getParent().getComponents()[0].setVisible(true);
+  		this.getParent().remove(this);
+      }
 }
