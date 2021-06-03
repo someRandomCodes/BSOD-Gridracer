@@ -5,12 +5,14 @@ import java.awt.Dimension;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.rmi.RemoteException;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import characterSettings.Panel_CharacterMenue;
 import multiplayer.MultiplayerGame;
+import serverApplication.RMIServer;
 import settingMenue.Panel_SettingMenue;
 import singleplayer.Snake;
 
@@ -31,7 +33,14 @@ public class Panel_MainMenue extends JPanel {
 		
 		this.setPreferredSize(new Dimension(1280, 640));
 		btn_StartSingleplayer.addActionListener(e -> btn_StartSingleplayer_clicked());
-		btn_StartMultiplayer.addActionListener(e -> btn_StartMultiplayer_clicked());
+		btn_StartMultiplayer.addActionListener(e -> {
+			try {
+				btn_StartMultiplayer_clicked();
+			} catch (RemoteException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		});
 		btn_CharacterSettings.addActionListener(e -> btn_CharacterSettings_clicked());
 		btn_Settings.addActionListener(e -> btn_Settings_clicked());
 		btn_Website.addActionListener(e -> btn_website_clicked());
@@ -59,8 +68,9 @@ public class Panel_MainMenue extends JPanel {
 		Snake.main(null);;
     }
     
-    private void  btn_StartMultiplayer_clicked() {
+    private void  btn_StartMultiplayer_clicked() throws RemoteException {
     	new MultiplayerGame();
+    	new RMIServer();
     }
     
     private void btn_CharacterSettings_clicked() {

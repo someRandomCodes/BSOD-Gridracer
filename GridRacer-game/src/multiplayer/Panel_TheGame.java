@@ -32,7 +32,6 @@ public class Panel_TheGame extends JPanel {
 		for (int i = 0; i < gameboardSize ;i++) {
 			place[i] = new Gameplace();
 			this.add(place[i]);	
-			System.out.println((i+1) + "Felder erstellt");
 		}
 		
 		// top border
@@ -63,12 +62,9 @@ public class Panel_TheGame extends JPanel {
 	private class enemy extends Thread {
 		public void run() {
 			int enemypos = 600;
-			System.out.println("voher");
 			while(gamerun) {
 				try {
-					System.out.println("voher");
 					Thread.sleep(40);
-					System.out.println("nachher");
 					switch(moveEnemyDirektion) {
 					case 'i':
 						enemypos-= gameboardSizeW;
@@ -116,12 +112,9 @@ public class Panel_TheGame extends JPanel {
 		@SuppressWarnings("deprecation")
 		public void run() {
 			int playerPos1 = 580;
-			System.out.println("voher");
 			while(gamerun) {
 				try {
-					System.out.println("voher");
 					Thread.sleep(40);
-					System.out.println("nachher");
 					switch(moveSelfDirektion) {
 					case 'w':
 						playerPos1-= gameboardSizeW;
