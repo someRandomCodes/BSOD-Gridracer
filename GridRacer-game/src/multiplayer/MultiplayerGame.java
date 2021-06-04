@@ -2,10 +2,10 @@ package multiplayer;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
-import java.net.MalformedURLException;
-import java.rmi.NotBoundException;
+import java.rmi.Naming;
 import java.rmi.RemoteException;
 
+import serverApplication.ChatInterface;
 import startGame.MyFrame;
 
 public class MultiplayerGame {
@@ -23,18 +23,18 @@ public class MultiplayerGame {
 		Container frameContent = frame.getContentPane();
 		
 		
+		
 		frame.setVisible(true);		
 		frame.setSize(800,500);
 		frame.setLayout(new BorderLayout());
 		frame.setResizable(true);
 		//frameContent.add(playerStats, BorderLayout.NORTH);
-		//frameContent.add(game, BorderLayout.CENTER);
+		frameContent.add(game, BorderLayout.CENTER);
 		try {
 			Panel_Chat chat = new Panel_Chat();
 			frameContent.add(chat, BorderLayout.EAST);
-		} catch (MalformedURLException | RemoteException | NotBoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch(Exception e) {
+			System.out.println(e);
 		}
 	}
 }

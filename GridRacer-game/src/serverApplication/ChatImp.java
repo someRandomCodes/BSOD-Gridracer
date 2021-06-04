@@ -11,16 +11,11 @@ public class ChatImp extends UnicastRemoteObject implements ChatInterface {
 	 */
 	private static final long serialVersionUID = 6475519343166703452L;
 	private ArrayList<ChatInterface> clientList;
+	String msg = "";
 
 	protected ChatImp() throws RemoteException {
         clientList = new ArrayList<ChatInterface>();
 	}
-
-    public synchronized boolean checkIn(ChatInterface chatinterface, String name) throws RemoteException {
-        this.clientList.add(chatinterface);
-        broadcastMessage(name, " Has Joined");
-        return true;
-    }
  
     public void broadcastMessage(String clientname , String message) throws RemoteException {
         for(int i=0; i<clientList.size(); i++) {
@@ -29,4 +24,22 @@ public class ChatImp extends UnicastRemoteObject implements ChatInterface {
     }
  
     public synchronized void sendMessageToClient(String message) throws RemoteException{}
+
+	@Override
+	public boolean checkConnection(ChatInterface ci, String name) throws RemoteException {
+        this.clientList.add(ci);
+		return false;
+	}
+
+	@Override
+	public String check() throws RemoteException {
+		// TODO Auto-generated method stub
+		return msg;
+	}
+
+	@Override
+	public void newMsg(String msg) throws RemoteException {
+		this.msg = msg;
+		
+	}
 }

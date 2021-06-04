@@ -1,53 +1,83 @@
 package multiplayer;
 
 import java.rmi.*;
-import java.awt.HeadlessException;
-import javax.swing.JOptionPane;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+
+import javax.swing.JButton;
+import javax.swing.JEditorPane;
 import javax.swing.JPanel;
-import characterSettings.Loadsave;
+import javax.swing.JTextField;
+
+
 import serverApplication.ChatInterface;
 
 import java.net.MalformedURLException;
 
 
-public class Panel_Chat extends JPanel implements Runnable {
+public class Panel_Chat extends JPanel {
 	ChatInterface server;
+	JTextField tf_sendChatText = new JTextField(5);
+	JEditorPane ep_chatFrame = new JEditorPane();
+	JButton btn_send = new JButton("send Msg");
 
+	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -8774910327306990507L;
 
-	public Panel_Chat() throws MalformedURLException,RemoteException,NotBoundException {
+	public Panel_Chat() throws MalformedURLException,RemoteException,NotBoundException {	
+		this.setPreferredSize(new Dimension(300,500));
+		this.setLayout(new GridLayout(4,1));
+		
+		this.add(ep_chatFrame);
+		this.add(tf_sendChatText);
+		ep_chatFrame.setText("test");
+		this.add(btn_send);
+		
+		btn_send.addActionListener(e -> sendMsg());
+		
 		try {
-	        ChatInterface chatinterface = (ChatInterface)Naming.lookup("rmi://localhost:1099/ChatObj");		
-	        new Thread(new Panel_Chat(chatinterface)).start();
+	        ChatInterface chatinterface = (ChatInterface)Naming.lookup("rmi://localhost:1099/ChatSrv");	
+	        server = chatinterface;
 	        
 		} catch(Exception e) {
 			System.out.println(e);
 		}
+		
+		Timer timer = new Timer();
+		timer.scheduleAtFixedRate(new TimerTask() {
+			public void run() {
+				try {
+					ep_chatFrame.setText("<p> " + server.check());
+				} catch (RemoteException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}, 2000, 2000);
 	}
 	
-    public Panel_Chat(ChatInterface chatinterface) {
-    	this.server = chatinterface;
-        try {
-			if(chatinterface.checkIn(chatinterface, Loadsave.loadName())) System.out.println("Connected");
-		} catch (HeadlessException e) {
+	void loadMsg() {
+		try {
+			this.ep_chatFrame.setText("<p> " + server.check());
+		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+	}
+	
+	void sendMsg() {
+		try {
+			server.newMsg(this.tf_sendChatText.getText());
+			this.tf_sendChatText.setText("");
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
-    public void sendMessageToClient(String message) throws RemoteException {
-		JOptionPane.showMessageDialog(null, message);
-    }
-
-	@Override
-	public void run() {
-		// TODO Auto-generated method stub
-		
-	}
 }

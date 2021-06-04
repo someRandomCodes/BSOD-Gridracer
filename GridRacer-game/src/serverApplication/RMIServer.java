@@ -9,12 +9,15 @@ import java.util.ArrayList;
 
 public class RMIServer {
     public static void main(String[] arg) throws RemoteException{
-    	ChatImp chat = new ChatImp();
+    	ChatImp chatserver = new ChatImp();
+    	GameImpl gameserver = new GameImpl();
+    	
     	boolean bound = false;
     	Registry registry = LocateRegistry.getRegistry(1099);
     	for (int i = 0; ! bound && i < 2; i++) {
     		try {
-    		registry.rebind("ChatObj", chat);
+    		registry.rebind("ChatSrv", chatserver);
+    		registry.rebind("GameSrv", gameserver);
     		bound = true;
     		System.out.println("registered");
     		} catch (RemoteException e) {

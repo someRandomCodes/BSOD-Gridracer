@@ -13,8 +13,8 @@ public class Panel_TheGame extends JPanel {
 	private int gameboardSizeH = 60;
 	private int gameboardSize = gameboardSizeH * gameboardSizeW;
 	private boolean gamerun = true;
-	private char moveSelfDirektion = 's';
-	private char moveEnemyDirektion = 'k';
+	private char moveSelfDirektion = 'd';
+	private char moveEnemyDirektion = 'j';
 	private movings movingSelfThread = new movings();
 	private enemy enemyMovingThread = new enemy();
 	private Gameplace[] place = new Gameplace[gameboardSize];
@@ -33,6 +33,7 @@ public class Panel_TheGame extends JPanel {
 			place[i] = new Gameplace();
 			this.add(place[i]);	
 		}
+		
 		
 		// top border
 		for (int i = 0; i<gameboardSizeW ; i++) {
@@ -56,15 +57,14 @@ public class Panel_TheGame extends JPanel {
 		
 		movingSelfThread.start();
 		enemyMovingThread.start();
-		
 	}
 	
 	private class enemy extends Thread {
 		public void run() {
-			int enemypos = 600;
+			int enemypos = 82;
 			while(gamerun) {
 				try {
-					Thread.sleep(40);
+					Thread.sleep(200);
 					switch(moveEnemyDirektion) {
 					case 'i':
 						enemypos-= gameboardSizeW;
@@ -111,10 +111,10 @@ public class Panel_TheGame extends JPanel {
 		
 		@SuppressWarnings("deprecation")
 		public void run() {
-			int playerPos1 = 580;
+			int playerPos1 = 4719;
 			while(gamerun) {
 				try {
-					Thread.sleep(40);
+					Thread.sleep(200);
 					switch(moveSelfDirektion) {
 					case 'w':
 						playerPos1-= gameboardSizeW;
