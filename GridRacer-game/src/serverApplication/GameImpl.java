@@ -8,8 +8,8 @@ public class GameImpl extends UnicastRemoteObject implements GameInterface {
 	 * 
 	 */
 	private static final long serialVersionUID = -3636360585915455313L;
-	char AliceIdMoveDirection = ' ';
-	char BobIdMoveDirection = ' ';
+	char hostIdMoveDirection = ' ';
+	char clientIdMoveDirection = ' ';
 
 	protected GameImpl() throws RemoteException {
 		super();
@@ -30,14 +30,20 @@ public class GameImpl extends UnicastRemoteObject implements GameInterface {
 
 	@Override
 	public void ChangeDirection(int id, char d) throws RemoteException {
-		if (id == 1) AliceIdMoveDirection = d;
-		if (id == 2) BobIdMoveDirection = d;
+		if (id == 1) hostIdMoveDirection = d;
+		if (id == 2) clientIdMoveDirection = d;
 	}
 
 	@Override
 	public char getDirection(int id) throws RemoteException {
-		if (id == 1) return BobIdMoveDirection;
-		return AliceIdMoveDirection;
+		if (id == 1) return hostIdMoveDirection;
+		return clientIdMoveDirection;
+	}
+
+	@Override
+	public boolean playerRdy() throws RemoteException {
+		if (hostIdMoveDirection != ' ' && clientIdMoveDirection != ' ') return true;
+		return false;
 	}
 	
 }
