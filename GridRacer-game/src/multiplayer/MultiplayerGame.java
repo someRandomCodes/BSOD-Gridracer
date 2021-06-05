@@ -21,28 +21,29 @@ public class MultiplayerGame {
 	 */
 	public MultiplayerGame() throws RemoteException {
 		//Panel_PlayerInfo playerStats = new Panel_PlayerInfo();
-		int id = Integer.parseInt(JOptionPane.showInputDialog("type 1 for Server| 2 for Client"));
-		if (id == 1) {
+		int id = Integer.parseInt(JOptionPane.showInputDialog("type 1 for Server | 2 for Client | 3 for 2 on 1 pc"));
+		if (id == 1 || id == 3) {
 			new RMIServer();
 		}
 
-		
 		Panel_TheGame game = new Panel_TheGame(id);		
 		MyFrame frame = new MyFrame(false);
 		Container frameContent = frame.getContentPane();
-		
 		
 		frame.setVisible(true);		
 		frame.setSize(800,500);
 		frame.setLayout(new BorderLayout());
 		frame.setResizable(true);
-		//frameContent.add(playerStats, BorderLayout.NORTH);
-		frameContent.add(game, BorderLayout.CENTER);
-		try {
-			Panel_Chat chat = new Panel_Chat();
-			frameContent.add(chat, BorderLayout.EAST);
-		} catch(Exception e) {
-			System.out.println(e);
+		
+		if (id != 3) {
+			try {
+				Panel_Chat chat = new Panel_Chat();
+				frameContent.add(chat, BorderLayout.EAST);
+			} catch(Exception e) {
+				System.out.println(e);
+			}
+			//frameContent.add(playerStats, BorderLayout.NORTH);		
 		}
+		frameContent.add(game, BorderLayout.CENTER);
 	}
 }

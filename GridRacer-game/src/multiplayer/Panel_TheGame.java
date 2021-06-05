@@ -23,6 +23,7 @@ public class Panel_TheGame extends JPanel {
 	private movings movingSelfThread = new movings();
 	private enemy enemyMovingThread = new enemy();
 	private Gameplace[] place = new Gameplace[gameboardSize];
+	private int id;
 	private int enemyId;
 	private int playerId;
 	private int enemypos; //81 
@@ -34,10 +35,12 @@ public class Panel_TheGame extends JPanel {
 	private static final long serialVersionUID = 5438164405065722657L;
 
 	Panel_TheGame(int id) {
-		
-		this.playerId = id;
-		this.enemyId = (id == 1) ? 2 : 1;
-		
+		this.id = id;
+		// id 1 for Server id 2 for client id 3 for 2 on 1 Computer.
+		this.playerId = (id == 1 || id == 3) ? 1 : 2;
+		this.enemyId = (id == 2) ? 1 : 2;
+		System.out.println(playerId);
+		System.out.println(enemyId);
 		try {
 			GameInterface gameinterface = (GameInterface)Naming.lookup("rmi://localhost:1099/GameSrv");	
 			server = gameinterface;   
@@ -127,28 +130,28 @@ public class Panel_TheGame extends JPanel {
 					try {
 						switch(server.getDirection(enemyId)) {
 						case 'w':
-							enemypos+= gameboardSizeW;
+							enemypos += gameboardSizeW;
 							if(place[enemypos].getBackground() != Color.cyan) {
 								colide(enemyId);
 							}
 						    place[enemypos].drawEnemy();
 							break;
 						case 'd':
-							enemypos-=1;
+							enemypos -= 1;
 							if(place[enemypos].getBackground() != Color.cyan) {
 								colide(enemyId);
 							}
 						    place[enemypos].drawEnemy();
 							break;
 						case 's':
-							enemypos-= gameboardSizeW;
+							enemypos -= gameboardSizeW;
 							if(place[enemypos].getBackground() != Color.cyan) {
 								colide(enemyId);
 							}
 						    place[enemypos].drawEnemy();
 							break;
 						case 'a':
-							enemypos+=1;
+							enemypos += 1;
 							if(place[enemypos].getBackground() != Color.cyan) {
 								colide(enemyId);
 							}
@@ -243,16 +246,29 @@ public class Panel_TheGame extends JPanel {
 					e1.printStackTrace();
 				}  ;
 			
-//			if (e.getKeyChar() == 'i' 
-//					|| e.getKeyChar() == 'j' 
-//					|| e.getKeyChar() == 'k' 
-//					|| e.getKeyChar() == 'l')
-//				try {
-//					server.ChangeDirection(enemyId, e.getKeyChar());
-//				} catch (RemoteException e1) {
-//					// TODO Auto-generated catch block
-//					e1.printStackTrace();
-//				} 
+			if (id == 3 & e.getKeyChar() == 'i' 
+					|| e.getKeyChar() == 'j' 
+					|| e.getKeyChar() == 'k' 
+					|| e.getKeyChar() == 'l')
+				try {
+					switch(e.getKeyChar()) {
+					case 'i':
+						server.ChangeDirection(enemyId, 's');
+						break;
+					case 'j':
+						server.ChangeDirection(enemyId, 'd');
+						break;
+					case 'k':
+						server.ChangeDirection(enemyId, 'w');
+						break;
+					case 'l':
+						server.ChangeDirection(enemyId, 'a');
+						break;
+					}
+				} catch (RemoteException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} 
 		}
 
 		@Override
