@@ -45,5 +45,11 @@ public class GameImpl extends UnicastRemoteObject implements GameInterface {
 		if (hostIdMoveDirection != ' ' && clientIdMoveDirection != ' ') return true;
 		return false;
 	}
+
+	@Override
+	public void resetGame() throws RemoteException {
+		hostIdMoveDirection = ' ';
+		clientIdMoveDirection = ' ';
+	}
 	
 }

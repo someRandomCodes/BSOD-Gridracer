@@ -31,4 +31,10 @@ public class Gameplace extends JLabel {
 		this.setBackground(Color.blue);
 		this.setOpaque(true);
 	}
+	
+	public void resetField() {
+		this.setBackground(Color.cyan);
+		this.setOpaque(true);
+		this.setText(" ");
+	}
 }

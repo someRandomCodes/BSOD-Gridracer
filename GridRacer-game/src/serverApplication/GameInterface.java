@@ -13,4 +13,6 @@ public interface GameInterface extends Remote {
 	void isCollide(int id) throws RemoteException;
 	
 	boolean playerRdy() throws RemoteException;
+	
+	void resetGame() throws RemoteException;
 }

@@ -5,7 +5,10 @@ import java.awt.Container;
 import java.rmi.Naming;
 import java.rmi.RemoteException;
 
+import javax.swing.JOptionPane;
+
 import serverApplication.ChatInterface;
+import serverApplication.RMIServer;
 import startGame.MyFrame;
 
 public class MultiplayerGame {
@@ -18,10 +21,15 @@ public class MultiplayerGame {
 	 */
 	public MultiplayerGame() throws RemoteException {
 		//Panel_PlayerInfo playerStats = new Panel_PlayerInfo();
-		Panel_TheGame game = new Panel_TheGame();
+		int id = Integer.parseInt(JOptionPane.showInputDialog("type 1 for Server| 2 for Client"));
+		if (id == 1) {
+			new RMIServer();
+		}
+
+		
+		Panel_TheGame game = new Panel_TheGame(id);		
 		MyFrame frame = new MyFrame(false);
 		Container frameContent = frame.getContentPane();
-		
 		
 		
 		frame.setVisible(true);		

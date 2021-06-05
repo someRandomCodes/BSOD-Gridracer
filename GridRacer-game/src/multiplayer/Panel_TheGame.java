@@ -11,7 +11,6 @@ import java.rmi.RemoteException;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import serverApplication.ChatInterface;
 import serverApplication.GameInterface;
 
 public class Panel_TheGame extends JPanel {
@@ -24,15 +23,28 @@ public class Panel_TheGame extends JPanel {
 	private movings movingSelfThread = new movings();
 	private enemy enemyMovingThread = new enemy();
 	private Gameplace[] place = new Gameplace[gameboardSize];
-	private int enemyId = 2;
-	private int playerId = 1;
+	private int enemyId;
+	private int playerId;
+	private int enemypos; //81 
+	private int playerPos1; // 4718 start position normal
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 5438164405065722657L;
 
-	Panel_TheGame() {
+	Panel_TheGame(int id) {
+		
+		this.playerId = id;
+		this.enemyId = (id == 1) ? 2 : 1;
+		
+		try {
+			GameInterface gameinterface = (GameInterface)Naming.lookup("rmi://localhost:1099/GameSrv");	
+			server = gameinterface;   
+		} catch(Exception e) {
+			System.out.println(e);
+		}	
+		
 		this.setLayout(new GridLayout(gameboardSizeH, gameboardSizeW));
 		this.setFocusable(true);
 		this.addKeyListener(new MovingListener());
@@ -42,6 +54,17 @@ public class Panel_TheGame extends JPanel {
 			this.add(place[i]);	
 		}
 		
+		drawGamefield();
+		gameStart.start();
+	}
+	
+	void drawGamefield(){
+		this.enemypos = 81; //81 
+		this.playerPos1 = 4718;		
+
+		for (int i = 0; i < gameboardSize ;i++) {
+			place[i].resetField();	
+		}
 		
 		// top border
 		for (int i = 0; i<gameboardSizeW ; i++) {
@@ -61,21 +84,25 @@ public class Panel_TheGame extends JPanel {
 		// right border
 		for (int i = (gameboardSizeW * 2) -1  ; i < gameboardSize; i += gameboardSizeW) {
 			place[i].drawBorder();
-		}
-		
-		try {
-			GameInterface gameinterface = (GameInterface)Naming.lookup("rmi://localhost:1099/GameSrv");	
-	        server = gameinterface;   
-		} catch(Exception e) {
-			System.out.println(e);
 		}	
-		gameStart.start();
+	}
+	
+	@SuppressWarnings("deprecation")
+	void colide(int id) {
+		JOptionPane.showMessageDialog(null, "colide from " + id );
+		try {
+			server.resetGame();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		drawGamefield();
 	}
 	
 	private class gamestart extends Thread {
 		public void run() {
 		while (!gamerun) {
-			System.out.println("wait for playerRdy");
+			//System.out.println("wait for playerRdy");
 			try {
 				gamerun = server.playerRdy();
 			} catch (RemoteException e) {
@@ -85,7 +112,7 @@ public class Panel_TheGame extends JPanel {
 			if (gamerun) {
 				movingSelfThread.start();
 				enemyMovingThread.start();
-				gameStart.stop();
+				gameStart.interrupt();
 			}
 			}	
 		}
@@ -93,41 +120,37 @@ public class Panel_TheGame extends JPanel {
 	
 	private class enemy extends Thread {
 		public void run() {
-			int enemypos = 80;
+			place[enemypos].drawEnemy();
 			while(gamerun) {
 				try {
-					Thread.sleep(200);
+					Thread.sleep(300);
 					try {
 						switch(server.getDirection(enemyId)) {
-						case 'i':
-							enemypos-= gameboardSizeW;
-							if(place[enemypos].getBackground() != Color.cyan) {
-								JOptionPane.showMessageDialog(null, "colide");							
-								enemyMovingThread.stop();
-							}
-						    place[enemypos].drawEnemy();
-							break;
-						case 'j':
-							enemypos-=1;
-							if(place[enemypos].getBackground() != Color.cyan) {
-								JOptionPane.showMessageDialog(null, "colide");							
-								enemyMovingThread.stop();
-							}
-						    place[enemypos].drawEnemy();
-							break;
-						case 'k':
+						case 'w':
 							enemypos+= gameboardSizeW;
 							if(place[enemypos].getBackground() != Color.cyan) {
-								JOptionPane.showMessageDialog(null, "colide");
-								enemyMovingThread.stop();
+								colide(enemyId);
 							}
 						    place[enemypos].drawEnemy();
 							break;
-						case 'l':
+						case 'd':
+							enemypos-=1;
+							if(place[enemypos].getBackground() != Color.cyan) {
+								colide(enemyId);
+							}
+						    place[enemypos].drawEnemy();
+							break;
+						case 's':
+							enemypos-= gameboardSizeW;
+							if(place[enemypos].getBackground() != Color.cyan) {
+								colide(enemyId);
+							}
+						    place[enemypos].drawEnemy();
+							break;
+						case 'a':
 							enemypos+=1;
 							if(place[enemypos].getBackground() != Color.cyan) {
-								JOptionPane.showMessageDialog(null, "colide");							
-								enemyMovingThread.stop();
+								colide(enemyId);
 							}
 						    place[enemypos].drawEnemy();
 							break;
@@ -151,41 +174,37 @@ public class Panel_TheGame extends JPanel {
 		
 		@SuppressWarnings("deprecation")
 		public void run() {
-			int playerPos1 = 4798;
+			 place[playerPos1].drawSelf();
 			while(gamerun) {
 				try {
-					Thread.sleep(200);
+					Thread.sleep(300);
 					try {
 						switch(server.getDirection(playerId)) {
 						case 'w':
-							playerPos1-= gameboardSizeW;
+							playerPos1 -= gameboardSizeW;
 							if(place[playerPos1].getBackground() != Color.cyan) {
-								JOptionPane.showMessageDialog(null, "colide");							
-								movingSelfThread.stop();
+								colide(playerId);
 							}
 						    place[playerPos1].drawSelf();
 							break;
 						case 'a':
-							playerPos1-=1;
+							playerPos1 -= 1;
 							if(place[playerPos1].getBackground() != Color.cyan) {
-								JOptionPane.showMessageDialog(null, "colide");							
-								movingSelfThread.stop();
+								colide(playerId);
 							}
 						    place[playerPos1].drawSelf();
 							break;
 						case 's':
-							playerPos1+= gameboardSizeW;
+							playerPos1 += gameboardSizeW;
 							if(place[playerPos1].getBackground() != Color.cyan) {
-								JOptionPane.showMessageDialog(null, "colide");
-								movingSelfThread.stop();
+								colide(playerId);
 							}
 						    place[playerPos1].drawSelf();
 							break;
 						case 'd':
-							playerPos1+=1;
+							playerPos1 += 1;
 							if(place[playerPos1].getBackground() != Color.cyan) {
-								JOptionPane.showMessageDialog(null, "colide");							
-								movingSelfThread.stop();
+								colide(playerId);
 							}
 						    place[playerPos1].drawSelf();
 							break;
@@ -210,28 +229,30 @@ public class Panel_TheGame extends JPanel {
 
 		@Override
 		public void keyTyped(KeyEvent e) {
-			System.out.println(e.getKeyChar());
+			//System.out.println(e.getKeyChar());
 			if (e.getKeyChar() == 'w' 
 					|| e.getKeyChar() == 'a' 
 					|| e.getKeyChar() == 's' 
 					|| e.getKeyChar() == 'd')
 				try {
 					server.ChangeDirection(playerId, e.getKeyChar());
+					System.out.print(playerId);
+					System.out.println(server.getDirection(playerId));
 				} catch (RemoteException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}  ;
 			
-			if (e.getKeyChar() == 'i' 
-					|| e.getKeyChar() == 'j' 
-					|| e.getKeyChar() == 'k' 
-					|| e.getKeyChar() == 'l')
-				try {
-					server.ChangeDirection(enemyId, e.getKeyChar());
-				} catch (RemoteException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} 
+//			if (e.getKeyChar() == 'i' 
+//					|| e.getKeyChar() == 'j' 
+//					|| e.getKeyChar() == 'k' 
+//					|| e.getKeyChar() == 'l')
+//				try {
+//					server.ChangeDirection(enemyId, e.getKeyChar());
+//				} catch (RemoteException e1) {
+//					// TODO Auto-generated catch block
+//					e1.printStackTrace();
+//				} 
 		}
 
 		@Override
