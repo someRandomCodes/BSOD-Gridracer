@@ -10,6 +10,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextfield;
+
 
 
 import startGame.Panel_startGame;
@@ -51,17 +53,17 @@ public class Panel_CharacterMenue extends JPanel {
 		
 		jl_charOne.setPreferredSize(new Dimension(300,400));
 		jl_charOne.setBackground(Color.red);
-		jl_charOne.setIcon(new ImageIcon("assets\\img\\character1.png"));
+		jl_charOne.setIcon(new ImageIcon("bin\\assets\\img\\character1.png"));
 		jl_charOne.setOpaque(true);
 		
 		jl_charTwo.setPreferredSize(new Dimension(300,400));
 		jl_charTwo.setBackground(Color.green);
-		jl_charTwo.setIcon(new ImageIcon("assets\\img\\character2.png"));
+		jl_charTwo.setIcon(new ImageIcon("bin\\assets\\img\\character2.png"));
 		jl_charTwo.setOpaque(true);
 		
 		jl_charThree.setPreferredSize(new Dimension(300,400));
 		jl_charThree.setBackground(Color.blue);
-		jl_charThree.setIcon(new ImageIcon("assets\\img\\character3.png"));
+		jl_charThree.setIcon(new ImageIcon("bin\\assets\\img\\character3.png"));
 		jl_charThree.setOpaque(true);
 		
 		gbc.gridx = 0;
@@ -116,15 +118,21 @@ public class Panel_CharacterMenue extends JPanel {
     }
     
     private void btn_charOne_clicked() {
-    	jl_charOne.setBorder(getBorder());
+    	jl_charOne.setIcon(new ImageIcon("bin\\assets\\img\\character1selected.png"));
+    	jl_charTwo.setIcon(new ImageIcon("bin\\assets\\img\\character2.png"));
+    	jl_charThree.setIcon(new ImageIcon("bin\\assets\\img\\character3.png"));
     }
     
     private void btn_charTwo_clicked() {
-    	jl_charTwo.setBackground(Color.black);
+    	jl_charTwo.setIcon(new ImageIcon("bin\\assets\\img\\character2selected.png"));
+    	jl_charOne.setIcon(new ImageIcon("bin\\assets\\img\\character1.png"));
+    	jl_charThree.setIcon(new ImageIcon("bin\\assets\\img\\character3.png"));
     }
     
     private void btn_charThree_clicked() {
-    	jl_charThree.setBackground(Color.black);
+    	jl_charThree.setIcon(new ImageIcon("bin\\assets\\img\\character3selected.png"));
+    	jl_charOne.setIcon(new ImageIcon("bin\\assets\\img\\character1.png"));
+    	jl_charTwo.setIcon(new ImageIcon("bin\\assets\\img\\character2.png"));
     }
     
     private void btn_save_clicked() {
