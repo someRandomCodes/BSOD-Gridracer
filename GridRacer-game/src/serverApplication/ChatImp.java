@@ -40,6 +40,5 @@ public class ChatImp extends UnicastRemoteObject implements ChatInterface {
 	@Override
 	public void newMsg(String msg) throws RemoteException {
 		this.msg = msg;
-		
 	}
 }
