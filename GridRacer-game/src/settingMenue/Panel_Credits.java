@@ -1,12 +1,24 @@
 package settingMenue;
 
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 // Aman
-public class Panel_Credits extends JPanel {
+public class Panel_Credits extends JPanel implements ActionListener {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1328399414907651111L;
+	
 	Timer creditTimer = new Timer(20,this);
 	String text;
 	int textY =  1000;
@@ -23,7 +35,7 @@ public class Panel_Credits extends JPanel {
 				+"THOMAS\n"
 				+"LUKAS\n"
 				+"AMAN\n\n"
-				+"Danke fÃ¼rs Zocken";
+				+"Danke fürs Zocken";
 		
 		creditTimer.start();
 		
@@ -35,14 +47,14 @@ public class Panel_Credits extends JPanel {
 		bsodlabel1.setBounds(200,100,400,400);
 		
 		JLabel bsodlabel2 = new JLabel();
-		bsodlabel2.setText("Your PC ran into a problem and needs to restart. WeÂ´re ");
+		bsodlabel2.setText("Your PC ran into a problem and needs to restart. We´re ");
 		bsodlabel2.setVisible(true);
 		bsodlabel2.setFont(new Font("ARIAL",100,30));
 		bsodlabel2.setForeground(Color.white);
 		bsodlabel2.setBounds(200,200,1100,400);
 		
 		JLabel bsodlabel3 = new JLabel();
-		bsodlabel3.setText("just collecting some error info, and then weÂ´ll restart for");
+		bsodlabel3.setText("just collecting some error info, and then we´ll restart for");
 		bsodlabel3.setVisible(true);
 		bsodlabel3.setFont(new Font("ARIAL",100,30));
 		bsodlabel3.setForeground(Color.white);
@@ -69,7 +81,6 @@ public class Panel_Credits extends JPanel {
 		
 		g2d.setFont(new Font("Times New Roman", Font.PLAIN, 40));
 		g2d.setColor(Color.black);
-		//g2d.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_ON);
 		
 		int y = textY;
 		

@@ -1,13 +1,18 @@
 package menue;
 
+import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.rmi.RemoteException;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import characterSettings.Panel_CharacterMenue;
@@ -52,15 +57,15 @@ public class Panel_MainMenue extends JPanel {
 		btn_Settings.addActionListener(e -> btn_Settings_clicked());
 		btn_Website.addActionListener(e -> btn_website_clicked());
 		
-		this.add(btn_StartSingleplayer);
+		backgroundGif.add(btn_StartSingleplayer);
 		btn_StartSingleplayer.setBounds(540,260,200,40);
-		this.add(btn_StartMultiplayer);
+		backgroundGif.add(btn_StartMultiplayer);
 		btn_StartMultiplayer.setBounds(540,320,200,40);
-		this.add(btn_CharacterSettings);
+		backgroundGif.add(btn_CharacterSettings);
 		btn_CharacterSettings.setBounds(540,380,200,40);
-		this.add(btn_Settings);
+		backgroundGif.add(btn_Settings);
 		btn_Settings.setBounds(540,440,200,40);
-		this.add(btn_Website);
+		backgroundGif.add(btn_Website);
 		btn_Website.setBounds(540,500,200,40);
 	}
 	
