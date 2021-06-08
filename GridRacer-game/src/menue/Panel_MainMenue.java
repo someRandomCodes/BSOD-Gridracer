@@ -27,11 +27,18 @@ public class Panel_MainMenue extends JPanel {
 	JButton btn_Settings = new JButton("Settings");
 	JButton btn_Website = new JButton("Website");
 	
+	JLabel backgroundGif = new JLabel(new ImageIcon("src/assets/img/test3.gif"));
+	
 	private static final long serialVersionUID = -715260095579860078L;
 
 	public Panel_MainMenue() {
 		
 		this.setPreferredSize(new Dimension(1280, 640));
+		
+		backgroundGif.setBounds(1,1,1280,640);
+		backgroundGif.setVisible(true);
+		this.add(backgroundGif);
+		
 		btn_StartSingleplayer.addActionListener(e -> btn_StartSingleplayer_clicked());
 		btn_StartMultiplayer.addActionListener(e -> {
 			try {
@@ -46,10 +53,15 @@ public class Panel_MainMenue extends JPanel {
 		btn_Website.addActionListener(e -> btn_website_clicked());
 		
 		this.add(btn_StartSingleplayer);
+		btn_StartSingleplayer.setBounds(540,260,200,40);
 		this.add(btn_StartMultiplayer);
+		btn_StartMultiplayer.setBounds(540,320,200,40);
 		this.add(btn_CharacterSettings);
+		btn_CharacterSettings.setBounds(540,380,200,40);
 		this.add(btn_Settings);
-		this.add(btn_Website);	
+		btn_Settings.setBounds(540,440,200,40);
+		this.add(btn_Website);
+		btn_Website.setBounds(540,500,200,40);
 	}
 	
     private void btn_website_clicked() {
