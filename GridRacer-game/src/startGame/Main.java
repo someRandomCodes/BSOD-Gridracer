@@ -54,5 +54,25 @@ public class Main{
 		frameContent.add(p_startGame);
 		mainFrame.pack();
 		mainFrame.setLocationRelativeTo(null);
+		
+		try {
+			backGroundMusic();
+		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	public static  void backGroundMusic() throws UnsupportedAudioFileException, IOException, LineUnavailableException{
+		
+		File file = new File("src/assets/img/baba.wav");
+		
+		AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
+		Clip clip = AudioSystem.getClip();
+		clip.open(audioStream);
+		FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+		gainControl.setValue((float) -40);
+		clip.loop(clip.LOOP_CONTINUOUSLY);
+		
+		
 	}
 }
