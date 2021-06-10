@@ -38,6 +38,7 @@ public class Panel_SettingMenue extends JPanel {
 	
 	JLabel backgroundGif = new JLabel(new ImageIcon("src/assets/img/test3.gif"));
 	Font font = new Font("Apple Casual", Font.ITALIC|Font.BOLD, 20);
+	int volume = -20;
 
 	
 	private static final long serialVersionUID = -715260095579860078L;
