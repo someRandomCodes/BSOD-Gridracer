@@ -126,7 +126,7 @@ public class Panel_TheGame extends JPanel {
 			place[enemypos].drawEnemy();
 			while(gamerun) {
 				try {
-					Thread.sleep(300);
+					Thread.sleep(150);
 					try {
 						switch(server.getDirection(enemyId)) {
 						case 'w':
@@ -180,7 +180,7 @@ public class Panel_TheGame extends JPanel {
 			 place[playerPos1].drawSelf();
 			while(gamerun) {
 				try {
-					Thread.sleep(300);
+					Thread.sleep(150);
 					try {
 						switch(server.getDirection(playerId)) {
 						case 'w':

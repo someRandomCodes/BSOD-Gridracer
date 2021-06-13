@@ -30,7 +30,7 @@ public class Panel_CharacterMenue extends JPanel {
 	JLabel backgroundGif = new JLabel(new ImageIcon("src/assets/img/test3.gif"));	
 	
 	JLabel jl_score = new JLabel("Score");	//	soll eig JProgressbar sein
-	JTextField jl_name = new JTextField("Name");	//	soll eig JTextField sein
+	JTextField jl_name = new JTextField("Name");
 	
 	GridBagConstraints gbc = new GridBagConstraints();
 
@@ -43,7 +43,6 @@ public class Panel_CharacterMenue extends JPanel {
 		backgroundGif.setBounds(0,0,1280,640);
 		backgroundGif.setVisible(true);
 		this.add(backgroundGif);
-		
 		
 		backgroundGif.setLayout(new GridBagLayout());
 		gbc.insets = new Insets(20, 20, 20, 20);
