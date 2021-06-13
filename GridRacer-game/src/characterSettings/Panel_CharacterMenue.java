@@ -27,7 +27,7 @@ public class Panel_CharacterMenue extends JPanel {
 	JLabel jl_charTwo = new JLabel("Charakter2");
 	JLabel jl_charThree = new JLabel("Charakter3");
 	JLabel jl_charDesc = new JLabel("Charakter");
-	JLabel backgroundGif = new JLabel(new ImageIcon("src/assets/img/test3.gif"));	
+	JLabel backgroundGif = new JLabel(new ImageIcon("src\\assets\\img\\test3.gif"));	
 	
 	JLabel jl_score = new JLabel("Score");	//	soll eig JProgressbar sein
 	JTextField jl_name = new JTextField("Name");
@@ -54,15 +54,15 @@ public class Panel_CharacterMenue extends JPanel {
 		btn_save.addActionListener(e -> btn_save_clicked());
 		
 		jl_charOne.setPreferredSize(new Dimension(300,400));
-		jl_charOne.setIcon(new ImageIcon("bin\\assets\\img\\character1.png"));
+		jl_charOne.setIcon(new ImageIcon("src\\assets\\img\\character1.png"));
 		jl_charOne.setOpaque(true);
 		
 		jl_charTwo.setPreferredSize(new Dimension(300,400));
-		jl_charTwo.setIcon(new ImageIcon("bin\\assets\\img\\character2.png"));
+		jl_charTwo.setIcon(new ImageIcon("src\\assets\\img\\character2.png"));
 		jl_charTwo.setOpaque(true);
 		
 		jl_charThree.setPreferredSize(new Dimension(300,400));
-		jl_charThree.setIcon(new ImageIcon("bin\\assets\\img\\character3.png"));
+		jl_charThree.setIcon(new ImageIcon("src\\assets\\img\\character3.png"));
 		jl_charThree.setOpaque(true);
 		
 		gbc.gridx = 0;
@@ -117,21 +117,21 @@ public class Panel_CharacterMenue extends JPanel {
     }
     
     private void btn_charOne_clicked() {
-    	jl_charOne.setIcon(new ImageIcon("bin\\assets\\img\\character1selected.png"));
-    	jl_charTwo.setIcon(new ImageIcon("bin\\assets\\img\\character2.png"));
-    	jl_charThree.setIcon(new ImageIcon("bin\\assets\\img\\character3.png"));
+    	jl_charOne.setIcon(new ImageIcon("src\\assets\\img\\character1selected.png"));
+    	jl_charTwo.setIcon(new ImageIcon("src\\assets\\img\\character2.png"));
+    	jl_charThree.setIcon(new ImageIcon("src\\assets\\img\\character3.png"));
     }
     
     private void btn_charTwo_clicked() {
-    	jl_charTwo.setIcon(new ImageIcon("bin\\assets\\img\\character2selected.png"));
-    	jl_charOne.setIcon(new ImageIcon("bin\\assets\\img\\character1.png"));
-    	jl_charThree.setIcon(new ImageIcon("bin\\assets\\img\\character3.png"));
+    	jl_charTwo.setIcon(new ImageIcon("src\\assets\\img\\character2selected.png"));
+    	jl_charOne.setIcon(new ImageIcon("src\\assets\\img\\character1.png"));
+    	jl_charThree.setIcon(new ImageIcon("src\\assets\\img\\character3.png"));
     }
     
     private void btn_charThree_clicked() {
-    	jl_charThree.setIcon(new ImageIcon("bin\\assets\\img\\character3selected.png"));
-    	jl_charOne.setIcon(new ImageIcon("bin\\assets\\img\\character1.png"));
-    	jl_charTwo.setIcon(new ImageIcon("bin\\assets\\img\\character2.png"));
+    	jl_charThree.setIcon(new ImageIcon("src\\assets\\img\\character3selected.png"));
+    	jl_charOne.setIcon(new ImageIcon("src\\assets\\img\\character1.png"));
+    	jl_charTwo.setIcon(new ImageIcon("src\\assets\\img\\character2.png"));
     }
     
     private void btn_save_clicked() {

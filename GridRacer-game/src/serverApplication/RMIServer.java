@@ -11,6 +11,7 @@ public class RMIServer {
     public static void main(String[] arg) throws RemoteException{
     	ChatImp chatserver = new ChatImp();
     	GameImpl gameserver = new GameImpl();
+    	charstatImpl charstats = new charstatImpl();
     	
     	boolean bound = false;
     	Registry registry = LocateRegistry.getRegistry(1099);
@@ -18,6 +19,7 @@ public class RMIServer {
     		try {
     		registry.rebind("ChatSrv", chatserver);
     		registry.rebind("GameSrv", gameserver);
+    		registry.rebind("CharStat", charstats);
     		bound = true;
     		System.out.println("registered");
     		} catch (RemoteException e) {

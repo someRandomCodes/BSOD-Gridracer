@@ -5,6 +5,7 @@ import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -94,7 +95,6 @@ public class Panel_MainMenue extends JPanel {
 		btn_Website.setFont(font);
 		btn_Website.setForeground(Color.white);
 	}
-	}
 	
     private void btn_website_clicked() {
 		if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
@@ -152,8 +152,8 @@ public class Panel_MainMenue extends JPanel {
 			e.printStackTrace();
 		}
     }
+    
 	public  void ButtonClickSound() throws UnsupportedAudioFileException, IOException, LineUnavailableException{
-		
 		File file = new File("src/assets/img/buttonclick.wav");
 		AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
 		Clip clip = AudioSystem.getClip();

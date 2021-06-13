@@ -9,29 +9,30 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JEditorPane;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-
+import characterSettings.Loadsave;
 import serverApplication.ChatInterface;
 
 import java.net.MalformedURLException;
 
 
 public class Panel_Chat extends JPanel {
-	ChatInterface server;
-	JTextField tf_sendChatText = new JTextField(5);
-	JEditorPane ep_chatFrame = new JEditorPane();
-	JButton btn_send = new JButton("send Msg");
-
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -8774910327306990507L;
+	private ChatInterface server;
+	private JTextField tf_sendChatText = new JTextField(5);
+	private JTextArea ep_chatFrame = new JTextArea();
+	private JButton btn_send = new JButton("send Msg");
+
 
 	public Panel_Chat() throws MalformedURLException,RemoteException,NotBoundException {	
 		this.setPreferredSize(new Dimension(300,500));
-		this.setLayout(new GridLayout(4,1));
+		this.setLayout(new GridLayout(3,1));
 		
 		this.add(ep_chatFrame);
 		this.add(tf_sendChatText);
@@ -52,30 +53,19 @@ public class Panel_Chat extends JPanel {
 		timer.scheduleAtFixedRate(new TimerTask() {
 			public void run() {
 				try {
-					ep_chatFrame.setText("<p> " + server.check());
+					ep_chatFrame.setText(server.check());
 				} catch (RemoteException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
 		}, 2000, 2000);
 	}
 	
-	void loadMsg() {
-		try {
-			this.ep_chatFrame.setText("<p> " + server.check());
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	
 	void sendMsg() {
 		try {
-			server.newMsg(this.tf_sendChatText.getText());
+			server.newMsg(Loadsave.loadName() + ": " + this.tf_sendChatText.getText());
 			this.tf_sendChatText.setText("");
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

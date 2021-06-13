@@ -15,6 +15,7 @@ import serverApplication.GameInterface;
 
 public class Panel_TheGame extends JPanel {
 	GameInterface server;
+	private int speed = 100;
 	private int gameboardSizeW = 80;
 	private int gameboardSizeH = 60;
 	private int gameboardSize = gameboardSizeH * gameboardSizeW;
@@ -126,7 +127,7 @@ public class Panel_TheGame extends JPanel {
 			place[enemypos].drawEnemy();
 			while(gamerun) {
 				try {
-					Thread.sleep(150);
+					Thread.sleep(speed);
 					try {
 						switch(server.getDirection(enemyId)) {
 						case 'w':
@@ -180,7 +181,7 @@ public class Panel_TheGame extends JPanel {
 			 place[playerPos1].drawSelf();
 			while(gamerun) {
 				try {
-					Thread.sleep(150);
+					Thread.sleep(speed);
 					try {
 						switch(server.getDirection(playerId)) {
 						case 'w':
