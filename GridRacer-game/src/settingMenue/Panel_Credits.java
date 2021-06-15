@@ -87,21 +87,21 @@ public class Panel_Credits extends JPanel implements ActionListener {
 	 * 
 	 */
 	public void paintComponent(Graphics g) {
-	super.paintComponent(g); 
-	
-	Graphics2D g2d = (Graphics2D)g;
-	
-	g2d.setFont(new Font("Times New Roman", Font.PLAIN, 40));
-	g2d.setColor(Color.black);
-	
-	int y = textY;
-	
-	for(String line: text.split("\n")) {
+		super.paintComponent(g); 
 		
-		int stringLength =(int)g2d.getFontMetrics().getStringBounds(line, g2d).getWidth();
-		int x = getWidth()/2 -stringLength/2;
-		g2d.drawString(line, x, y+=50);
-		}
+		Graphics2D g2d = (Graphics2D)g;
+		
+		g2d.setFont(new Font("Times New Roman", Font.PLAIN, 40));
+		g2d.setColor(Color.black);
+		
+		int y = textY;
+		
+		for(String line: text.split("\n")) {
+			
+			int stringLength =(int)g2d.getFontMetrics().getStringBounds(line, g2d).getWidth();
+			int x = getWidth()/2 -stringLength/2;
+			g2d.drawString(line, x, y+=50);
+			}
 	}
 	
 		/*
