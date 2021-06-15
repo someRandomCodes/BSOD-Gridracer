@@ -18,6 +18,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -28,7 +29,7 @@ import javax.swing.JTextField;
  * @author Lukas Mohrbacher
  */
 public class Panel_CharacterMenue extends JPanel {
-	private char chosen = ' ';
+	public char chosen = ' ';
 	private JButton btn_back = new JButton("Back");
 	private JButton btn_charOne = new JButton("Lvl 1 crook");
 	private JButton btn_charTwo = new JButton("Lvl 69 gangster");
@@ -42,7 +43,6 @@ public class Panel_CharacterMenue extends JPanel {
 	private JLabel backgroundGif = new JLabel(new ImageIcon("src\\assets\\img\\test3.gif"));	
 	
 	private JLabel jl_score = new JLabel("Score");
-	private JLabel jl_score_text = new JLabel();
 	private JTextField jl_name = new JTextField(15);
 	
 	private GridBagConstraints gbc = new GridBagConstraints();
@@ -57,20 +57,19 @@ public class Panel_CharacterMenue extends JPanel {
 	 */
 	public Panel_CharacterMenue() {
 		Font font = new Font("Apple Casual", Font.ITALIC|Font.BOLD, 20);
-		jl_name.setText(Loadsave.loadName());
+
+		loadCharSettings();
 		
 		jl_name.setBounds(540,260,200,40);
 		jl_name.setBackground(Color.black);
 		jl_name.setFont(font);
 		jl_name.setForeground(Color.white);
-		
-		jl_score.setText("Score: " + Integer.toString(Loadsave.loadScore()));
-		
+
 		jl_score.setBounds(540,260,200,40);
 		jl_score.setBackground(Color.black);
 		jl_score.setFont(font);
 		jl_score.setForeground(Color.white);
-		
+
 		jl_charDesc.setBounds(540,260,200,40);
 		jl_charDesc.setBackground(Color.black);
 		jl_charDesc.setFont(font);
@@ -120,7 +119,6 @@ public class Panel_CharacterMenue extends JPanel {
 		btn_save.setBackground(Color.black);
 		btn_save.setFont(font);
 		btn_save.setForeground(Color.white);
-		
 		
 		jl_charOne.setPreferredSize(new Dimension(300,350));
 		jl_charOne.setIcon(new ImageIcon("src\\assets\\img\\character1.png"));
@@ -178,6 +176,15 @@ public class Panel_CharacterMenue extends JPanel {
 		gbc.gridy = 3;
 		backgroundGif.add(btn_save, gbc);
 	}
+
+	/*
+	 * Methoden Kommentar
+	 */
+	private void loadCharSettings() {
+		jl_name.setText(Loadsave.loadName());
+		jl_score.setText("Score: " + Integer.toString(Loadsave.loadScore()));
+		jl_charDesc.setText(getCharName(Loadsave.loadCharacter()));
+	}
 	
 	/*
 	 * Methoden Kommentar
@@ -202,7 +209,7 @@ public class Panel_CharacterMenue extends JPanel {
     	jl_charOne.setIcon(new ImageIcon("src\\assets\\img\\character1selected.png"));
     	jl_charTwo.setIcon(new ImageIcon("src\\assets\\img\\character2.png"));
     	jl_charThree.setIcon(new ImageIcon("src\\assets\\img\\character3.png"));
-    	chosen = '1';
+    	this.chosen = '1';
     	
     	try {
 			ButtonClickSound();
@@ -219,7 +226,7 @@ public class Panel_CharacterMenue extends JPanel {
     	jl_charTwo.setIcon(new ImageIcon("src\\assets\\img\\character2selected.png"));
     	jl_charOne.setIcon(new ImageIcon("src\\assets\\img\\character1.png"));
     	jl_charThree.setIcon(new ImageIcon("src\\assets\\img\\character3.png"));
-    	chosen = '2';
+    	this.chosen = '2';
     	
     	try {
 			ButtonClickSound();
@@ -236,7 +243,7 @@ public class Panel_CharacterMenue extends JPanel {
     	jl_charThree.setIcon(new ImageIcon("src\\assets\\img\\character3selected.png"));
     	jl_charOne.setIcon(new ImageIcon("src\\assets\\img\\character1.png"));
     	jl_charTwo.setIcon(new ImageIcon("src\\assets\\img\\character2.png"));
-    	chosen = '3';
+    	this.chosen = '3';
     	
     	try {
 			ButtonClickSound();
@@ -251,6 +258,8 @@ public class Panel_CharacterMenue extends JPanel {
 	 */
     private void btn_save_clicked() {
     	Loadsave.savePlayer(jl_name.getText(), Loadsave.loadScore(), chosen);
+    	JOptionPane.showMessageDialog(null, "Auswahl wurde Gespeichert");
+    	loadCharSettings();
     	
     	try {
 			ButtonClickSound();
@@ -260,7 +269,10 @@ public class Panel_CharacterMenue extends JPanel {
 		}
     }
     
-    public  void ButtonClickSound() throws UnsupportedAudioFileException, IOException, LineUnavailableException{
+	/*
+	 * Methoden Kommentar
+	 */
+    private void ButtonClickSound() throws UnsupportedAudioFileException, IOException, LineUnavailableException{
     	File file = new File("src\\assets\\sounds\\buttonclick.wav");
     	AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
     	Clip clip = AudioSystem.getClip();
@@ -268,6 +280,23 @@ public class Panel_CharacterMenue extends JPanel {
     	FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
     	gainControl.setValue((float) + volume);
     	clip.start();
+    }
+    
+	/*
+	 * Methoden Kommentar
+	 */
+    private String getCharName(char c) {
+    	String name;
+    	if (c == '1') {
+    		name = "Crook";
+    	} else if (c == '2') {
+    		name = "Gangster";
+    	} else if (c == '3') {
+    		name = "Mafia Boss";
+    	} else {
+    		name = "HackerMan";
+    	}
+    	return name;
     }
 }
 

@@ -1,4 +1,4 @@
-playername:Wtmgoivqerr
+playername:Wtmgoivqerrii
 score:9C5
-char:
+char:5
 rated:false
