@@ -1,10 +1,20 @@
 package characterSettings;
 
 import java.awt.Insets;
+import java.io.File;
+import java.io.IOException;
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.FloatControl;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -33,6 +43,8 @@ public class Panel_CharacterMenue extends JPanel {
 	private JTextField jl_name = new JTextField(15);
 	
 	private GridBagConstraints gbc = new GridBagConstraints();
+	
+	int volume = -20;
 
 	
 	private static final long serialVersionUID = -715260095579860078L;
@@ -41,6 +53,7 @@ public class Panel_CharacterMenue extends JPanel {
 	 * Methoden Kommentar
 	 */
 	public Panel_CharacterMenue() {
+		Font font = new Font("Apple Casual", Font.ITALIC|Font.BOLD, 20);
 		jl_name.setText(Loadsave.loadName());
 		jl_score_text.setText(Integer.toString(Loadsave.loadScore()));
 		
@@ -55,20 +68,50 @@ public class Panel_CharacterMenue extends JPanel {
 		gbc.insets = new Insets(20, 20, 20, 20);
 
 		btn_back.addActionListener(e -> btn_back_clicked());
+		
+		btn_back.setBounds(540,260,200,40);
+		btn_back.setBackground(Color.black);
+		btn_back.setFont(font);
+		btn_back.setForeground(Color.white);
+		
 		btn_charOne.addActionListener(e -> btn_charOne_clicked());
+		
+		btn_charOne.setBounds(540,260,200,40);
+		btn_charOne.setBackground(Color.black);
+		btn_charOne.setFont(font);
+		btn_charOne.setForeground(Color.white);
+		
 		btn_charTwo.addActionListener(e -> btn_charTwo_clicked());
+		
+		btn_charTwo.setBounds(540,260,200,40);
+		btn_charTwo.setBackground(Color.black);
+		btn_charTwo.setFont(font);
+		btn_charTwo.setForeground(Color.white);
+		
 		btn_charThree.addActionListener(e -> btn_charThree_clicked());
+		
+		btn_charThree.setBounds(540,260,200,40);
+		btn_charThree.setBackground(Color.black);
+		btn_charThree.setFont(font);
+		btn_charThree.setForeground(Color.white);
+		
 		btn_save.addActionListener(e -> btn_save_clicked());
 		
-		jl_charOne.setPreferredSize(new Dimension(300,400));
+		btn_save.setBounds(540,260,200,40);
+		btn_save.setBackground(Color.black);
+		btn_save.setFont(font);
+		btn_save.setForeground(Color.white);
+		
+		
+		jl_charOne.setPreferredSize(new Dimension(300,350));
 		jl_charOne.setIcon(new ImageIcon("src\\assets\\img\\character1.png"));
 		jl_charOne.setOpaque(true);
 		
-		jl_charTwo.setPreferredSize(new Dimension(300,400));
+		jl_charTwo.setPreferredSize(new Dimension(300,350));
 		jl_charTwo.setIcon(new ImageIcon("src\\assets\\img\\character2.png"));
 		jl_charTwo.setOpaque(true);
 		
-		jl_charThree.setPreferredSize(new Dimension(300,400));
+		jl_charThree.setPreferredSize(new Dimension(300,350));
 		jl_charThree.setIcon(new ImageIcon("src\\assets\\img\\character3.png"));
 		jl_charThree.setOpaque(true);
 		
@@ -124,6 +167,13 @@ public class Panel_CharacterMenue extends JPanel {
 		this.setVisible(false);
 		this.getParent().getComponents()[0].setVisible(true);
 		this.getParent().remove(this);
+		
+		try {
+			ButtonClickSound();
+		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
     
 	/*
@@ -134,6 +184,13 @@ public class Panel_CharacterMenue extends JPanel {
     	jl_charTwo.setIcon(new ImageIcon("src\\assets\\img\\character2.png"));
     	jl_charThree.setIcon(new ImageIcon("src\\assets\\img\\character3.png"));
     	chosen = '1';
+    	
+    	try {
+			ButtonClickSound();
+		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
     
 	/*
@@ -144,6 +201,13 @@ public class Panel_CharacterMenue extends JPanel {
     	jl_charOne.setIcon(new ImageIcon("src\\assets\\img\\character1.png"));
     	jl_charThree.setIcon(new ImageIcon("src\\assets\\img\\character3.png"));
     	chosen = '2';
+    	
+    	try {
+			ButtonClickSound();
+		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
     
 	/*
@@ -154,6 +218,13 @@ public class Panel_CharacterMenue extends JPanel {
     	jl_charOne.setIcon(new ImageIcon("src\\assets\\img\\character1.png"));
     	jl_charTwo.setIcon(new ImageIcon("src\\assets\\img\\character2.png"));
     	chosen = '3';
+    	
+    	try {
+			ButtonClickSound();
+		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
     
 	/*
@@ -161,5 +232,23 @@ public class Panel_CharacterMenue extends JPanel {
 	 */
     private void btn_save_clicked() {
     	Loadsave.savePlayer(jl_name.getText(), Loadsave.loadScore(), chosen);
+    	
+    	try {
+			ButtonClickSound();
+		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
+    
+    public  void ButtonClickSound() throws UnsupportedAudioFileException, IOException, LineUnavailableException{
+    	File file = new File("src/assets/img/buttonclick.wav");
+    	AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
+    	Clip clip = AudioSystem.getClip();
+    	clip.open(audioStream);
+    	FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+    	gainControl.setValue((float) +volume);
+    	clip.start();
     }
 }
+
