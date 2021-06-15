@@ -1,6 +1,5 @@
 package characterSettings;
 
-import java.awt.Color;
 import java.awt.Insets;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
@@ -12,32 +11,39 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import startGame.Panel_startGame;
-
-// Lukas -> Layout anpassen
-
+/*
+ *  Classen kommentar
+ */
 public class Panel_CharacterMenue extends JPanel {
-	JButton btn_back = new JButton("Back");
-	JButton btn_charOne = new JButton("Lvl 1 crook");
-	JButton btn_charTwo = new JButton("Lvl 69 gangster");
-	JButton btn_charThree = new JButton("Lvl 1000 mafia boss");
-	JButton btn_save = new JButton("Save");
+	private char chosen = ' ';
+	private JButton btn_back = new JButton("Back");
+	private JButton btn_charOne = new JButton("Lvl 1 crook");
+	private JButton btn_charTwo = new JButton("Lvl 69 gangster");
+	private JButton btn_charThree = new JButton("Lvl 1000 mafia boss");
+	private JButton btn_save = new JButton("Save");
 
-	JLabel jl_charOne = new JLabel("Charakter1");
-	JLabel jl_charTwo = new JLabel("Charakter2");
-	JLabel jl_charThree = new JLabel("Charakter3");
-	JLabel jl_charDesc = new JLabel("Charakter");
-	JLabel backgroundGif = new JLabel(new ImageIcon("src\\assets\\img\\test3.gif"));	
+	private JLabel jl_charOne = new JLabel("Charakter1");
+	private JLabel jl_charTwo = new JLabel("Charakter2");
+	private JLabel jl_charThree = new JLabel("Charakter3");
+	private JLabel jl_charDesc = new JLabel("Charakter");
+	private JLabel backgroundGif = new JLabel(new ImageIcon("src\\assets\\img\\test3.gif"));	
 	
-	JLabel jl_score = new JLabel("Score");	//	soll eig JProgressbar sein
-	JTextField jl_name = new JTextField("Name");
+	private JLabel jl_score = new JLabel("Score");
+	private JLabel jl_score_text = new JLabel();
+	private JTextField jl_name = new JTextField(15);
 	
-	GridBagConstraints gbc = new GridBagConstraints();
+	private GridBagConstraints gbc = new GridBagConstraints();
 
 	
 	private static final long serialVersionUID = -715260095579860078L;
 
+	/*
+	 * Methoden Kommentar
+	 */
 	public Panel_CharacterMenue() {
+		jl_name.setText(Loadsave.loadName());
+		jl_score_text.setText(Integer.toString(Loadsave.loadScore()));
+		
 		this.setPreferredSize(new Dimension(1280, 640));
 		this.setLayout(null);
 		
@@ -110,32 +116,50 @@ public class Panel_CharacterMenue extends JPanel {
 		gbc.gridy = 3;
 		backgroundGif.add(btn_save, gbc);
 	}
-    
+	
+	/*
+	 * Methoden Kommentar
+	 */
     private void btn_back_clicked() {
 		this.setVisible(false);
 		this.getParent().getComponents()[0].setVisible(true);
 		this.getParent().remove(this);
     }
     
+	/*
+	 * Methoden Kommentar
+	 */
     private void btn_charOne_clicked() {
     	jl_charOne.setIcon(new ImageIcon("src\\assets\\img\\character1selected.png"));
     	jl_charTwo.setIcon(new ImageIcon("src\\assets\\img\\character2.png"));
     	jl_charThree.setIcon(new ImageIcon("src\\assets\\img\\character3.png"));
+    	chosen = '1';
     }
     
+	/*
+	 * Methoden Kommentar
+	 */
     private void btn_charTwo_clicked() {
     	jl_charTwo.setIcon(new ImageIcon("src\\assets\\img\\character2selected.png"));
     	jl_charOne.setIcon(new ImageIcon("src\\assets\\img\\character1.png"));
     	jl_charThree.setIcon(new ImageIcon("src\\assets\\img\\character3.png"));
+    	chosen = '2';
     }
     
+	/*
+	 * Methoden Kommentar
+	 */
     private void btn_charThree_clicked() {
     	jl_charThree.setIcon(new ImageIcon("src\\assets\\img\\character3selected.png"));
     	jl_charOne.setIcon(new ImageIcon("src\\assets\\img\\character1.png"));
     	jl_charTwo.setIcon(new ImageIcon("src\\assets\\img\\character2.png"));
+    	chosen = '3';
     }
     
+	/*
+	 * Methoden Kommentar
+	 */
     private void btn_save_clicked() {
-
+    	Loadsave.savePlayer(jl_name.getText(), Loadsave.loadScore(), chosen);
     }
 }
