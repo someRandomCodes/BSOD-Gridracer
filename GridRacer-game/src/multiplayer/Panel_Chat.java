@@ -3,6 +3,7 @@ package multiplayer;
 import java.rmi.*;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 
@@ -41,6 +42,7 @@ public class Panel_Chat extends JPanel {
 	public Panel_Chat() throws MalformedURLException,RemoteException,NotBoundException {	
 		this.setPreferredSize(new Dimension(300,500));
 		this.setLayout(new GridLayout(3,1));
+		this.setOpaque(false);
 		
 		this.add(ep_chatFrame);
 		this.add(tf_sendChatText);

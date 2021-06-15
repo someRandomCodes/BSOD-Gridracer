@@ -1,13 +1,12 @@
 package multiplayer;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
-import java.rmi.Naming;
 import java.rmi.RemoteException;
 
 import javax.swing.JOptionPane;
 
-import serverApplication.ChatInterface;
 import serverApplication.RMIServer;
 import startGame.MyFrame;
 
@@ -30,14 +29,17 @@ public class MultiplayerGame {
 		if (id == 1 || id == 3) {
 			new RMIServer();
 		}
+		
 		Panel_PlayerInfo playerStats = new Panel_PlayerInfo(id);
 		Panel_TheGame game = new Panel_TheGame(id);		
 		MyFrame frame = new MyFrame(false);
 		Container frameContent = frame.getContentPane();
+		frameContent.setBackground(Color.BLACK);
 		
 		frame.setVisible(true);		
-		frame.setSize(800,800);
+		frame.setSize(1200,800);
 		frame.setLayout(new BorderLayout());
+		frame.setLocationRelativeTo(null);
 		frame.setResizable(true);
 		
 		if (id != 3) {
@@ -50,5 +52,6 @@ public class MultiplayerGame {
 			}
 		}
 		frameContent.add(game, BorderLayout.CENTER);
+		game.requestFocus();
 	}
 }

@@ -54,7 +54,7 @@ public class Panel_TheGame extends JPanel {
 		} catch(Exception e) {
 			System.out.println(e);
 		}	
-		
+		this.setOpaque(false);
 		this.setLayout(new GridLayout(gameboardSizeH, gameboardSizeW));
 		this.setFocusable(true);
 		this.addKeyListener(new MovingListener());

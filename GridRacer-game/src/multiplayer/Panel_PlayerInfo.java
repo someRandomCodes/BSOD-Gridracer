@@ -1,6 +1,7 @@
 package multiplayer;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.rmi.Naming;
@@ -57,15 +58,18 @@ public class Panel_PlayerInfo extends JPanel{
 			e1.printStackTrace();
 		}
 		
-		this.setPreferredSize(new Dimension(250,300));
+		this.setPreferredSize(new Dimension(250,100));
 		this.setLayout(new BorderLayout());
+		this.setOpaque(false);
 		
 		playerOne.setLayout(new FlowLayout());
 		playerOne.setSize(new Dimension(250,300));
+		playerOne.setOpaque(false);
 		playerOne.add(playerOneName);
 		playerOne.add(playerOnePicture);
 		
 		playerTwo.setLayout(new FlowLayout());
+		playerTwo.setOpaque(false);
 		playerTwo.setSize(new Dimension(300,300));
 		playerTwo.add(playerTwoName);
 		playerTwo.add(playerTwoPicture);
