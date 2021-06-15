@@ -58,7 +58,18 @@ public class Panel_CharacterMenue extends JPanel {
 	public Panel_CharacterMenue() {
 		Font font = new Font("Apple Casual", Font.ITALIC|Font.BOLD, 20);
 		jl_name.setText(Loadsave.loadName());
+		
+		jl_name.setBounds(540,260,200,40);
+		jl_name.setBackground(Color.black);
+		jl_name.setFont(font);
+		jl_name.setForeground(Color.white);
+		
 		jl_score_text.setText(Integer.toString(Loadsave.loadScore()));
+		
+		jl_score.setBounds(540,260,200,40);
+		jl_score.setBackground(Color.black);
+		jl_score.setFont(font);
+		jl_score.setForeground(Color.white);
 		
 		this.setPreferredSize(new Dimension(1280, 640));
 		this.setLayout(null);
