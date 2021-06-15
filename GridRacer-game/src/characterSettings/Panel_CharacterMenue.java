@@ -39,6 +39,7 @@ public class Panel_CharacterMenue extends JPanel {
 
 	public Panel_CharacterMenue() {
 		this.setPreferredSize(new Dimension(1280, 640));
+		this.setLayout(null);
 		
 		backgroundGif.setBounds(0,0,1280,640);
 		backgroundGif.setVisible(true);
