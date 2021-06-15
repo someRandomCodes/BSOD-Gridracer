@@ -64,7 +64,7 @@ public class Panel_CharacterMenue extends JPanel {
 		jl_name.setFont(font);
 		jl_name.setForeground(Color.white);
 		
-		jl_score_text.setText(Integer.toString(Loadsave.loadScore()));
+		jl_score.setText("Score: " + Integer.toString(Loadsave.loadScore()));
 		
 		jl_score.setBounds(540,260,200,40);
 		jl_score.setBackground(Color.black);
