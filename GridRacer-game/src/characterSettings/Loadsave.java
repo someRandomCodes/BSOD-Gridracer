@@ -14,7 +14,7 @@ import java.util.Scanner;
  * @author Lukas Mohrbacher
  */
 public class Loadsave {
-	static File settings = new File("settings\\settings.txt");
+	static File settings = new File("src\\settings\\settings.txt");
 	private static char[] alphabet = 
 			{ 'a', 'b', 'c','d',
 			'e','f','g','h','i','j','k','l',
