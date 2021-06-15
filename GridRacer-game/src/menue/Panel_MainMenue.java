@@ -3,7 +3,6 @@ package menue;
 import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.io.File;
 import java.io.IOException;
@@ -26,7 +25,7 @@ import characterSettings.Panel_CharacterMenue;
 import multiplayer.MultiplayerGame;
 import serverApplication.RMIServer;
 import settingMenue.Panel_SettingMenue;
-import singleplayer.Snake;
+
 
 /**
  * Klassen beschreibung
@@ -38,7 +37,6 @@ public class Panel_MainMenue extends JPanel {
 	private Panel_SettingMenue p_settingMenue = new Panel_SettingMenue();
 	private Panel_CharacterMenue p_characterMenue = new Panel_CharacterMenue();
 	
-	private JButton btn_StartSingleplayer = new JButton("Singleplayer");
 	private JButton btn_StartMultiplayer = new JButton("Multiplayer");
 	private JButton btn_CharacterSettings = new JButton("Character");
 	private JButton btn_Settings = new JButton("Settings");
@@ -60,7 +58,6 @@ public class Panel_MainMenue extends JPanel {
 		backgroundGif.setVisible(true);
 		this.add(backgroundGif);
 		
-		btn_StartSingleplayer.addActionListener(e -> btn_StartSingleplayer_clicked());
 		btn_StartMultiplayer.addActionListener(e -> {
 			try {
 				btn_StartMultiplayer_clicked();
@@ -73,12 +70,6 @@ public class Panel_MainMenue extends JPanel {
 		btn_CharacterSettings.addActionListener(e -> btn_CharacterSettings_clicked());
 		btn_Settings.addActionListener(e -> btn_Settings_clicked());
 		btn_Website.addActionListener(e -> btn_website_clicked());
-		
-		backgroundGif.add(btn_StartSingleplayer);
-		btn_StartSingleplayer.setBounds(540,260,200,40);
-		btn_StartSingleplayer.setBackground(Color.black);
-		btn_StartSingleplayer.setFont(font);
-		btn_StartSingleplayer.setForeground(Color.white);
 		
 		backgroundGif.add(btn_StartMultiplayer);
 		btn_StartMultiplayer.setBounds(540,320,200,40);
@@ -125,14 +116,7 @@ public class Panel_MainMenue extends JPanel {
 			e.printStackTrace();
 		}
 	}
-    
-	/*
-	 * Methoden Kommentar
-	 */
-    private void btn_StartSingleplayer_clicked() {
-		Snake.main(null);;
-    }
-    
+
 	/*
 	 * Methoden Kommentar
 	 */
