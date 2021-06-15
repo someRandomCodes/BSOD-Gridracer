@@ -47,7 +47,9 @@ public class Panel_Chat extends JPanel {
 		ep_chatFrame.setText("test");
 		this.add(btn_send);
 		
+		btn_send.setFocusable(false);
 		btn_send.addActionListener(e -> sendMsg());
+		
 		
 		try {
 	        ChatInterface chatinterface = (ChatInterface)Naming.lookup("rmi://localhost:1099/ChatSrv");	
