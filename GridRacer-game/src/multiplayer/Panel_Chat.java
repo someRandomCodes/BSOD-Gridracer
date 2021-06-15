@@ -5,6 +5,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
 
 import javax.swing.JButton;
@@ -40,18 +41,26 @@ public class Panel_Chat extends JPanel {
 	 * 
 	 */
 	public Panel_Chat() throws MalformedURLException,RemoteException,NotBoundException {	
+		Font font = new Font("Apple Casual", Font.ITALIC|Font.BOLD, 20);
+		Font fontchat = new Font("Apple Casual", 14, 20);
 		this.setPreferredSize(new Dimension(300,500));
 		this.setLayout(new GridLayout(3,1));
 		this.setOpaque(false);
-		
-		this.add(ep_chatFrame);
-		this.add(tf_sendChatText);
+
 		ep_chatFrame.setText("test");
-		this.add(btn_send);
+		ep_chatFrame.setBackground(new Color(0x2b2b2b));
+		ep_chatFrame.setForeground(Color.white);
+		ep_chatFrame.setFont(fontchat);
 		
 		btn_send.setFocusable(false);
 		btn_send.addActionListener(e -> sendMsg());
+		btn_send.setBackground(Color.black);
+		btn_send.setFont(font);
+		btn_send.setForeground(Color.white);
 		
+		this.add(ep_chatFrame);
+		this.add(tf_sendChatText);
+		this.add(btn_send);	
 		
 		try {
 	        ChatInterface chatinterface = (ChatInterface)Naming.lookup("rmi://localhost:1099/ChatSrv");	

@@ -69,6 +69,7 @@ public class Panel_MainMenue extends JPanel {
 				e1.printStackTrace();
 			}
 		});
+		
 		btn_CharacterSettings.addActionListener(e -> btn_CharacterSettings_clicked());
 		btn_Settings.addActionListener(e -> btn_Settings_clicked());
 		btn_Website.addActionListener(e -> btn_website_clicked());

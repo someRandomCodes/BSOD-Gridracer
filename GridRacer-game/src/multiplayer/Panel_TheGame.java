@@ -146,28 +146,28 @@ public class Panel_TheGame extends JPanel {
 						switch(server.getDirection(enemyId)) {
 						case 'w':
 							enemypos += gameboardSizeW;
-							if(place[enemypos].getBackground() != Color.cyan) {
+							if(place[enemypos].getBackground() != place[enemypos].getCheckColor()) {
 								colide(enemyId);
 							}
 						    place[enemypos].drawEnemy();
 							break;
 						case 'd':
 							enemypos -= 1;
-							if(place[enemypos].getBackground() != Color.cyan) {
+							if(place[enemypos].getBackground() != place[enemypos].getCheckColor()) {
 								colide(enemyId);
 							}
 						    place[enemypos].drawEnemy();
 							break;
 						case 's':
 							enemypos -= gameboardSizeW;
-							if(place[enemypos].getBackground() != Color.cyan) {
+							if(place[enemypos].getBackground() != place[enemypos].getCheckColor()) {
 								colide(enemyId);
 							}
 						    place[enemypos].drawEnemy();
 							break;
 						case 'a':
 							enemypos += 1;
-							if(place[enemypos].getBackground() != Color.cyan) {
+							if(place[enemypos].getBackground() != place[enemypos].getCheckColor()) {
 								colide(enemyId);
 							}
 						    place[enemypos].drawEnemy();
@@ -202,28 +202,28 @@ public class Panel_TheGame extends JPanel {
 						switch(server.getDirection(playerId)) {
 						case 'w':
 							playerPos1 -= gameboardSizeW;
-							if(place[playerPos1].getBackground() != Color.cyan) {
+							if(place[playerPos1].getBackground() != place[playerPos1].getCheckColor()) {
 								colide(playerId);
 							}
 						    place[playerPos1].drawSelf();
 							break;
 						case 'a':
 							playerPos1 -= 1;
-							if(place[playerPos1].getBackground() != Color.cyan) {
+							if(place[playerPos1].getBackground() != place[playerPos1].getCheckColor()) {
 								colide(playerId);
 							}
 						    place[playerPos1].drawSelf();
 							break;
 						case 's':
 							playerPos1 += gameboardSizeW;
-							if(place[playerPos1].getBackground() != Color.cyan) {
+							if(place[playerPos1].getBackground() != place[playerPos1].getCheckColor()) {
 								colide(playerId);
 							}
 						    place[playerPos1].drawSelf();
 							break;
 						case 'd':
 							playerPos1 += 1;
-							if(place[playerPos1].getBackground() != Color.cyan) {
+							if(place[playerPos1].getBackground() != place[playerPos1].getCheckColor()) {
 								colide(playerId);
 							}
 						    place[playerPos1].drawSelf();
