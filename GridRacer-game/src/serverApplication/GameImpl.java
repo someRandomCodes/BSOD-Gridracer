@@ -3,6 +3,12 @@ package serverApplication;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
+/**
+ * Klassen beschreibung
+ * @author Thomas Guede Stork
+ * @author Islyam Makanalin
+ * @author Lukas Mohrbacher
+ */
 public class GameImpl extends UnicastRemoteObject implements GameInterface {
 	/**
 	 * 

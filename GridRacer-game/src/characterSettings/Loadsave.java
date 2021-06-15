@@ -7,6 +7,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
+/**
+ * Klassen beschreibung
+ * @author Thomas Guede Stork
+ * @author Islyam Makanalin
+ * @author Lukas Mohrbacher
+ */
 public class Loadsave {
 	static File settings = new File("settings\\settings.txt");
 	private static char[] alphabet = 

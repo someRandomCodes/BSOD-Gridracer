@@ -13,6 +13,12 @@ import javax.swing.JPanel;
 
 import serverApplication.GameInterface;
 
+/**
+ * Klassen beschreibung
+ * @author Thomas Guede Stork
+ * @author Islyam Makanalin
+ * @author Lukas Mohrbacher
+ */
 public class Panel_TheGame extends JPanel {
 	GameInterface server;
 	private int speed = 100;
@@ -62,6 +68,9 @@ public class Panel_TheGame extends JPanel {
 		gameStart.start();
 	}
 	
+	/*
+	 * 
+	 */
 	void drawGamefield(){
 		this.enemypos = 81; //81 
 		this.playerPos1 = 4718;		
@@ -90,8 +99,7 @@ public class Panel_TheGame extends JPanel {
 			place[i].drawBorder();
 		}	
 	}
-	
-	@SuppressWarnings("deprecation")
+
 	void colide(int id) {
 		JOptionPane.showMessageDialog(null, "colide from " + id );
 		try {
@@ -103,6 +111,9 @@ public class Panel_TheGame extends JPanel {
 		drawGamefield();
 	}
 	
+	/*
+	 * 
+	 */
 	private class gamestart extends Thread {
 		public void run() {
 		while (!gamerun) {
@@ -122,6 +133,9 @@ public class Panel_TheGame extends JPanel {
 		}
 	}
 	
+	/*
+	 * 
+	 */
 	private class enemy extends Thread {
 		public void run() {
 			place[enemypos].drawEnemy();
@@ -174,8 +188,10 @@ public class Panel_TheGame extends JPanel {
 		}
 	}
 	
+	/*
+	 * 
+	 */
 	private class movings extends Thread {
-		
 		@SuppressWarnings("deprecation")
 		public void run() {
 			 place[playerPos1].drawSelf();
@@ -228,7 +244,9 @@ public class Panel_TheGame extends JPanel {
 		}
 	}
 
-	
+	/*
+	 * 
+	 */
 	private class MovingListener implements KeyListener{
 
 		@Override

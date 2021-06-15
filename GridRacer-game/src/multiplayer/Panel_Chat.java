@@ -18,6 +18,12 @@ import serverApplication.ChatInterface;
 import java.net.MalformedURLException;
 
 
+/**
+ * Klassen beschreibung
+ * @author Thomas Guede Stork
+ * @author Islyam Makanalin
+ * @author Lukas Mohrbacher
+ */
 public class Panel_Chat extends JPanel {
 	
 	/**
@@ -29,7 +35,9 @@ public class Panel_Chat extends JPanel {
 	private JTextArea ep_chatFrame = new JTextArea();
 	private JButton btn_send = new JButton("send Msg");
 
-
+	/*
+	 * 
+	 */
 	public Panel_Chat() throws MalformedURLException,RemoteException,NotBoundException {	
 		this.setPreferredSize(new Dimension(300,500));
 		this.setLayout(new GridLayout(3,1));
@@ -61,6 +69,9 @@ public class Panel_Chat extends JPanel {
 		}, 2000, 2000);
 	}
 	
+	/*
+	 * 
+	 */
 	void sendMsg() {
 		try {
 			server.newMsg(Loadsave.loadName() + ": " + this.tf_sendChatText.getText());

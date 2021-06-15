@@ -44,9 +44,6 @@ public class Main{
 		Container frameContent = mainFrame.getContentPane();
 		Panel_startGame p_startGame = new Panel_startGame();
 		
-		//test save
-		Loadsave.savePlayer("Johannes", 581, '3');
-		
 		LoadingBar.setValue(0);
 		LoadingBar.setStringPainted(true);
 		
@@ -70,6 +67,10 @@ public class Main{
 			e.printStackTrace();
 		}
 	}
+	
+	/*
+	 * 
+	 */
 	public static  void backGroundMusic() throws UnsupportedAudioFileException, IOException, LineUnavailableException{
 		
 		File file = new File("src/assets/img/baba.wav");
@@ -80,7 +81,5 @@ public class Main{
 		FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
 		gainControl.setValue((float) -40);
 		clip.loop(clip.LOOP_CONTINUOUSLY);
-		
-		
 	}
 }

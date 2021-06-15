@@ -1,5 +1,11 @@
 package characterSettings;
 
+/**
+ * Klassen beschreibung
+ * @author Thomas Guede Stork
+ * @author Islyam Makanalin
+ * @author Lukas Mohrbacher
+ */
 public class Character {
 	private String name;
 	private int score;

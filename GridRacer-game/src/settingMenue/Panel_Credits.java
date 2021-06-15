@@ -12,7 +12,12 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-// Aman
+/**
+ * Klassen beschreibung
+ * @author Thomas Guede Stork
+ * @author Islyam Makanalin
+ * @author Lukas Mohrbacher
+ */
 public class Panel_Credits extends JPanel implements ActionListener {
 	/**
 	 * 
@@ -24,6 +29,9 @@ public class Panel_Credits extends JPanel implements ActionListener {
 	int textY =  1000;
 	Color myColor = new Color(1, 84, 153);
 	
+	/*
+	 * 
+	 */
 	public Panel_Credits() {
 		this.setPreferredSize(new Dimension(1280, 400));
 		this.setVisible(true);
@@ -74,24 +82,31 @@ public class Panel_Credits extends JPanel implements ActionListener {
 		
 		
 	}
-		public void paintComponent(Graphics g) {
-		super.paintComponent(g); 
+	
+	/*
+	 * 
+	 */
+	public void paintComponent(Graphics g) {
+	super.paintComponent(g); 
+	
+	Graphics2D g2d = (Graphics2D)g;
+	
+	g2d.setFont(new Font("Times New Roman", Font.PLAIN, 40));
+	g2d.setColor(Color.black);
+	
+	int y = textY;
+	
+	for(String line: text.split("\n")) {
 		
-		Graphics2D g2d = (Graphics2D)g;
-		
-		g2d.setFont(new Font("Times New Roman", Font.PLAIN, 40));
-		g2d.setColor(Color.black);
-		
-		int y = textY;
-		
-		for(String line: text.split("\n")) {
-			
-			int stringLength =(int)g2d.getFontMetrics().getStringBounds(line, g2d).getWidth();
-			int x = getWidth()/2 -stringLength/2;
-			g2d.drawString(line, x, y+=50);
+		int stringLength =(int)g2d.getFontMetrics().getStringBounds(line, g2d).getWidth();
+		int x = getWidth()/2 -stringLength/2;
+		g2d.drawString(line, x, y+=50);
 		}
 	}
 	
+		/*
+		 * 
+		 */
 	public void actionPerformed(ActionEvent e) {
 		System.out.println(textY);
 		textY--;

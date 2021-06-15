@@ -11,6 +11,12 @@ import serverApplication.ChatInterface;
 import serverApplication.RMIServer;
 import startGame.MyFrame;
 
+/**
+ * Klassen beschreibung
+ * @author Thomas Guede Stork
+ * @author Islyam Makanalin
+ * @author Lukas Mohrbacher
+ */
 public class MultiplayerGame {
 
 	/*

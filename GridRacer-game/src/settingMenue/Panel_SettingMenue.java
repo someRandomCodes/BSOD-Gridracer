@@ -26,8 +26,12 @@ import java.io.IOException;
 import characterSettings.Loadsave;
 import startGame.MyFrame;
 
-// Aman
-
+/**
+ * Klassen beschreibung
+ * @author Thomas Guede Stork
+ * @author Islyam Makanalin
+ * @author Lukas Mohrbacher
+ */
 public class Panel_SettingMenue extends JPanel {
 	
 	JButton btn_back = new JButton();
@@ -43,6 +47,9 @@ public class Panel_SettingMenue extends JPanel {
 	
 	private static final long serialVersionUID = -715260095579860078L;
 
+	/*
+	 * 
+	 */
 	public Panel_SettingMenue() {
 		setPreferredSize(new Dimension(1280, 640));
 		createComponents();
@@ -53,6 +60,9 @@ public class Panel_SettingMenue extends JPanel {
 		this.add(backgroundGif);
 	}
 	
+	/*
+	 * 
+	 */
 	public void createComponents() {
 		btn_back.setText("Back");
 		btn_back.addActionListener(e -> btn_back_clicked());
@@ -66,12 +76,15 @@ public class Panel_SettingMenue extends JPanel {
 		btn_credits.addActionListener(e -> btn_credits_clicked());
 	}
 	
+	/*
+	 * 
+	 */
     private void addComponents() {  
-    	backgroundGif.add(btn_back);
-    	btn_back.setBounds(540,260,200,40);
-    	btn_back.setBackground(Color.black);
-    	btn_back.setFont(font);
-    	btn_back.setForeground(Color.white);
+	backgroundGif.add(btn_back);
+	btn_back.setBounds(540,260,200,40);
+	btn_back.setBackground(Color.black);
+	btn_back.setFont(font);
+	btn_back.setForeground(Color.white);
 		
 	backgroundGif.add(btn_sound);
 	btn_sound.setBounds(540,320,200,40);
@@ -98,7 +111,9 @@ public class Panel_SettingMenue extends JPanel {
 	btn_credits.setForeground(Color.white);
     }
     
-    
+	/*
+	 * 
+	 */
     private void btn_back_clicked() {
 		this.setVisible(false);
 		this.getParent().getComponents()[0].setVisible(true);
@@ -111,6 +126,9 @@ public class Panel_SettingMenue extends JPanel {
 		}
     }
     
+	/*
+	 * 
+	 */
     private void btn_sound_clicked() {
     	try {
 			buttonClickSound();
@@ -120,6 +138,9 @@ public class Panel_SettingMenue extends JPanel {
 		}
     }
     
+	/*
+	 * 
+	 */
     private void btn_updates_clicked() {
     	try {
 			buttonClickSound();
@@ -129,6 +150,9 @@ public class Panel_SettingMenue extends JPanel {
 		}
     }
     
+	/*
+	 * 
+	 */
     private void btn_doNotPress_clicked() {
     	String eingabe = JOptionPane.showInputDialog("");
     	if (eingabe.equals("BSOD")) {
@@ -143,6 +167,9 @@ public class Panel_SettingMenue extends JPanel {
 		}
     }
     
+	/*
+	 * 
+	 */
     private void btn_credits_clicked() {
     	MyFrame frame = new MyFrame(false);
     	frame.setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
@@ -155,17 +182,19 @@ public class Panel_SettingMenue extends JPanel {
 			e.printStackTrace();
 		}
     }
+    
+	/*
+	 * 
+	 */
 	public  void buttonClickSound() throws UnsupportedAudioFileException, IOException, LineUnavailableException{
 		
-		File file = new File("src/assets/img/buttonclick.wav");
-		
-		AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
-		Clip clip = AudioSystem.getClip();
-		clip.open(audioStream);
-		FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-		gainControl.setValue((float) +volume);
-		clip.start();
-		
-		
+	File file = new File("src/assets/img/buttonclick.wav");
+	
+	AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
+	Clip clip = AudioSystem.getClip();
+	clip.open(audioStream);
+	FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+	gainControl.setValue((float) +volume);
+	clip.start();
 	}
 }

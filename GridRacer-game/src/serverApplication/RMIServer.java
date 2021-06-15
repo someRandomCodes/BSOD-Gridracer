@@ -7,6 +7,12 @@ import java.rmi.server.UnicastRemoteObject;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
 
+/**
+ * Klassen beschreibung
+ * @author Thomas Guede Stork
+ * @author Islyam Makanalin
+ * @author Lukas Mohrbacher
+ */
 public class RMIServer {
     public static void main(String[] arg) throws RemoteException{
     	ChatImp chatserver = new ChatImp();

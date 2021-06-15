@@ -15,6 +15,12 @@ import javax.swing.JPanel;
 import characterSettings.Loadsave;
 import serverApplication.charstatInterface;
 
+/**
+ * Klassen beschreibung
+ * @author Thomas Guede Stork
+ * @author Islyam Makanalin
+ * @author Lukas Mohrbacher
+ */
 public class Panel_PlayerInfo extends JPanel{
 	
 	/**
@@ -32,6 +38,9 @@ public class Panel_PlayerInfo extends JPanel{
 	private char character1 = 'N';
 	private char character2 = 'N';
 	
+	/*
+	 * 
+	 */
 	Panel_PlayerInfo(int id) {
 		try {
 			charstatInterface charstatinterface = (charstatInterface)Naming.lookup("rmi://localhost:1099/CharStat");	
@@ -100,6 +109,9 @@ public class Panel_PlayerInfo extends JPanel{
 		}, 2000, 2000);
 	}
 	
+	/*
+	 * 
+	 */
 	private String playerImage(char pic) {
 		if (pic == '1') {
 			return "src\\assets\\img\\character1.png";

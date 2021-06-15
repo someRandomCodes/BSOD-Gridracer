@@ -11,8 +11,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-/*
- *  Classen kommentar
+/**
+ * Klassen beschreibung
+ * @author Thomas Guede Stork
+ * @author Islyam Makanalin
+ * @author Lukas Mohrbacher
  */
 public class Panel_CharacterMenue extends JPanel {
 	private char chosen = ' ';

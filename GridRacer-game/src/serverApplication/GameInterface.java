@@ -3,6 +3,9 @@ package serverApplication;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
+/*
+ * 
+ */
 public interface GameInterface extends Remote {
 	boolean checkIn(GameInterface ci, String name) throws RemoteException;
 	

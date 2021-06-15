@@ -28,22 +28,30 @@ import serverApplication.RMIServer;
 import settingMenue.Panel_SettingMenue;
 import singleplayer.Snake;
 
-
+/**
+ * Klassen beschreibung
+ * @author Thomas Guede Stork
+ * @author Islyam Makanalin
+ * @author Lukas Mohrbacher
+ */
 public class Panel_MainMenue extends JPanel {
-	Panel_SettingMenue p_settingMenue = new Panel_SettingMenue();
-	Panel_CharacterMenue p_characterMenue = new Panel_CharacterMenue();
+	private Panel_SettingMenue p_settingMenue = new Panel_SettingMenue();
+	private Panel_CharacterMenue p_characterMenue = new Panel_CharacterMenue();
 	
-	JButton btn_StartSingleplayer = new JButton("Singleplayer");
-	JButton btn_StartMultiplayer = new JButton("Multiplayer");
-	JButton btn_CharacterSettings = new JButton("Character");
-	JButton btn_Settings = new JButton("Settings");
-	JButton btn_Website = new JButton("Website");
+	private JButton btn_StartSingleplayer = new JButton("Singleplayer");
+	private JButton btn_StartMultiplayer = new JButton("Multiplayer");
+	private JButton btn_CharacterSettings = new JButton("Character");
+	private JButton btn_Settings = new JButton("Settings");
+	private JButton btn_Website = new JButton("Website");
 	
-	JLabel backgroundGif = new JLabel(new ImageIcon("src/assets/img/test3.gif"));
-	int volume = -20;
+	private JLabel backgroundGif = new JLabel(new ImageIcon("src/assets/img/test3.gif"));
+	private int volume = -20;
 	
 	private static final long serialVersionUID = -715260095579860078L;
 
+	/*
+	 * Methoden Kommentar
+	 */
 	public Panel_MainMenue() {
 		Font font = new Font("Apple Casual", Font.ITALIC|Font.BOLD, 20);
 		this.setPreferredSize(new Dimension(1280, 640));
@@ -96,6 +104,9 @@ public class Panel_MainMenue extends JPanel {
 		btn_Website.setForeground(Color.white);
 	}
 	
+	/*
+	 * Methoden Kommentar
+	 */
     private void btn_website_clicked() {
 		if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
 		    try {
@@ -114,10 +125,16 @@ public class Panel_MainMenue extends JPanel {
 		}
 	}
     
+	/*
+	 * Methoden Kommentar
+	 */
     private void btn_StartSingleplayer_clicked() {
 		Snake.main(null);;
     }
     
+	/*
+	 * Methoden Kommentar
+	 */
     private void  btn_StartMultiplayer_clicked() throws RemoteException {
     	new MultiplayerGame();
     	new RMIServer();
@@ -129,6 +146,9 @@ public class Panel_MainMenue extends JPanel {
 		}
     }
     
+	/*
+	 * Methoden Kommentar
+	 */
     private void btn_CharacterSettings_clicked() {
 		this.setVisible(false);
 		this.getParent().add(p_characterMenue);
@@ -141,6 +161,9 @@ public class Panel_MainMenue extends JPanel {
 		}
     }
     
+	/*
+	 * Methoden Kommentar
+	 */
     private void btn_Settings_clicked() {
 		this.setVisible(false);
 		this.getParent().add(p_settingMenue);
@@ -153,7 +176,10 @@ public class Panel_MainMenue extends JPanel {
 		}
     }
     
-	public  void ButtonClickSound() throws UnsupportedAudioFileException, IOException, LineUnavailableException{
+	/*
+	 * Methoden Kommentar
+	 */
+	public void ButtonClickSound() throws UnsupportedAudioFileException, IOException, LineUnavailableException{
 		File file = new File("src/assets/img/buttonclick.wav");
 		AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
 		Clip clip = AudioSystem.getClip();
