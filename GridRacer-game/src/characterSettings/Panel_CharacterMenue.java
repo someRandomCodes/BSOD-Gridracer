@@ -71,6 +71,11 @@ public class Panel_CharacterMenue extends JPanel {
 		jl_score.setFont(font);
 		jl_score.setForeground(Color.white);
 		
+		jl_charDesc.setBounds(540,260,200,40);
+		jl_charDesc.setBackground(Color.black);
+		jl_charDesc.setFont(font);
+		jl_charDesc.setForeground(Color.white);
+		
 		this.setPreferredSize(new Dimension(1280, 640));
 		this.setLayout(null);
 		
