@@ -180,7 +180,7 @@ public class Panel_MainMenue extends JPanel {
 	 * Methoden Kommentar
 	 */
 	public void ButtonClickSound() throws UnsupportedAudioFileException, IOException, LineUnavailableException{
-		File file = new File("src/assets/img/buttonclick.wav");
+		File file = new File("src//assets//sounds//buttonclick.wav");
 		AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
 		Clip clip = AudioSystem.getClip();
 		clip.open(audioStream);

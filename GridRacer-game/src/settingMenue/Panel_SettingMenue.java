@@ -33,6 +33,7 @@ import startGame.MyFrame;
  * @author Lukas Mohrbacher
  */
 public class Panel_SettingMenue extends JPanel {
+	Panel_Sounds p_sound = new Panel_Sounds();
 	
 	JButton btn_back = new JButton();
 	JButton btn_sound = new JButton();
@@ -80,35 +81,35 @@ public class Panel_SettingMenue extends JPanel {
 	 * 
 	 */
     private void addComponents() {  
-	backgroundGif.add(btn_back);
-	btn_back.setBounds(540,260,200,40);
-	btn_back.setBackground(Color.black);
-	btn_back.setFont(font);
-	btn_back.setForeground(Color.white);
-		
-	backgroundGif.add(btn_sound);
-	btn_sound.setBounds(540,320,200,40);
-	btn_sound.setBackground(Color.black);
-	btn_sound.setFont(font);
-	btn_sound.setForeground(Color.white);
-		
-	backgroundGif.add(btn_updates);
-	btn_updates.setBounds(540,380,200,40);
-	btn_updates.setBackground(Color.black);
-	btn_updates.setFont(font);
-	btn_updates.setForeground(Color.white);
-		
-	backgroundGif.add(btn_doNotPress);
-	btn_doNotPress.setBounds(540,440,200,40);		 							
-	btn_doNotPress.setBackground(Color.black);
-	btn_doNotPress.setFont(font);
-	btn_doNotPress.setForeground(Color.white);
-		
-	backgroundGif.add(btn_credits);	
-	btn_credits.setBounds(540,500,200,40);
-	btn_credits.setBackground(Color.black);
-	btn_credits.setFont(font);
-	btn_credits.setForeground(Color.white);
+		backgroundGif.add(btn_back);
+		btn_back.setBounds(540,260,200,40);
+		btn_back.setBackground(Color.black);
+		btn_back.setFont(font);
+		btn_back.setForeground(Color.white);
+			
+		backgroundGif.add(btn_sound);
+		btn_sound.setBounds(540,320,200,40);
+		btn_sound.setBackground(Color.black);
+		btn_sound.setFont(font);
+		btn_sound.setForeground(Color.white);
+			
+		backgroundGif.add(btn_updates);
+		btn_updates.setBounds(540,380,200,40);
+		btn_updates.setBackground(Color.black);
+		btn_updates.setFont(font);
+		btn_updates.setForeground(Color.white);
+			
+		backgroundGif.add(btn_doNotPress);
+		btn_doNotPress.setBounds(540,440,200,40);		 							
+		btn_doNotPress.setBackground(Color.black);
+		btn_doNotPress.setFont(font);
+		btn_doNotPress.setForeground(Color.white);
+			
+		backgroundGif.add(btn_credits);	
+		btn_credits.setBounds(540,500,200,40);
+		btn_credits.setBackground(Color.black);
+		btn_credits.setFont(font);
+		btn_credits.setForeground(Color.white);
     }
     
 	/*
@@ -136,6 +137,8 @@ public class Panel_SettingMenue extends JPanel {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		backgroundGif.setVisible(false);
+		this.add(p_sound);
     }
     
 	/*
@@ -188,7 +191,7 @@ public class Panel_SettingMenue extends JPanel {
 	 */
 	public  void buttonClickSound() throws UnsupportedAudioFileException, IOException, LineUnavailableException{
 		
-	File file = new File("src/assets/img/buttonclick.wav");
+	File file = new File("src//assets//sounds//buttonclick.wav");
 	
 	AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
 	Clip clip = AudioSystem.getClip();

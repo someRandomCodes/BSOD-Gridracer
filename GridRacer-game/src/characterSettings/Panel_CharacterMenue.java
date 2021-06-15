@@ -245,12 +245,12 @@ public class Panel_CharacterMenue extends JPanel {
     }
     
     public  void ButtonClickSound() throws UnsupportedAudioFileException, IOException, LineUnavailableException{
-    	File file = new File("src/assets/img/buttonclick.wav");
+    	File file = new File("src\\assets\\sounds\\buttonclick.wav");
     	AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
     	Clip clip = AudioSystem.getClip();
     	clip.open(audioStream);
     	FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-    	gainControl.setValue((float) +volume);
+    	gainControl.setValue((float) + volume);
     	clip.start();
     }
 }

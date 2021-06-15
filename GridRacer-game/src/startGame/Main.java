@@ -73,7 +73,7 @@ public class Main{
 	 */
 	public static  void backGroundMusic() throws UnsupportedAudioFileException, IOException, LineUnavailableException{
 		
-		File file = new File("src/assets/img/baba.wav");
+		File file = new File("src//assets//sounds//baba.wav");
 		
 		AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
 		Clip clip = AudioSystem.getClip();

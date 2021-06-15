@@ -114,11 +114,11 @@ public class Panel_PlayerInfo extends JPanel{
 	 */
 	private String playerImage(char pic) {
 		if (pic == '1') {
-			return "src\\assets\\img\\character1.png";
+			return "src\\assets\\img\\gamechar1.png";
 		} else if (pic == '2') {
-			return "src\\assets\\img\\character2.png";
+			return "src\\assets\\img\\gamechar2.png";
 		} else if (pic == '3') {
-			return "src\\assets\\img\\character3.png";
+			return "src\\assets\\img\\gamechar3.png";
 		} else {
 			return "src\\assets\\img\\secretChar.png";
 		}
