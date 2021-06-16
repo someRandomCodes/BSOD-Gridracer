@@ -14,6 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JProgressBar;
 
 import characterSettings.Loadsave;
+import settingMenue.SoundSettings;
 
 public class Main{
 	private static JProgressBar LoadingBar = new JProgressBar();
@@ -72,14 +73,21 @@ public class Main{
 	 * 
 	 */
 	public static  void backGroundMusic() throws UnsupportedAudioFileException, IOException, LineUnavailableException{
-		
+		SoundSettings myVol = new SoundSettings();
 		File file = new File("src//assets//sounds//baba.wav");
-		
 		AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
 		Clip clip = AudioSystem.getClip();
 		clip.open(audioStream);
 		FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-		gainControl.setValue((float) -40);
-		clip.loop(clip.LOOP_CONTINUOUSLY);
+
+		while (!(myVol.getMusik() == 3)) {
+			switch(myVol.getMusik()) {
+			case(1):gainControl.setValue(myVol.getVolume()); clip.loop(clip.LOOP_CONTINUOUSLY);
+			break;
+			case(2):clip.stop();clip.setMicrosecondPosition(0);
+			break;
+			}
+		}
+		
 	}
 }
