@@ -19,6 +19,7 @@ import javax.swing.Timer;
  * @author Lukas Mohrbacher
  */
 public class Panel_Credits extends JPanel implements ActionListener {
+	
 	/**
 	 * 
 	 */
@@ -79,8 +80,6 @@ public class Panel_Credits extends JPanel implements ActionListener {
 		this.add(bsodlabel2);
 		this.add(bsodlabel3);
 		this.add(bsodlabel4);
-		
-		
 	}
 	
 	/*

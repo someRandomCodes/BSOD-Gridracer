@@ -1,6 +1,5 @@
 package multiplayer;
 
-import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
@@ -14,7 +13,8 @@ import javax.swing.JPanel;
 import serverApplication.GameInterface;
 
 /**
- * Klassen beschreibung
+ * This class contains the Game itself with Server connection and Colide logic
+ * 
  * @author Thomas Guede Stork
  * @author Islyam Makanalin
  * @author Lukas Mohrbacher
@@ -41,6 +41,14 @@ public class Panel_TheGame extends JPanel {
 	 */
 	private static final long serialVersionUID = 5438164405065722657L;
 
+	/*
+	 * The Game Constructor connects to the Server and load the player positions 
+	 * from there.
+	 * The "Game board" is an GridLayout and all places are JLabels 
+	 * 
+	 * @param int 
+	 * the Integer id is used to set the player to Host or to Client (or to 2player on 2 PC)
+	 */
 	Panel_TheGame(int id) {
 		this.id = id;
 		// id 1 for Server id 2 for client id 3 for 2 on 1 Computer.
@@ -69,7 +77,7 @@ public class Panel_TheGame extends JPanel {
 	}
 	
 	/*
-	 * 
+	 * This Method sets the Background from the game places 
 	 */
 	void drawGamefield(){
 		this.enemypos = 81; //81 
@@ -100,28 +108,30 @@ public class Panel_TheGame extends JPanel {
 		}	
 	}
 
-	void colide(int id) {
+	/*
+	 * This Method is invoke when an player Collide to another player 
+	 * or Collide to the Border
+	 */
+	void collide(int id) {
 		JOptionPane.showMessageDialog(null, "colide from " + id );
 		try {
 			server.resetGame();
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		drawGamefield();
 	}
 	
-	/*
+	/**
+	 * This Class is to check if the 2 Players are Ready
 	 * 
 	 */
 	private class gamestart extends Thread {
 		public void run() {
 		while (!gamerun) {
-			//System.out.println("wait for playerRdy");
 			try {
 				gamerun = server.playerRdy();
 			} catch (RemoteException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			if (gamerun) {
@@ -133,8 +143,8 @@ public class Panel_TheGame extends JPanel {
 		}
 	}
 	
-	/*
-	 * 
+	/**
+	 * This class draws the enemy-line to the Game board
 	 */
 	private class enemy extends Thread {
 		public void run() {
@@ -147,52 +157,48 @@ public class Panel_TheGame extends JPanel {
 						case 'w':
 							enemypos += gameboardSizeW;
 							if(place[enemypos].getBackground() != place[enemypos].getCheckColor()) {
-								colide(enemyId);
+								collide(enemyId);
 							}
 						    place[enemypos].drawEnemy();
 							break;
 						case 'd':
 							enemypos -= 1;
 							if(place[enemypos].getBackground() != place[enemypos].getCheckColor()) {
-								colide(enemyId);
+								collide(enemyId);
 							}
 						    place[enemypos].drawEnemy();
 							break;
 						case 's':
 							enemypos -= gameboardSizeW;
 							if(place[enemypos].getBackground() != place[enemypos].getCheckColor()) {
-								colide(enemyId);
+								collide(enemyId);
 							}
 						    place[enemypos].drawEnemy();
 							break;
 						case 'a':
 							enemypos += 1;
 							if(place[enemypos].getBackground() != place[enemypos].getCheckColor()) {
-								colide(enemyId);
+								collide(enemyId);
 							}
 						    place[enemypos].drawEnemy();
 							break;
 						}
 					} catch (HeadlessException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					} catch (RemoteException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
 		}
 	}
 	
-	/*
-	 * 
+	/**
+	 * This class draws the selfPlayer-line to the Game board
 	 */
 	private class movings extends Thread {
-		@SuppressWarnings("deprecation")
 		public void run() {
 			 place[playerPos1].drawSelf();
 			while(gamerun) {
@@ -203,48 +209,47 @@ public class Panel_TheGame extends JPanel {
 						case 'w':
 							playerPos1 -= gameboardSizeW;
 							if(place[playerPos1].getBackground() != place[playerPos1].getCheckColor()) {
-								colide(playerId);
+								collide(playerId);
 							}
 						    place[playerPos1].drawSelf();
 							break;
 						case 'a':
 							playerPos1 -= 1;
 							if(place[playerPos1].getBackground() != place[playerPos1].getCheckColor()) {
-								colide(playerId);
+								collide(playerId);
 							}
 						    place[playerPos1].drawSelf();
 							break;
 						case 's':
 							playerPos1 += gameboardSizeW;
 							if(place[playerPos1].getBackground() != place[playerPos1].getCheckColor()) {
-								colide(playerId);
+								collide(playerId);
 							}
 						    place[playerPos1].drawSelf();
 							break;
 						case 'd':
 							playerPos1 += 1;
 							if(place[playerPos1].getBackground() != place[playerPos1].getCheckColor()) {
-								colide(playerId);
+								collide(playerId);
 							}
 						    place[playerPos1].drawSelf();
 							break;
 						}
 					} catch (HeadlessException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					} catch (RemoteException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
 		}
 	}
 
-	/*
+	/**
+	 * This class implements the Keylistener to load the 
+	 * setted moving direction to the server.
 	 * 
 	 */
 	private class MovingListener implements KeyListener{
@@ -291,16 +296,9 @@ public class Panel_TheGame extends JPanel {
 		}
 
 		@Override
-		public void keyPressed(KeyEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
+		public void keyPressed(KeyEvent e) {}
 
 		@Override
-		public void keyReleased(KeyEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-
+		public void keyReleased(KeyEvent e) {}
 	}
 }

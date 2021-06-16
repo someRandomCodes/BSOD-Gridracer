@@ -3,9 +3,6 @@ package serverApplication;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-/*
- * 
- */
 public interface charstatInterface extends Remote {
 	char getPlayerPic(int id) throws RemoteException;
 	String getPlayerName(int id) throws RemoteException;

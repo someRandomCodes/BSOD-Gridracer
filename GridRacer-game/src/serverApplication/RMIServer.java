@@ -3,17 +3,19 @@ package serverApplication;
 import java.rmi.*;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
-import java.rmi.server.UnicastRemoteObject;
-import java.net.MalformedURLException;
-import java.util.ArrayList;
 
 /**
- * Klassen beschreibung
+ * This class registered the object
+ * 
  * @author Thomas Guede Stork
  * @author Islyam Makanalin
  * @author Lukas Mohrbacher
  */
-public class RMIServer {
+public class RMIServer extends Thread {
+	
+	/*
+	 * Starts the "server" and registered the objects to the registry
+	 */
     public static void main(String[] arg) throws RemoteException{
     	ChatImp chatserver = new ChatImp();
     	GameImpl gameserver = new GameImpl();

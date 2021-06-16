@@ -37,7 +37,7 @@ public class Panel_SettingMenue extends JPanel {
 	
 	JButton btn_back = new JButton();
 	JButton btn_sound = new JButton();
-	JButton btn_updates = new JButton();
+	JButton btn_serverport = new JButton();
 	JButton btn_doNotPress = new JButton();
 	JButton btn_credits = new JButton();
 	
@@ -69,14 +69,14 @@ public class Panel_SettingMenue extends JPanel {
 		btn_back.addActionListener(e -> btn_back_clicked());
 		btn_sound.setText("Sound");
 		btn_sound.addActionListener(e -> btn_sound_clicked());
-		btn_updates.setText("Updates");
-		btn_updates.addActionListener(e -> btn_updates_clicked());
+		btn_serverport.setText("ServerPort");
+		btn_serverport.addActionListener(e -> btn_serverport_clicked());
 		btn_doNotPress.setText("don't press this button");
 		btn_doNotPress.addActionListener(e -> btn_doNotPress_clicked());
 		btn_credits.setText("Credits");
 		btn_credits.addActionListener(e -> btn_credits_clicked());
 	}
-	
+
 	/*
 	 * 
 	 */
@@ -93,11 +93,11 @@ public class Panel_SettingMenue extends JPanel {
 		btn_sound.setFont(font);
 		btn_sound.setForeground(Color.white);
 			
-		backgroundGif.add(btn_updates);
-		btn_updates.setBounds(540,380,200,40);
-		btn_updates.setBackground(Color.black);
-		btn_updates.setFont(font);
-		btn_updates.setForeground(Color.white);
+		backgroundGif.add(btn_serverport);
+		btn_serverport.setBounds(540,380,200,40);
+		btn_serverport.setBackground(Color.black);
+		btn_serverport.setFont(font);
+		btn_serverport.setForeground(Color.white);
 			
 		backgroundGif.add(btn_doNotPress);
 		btn_doNotPress.setBounds(540,440,200,40);		 							
@@ -144,7 +144,7 @@ public class Panel_SettingMenue extends JPanel {
 	/*
 	 * 
 	 */
-    private void btn_updates_clicked() {
+    private void btn_serverport_clicked() {
     	try {
 			buttonClickSound();
 		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {

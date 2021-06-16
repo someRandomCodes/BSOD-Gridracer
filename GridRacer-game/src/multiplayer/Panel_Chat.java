@@ -9,7 +9,6 @@ import java.awt.Font;
 import java.awt.GridLayout;
 
 import javax.swing.JButton;
-import javax.swing.JEditorPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -21,7 +20,9 @@ import java.net.MalformedURLException;
 
 
 /**
- * Klassen beschreibung
+ * This class creates the server connection to the
+ * chatinterface and contains chatelements
+ * 
  * @author Thomas Guede Stork
  * @author Islyam Makanalin
  * @author Lukas Mohrbacher
@@ -38,7 +39,9 @@ public class Panel_Chat extends JPanel {
 	private JButton btn_send = new JButton("send Msg");
 
 	/*
-	 * 
+	 * This Constructor for the Chat Panel who contains the Chat Text
+	 * the text to send
+	 * and the button 
 	 */
 	public Panel_Chat() throws MalformedURLException,RemoteException,NotBoundException {	
 		Font font = new Font("Apple Casual", Font.ITALIC|Font.BOLD, 20);
@@ -83,7 +86,7 @@ public class Panel_Chat extends JPanel {
 	}
 	
 	/*
-	 * 
+	 * This Method send the Message to the Server
 	 */
 	void sendMsg() {
 		try {

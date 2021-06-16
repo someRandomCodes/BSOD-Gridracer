@@ -11,7 +11,9 @@ import serverApplication.RMIServer;
 import startGame.MyFrame;
 
 /**
- * Klassen beschreibung
+ * This class creates the Multiplayer Layout and contains
+ * the chat, the game and the playerStats
+ * 
  * @author Thomas Guede Stork
  * @author Islyam Makanalin
  * @author Lukas Mohrbacher

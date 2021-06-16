@@ -1,7 +1,6 @@
 package multiplayer;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.rmi.Naming;
@@ -17,7 +16,11 @@ import characterSettings.Loadsave;
 import serverApplication.charstatInterface;
 
 /**
- * Klassen beschreibung
+ * This class connects to the server and load the character name
+ * and character picture from enemy.
+ * 
+ * And uploaded the own character name and Picture.
+ * 
  * @author Thomas Guede Stork
  * @author Islyam Makanalin
  * @author Lukas Mohrbacher
@@ -40,7 +43,13 @@ public class Panel_PlayerInfo extends JPanel{
 	private char character2 = 'N';
 	
 	/*
+	 * Creates the Character stats Panel and contains
+	 * the enemy Picture and name and also the own name and Picture
 	 * 
+	 * @param int to set the Player self as an Host or an Client 
+	 * 
+	 * (1 to Host | 2 to Client | 3 for Host but on 1 PC)
+	 * 3 also activates the second key Listener (i j k l to navigate)
 	 */
 	Panel_PlayerInfo(int id) {
 		try {
@@ -114,7 +123,11 @@ public class Panel_PlayerInfo extends JPanel{
 	}
 	
 	/*
+	 * Returns the String to the Character Picture
+	 * by an passed char.
 	 * 
+	 * @param char an char to returns the Path to an Picture
+	 * @return the Path as an String to an Picture
 	 */
 	private String playerImage(char pic) {
 		if (pic == '1') {
