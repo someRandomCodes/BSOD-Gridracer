@@ -25,6 +25,7 @@ import characterSettings.Panel_CharacterMenue;
 import multiplayer.MultiplayerGame;
 import serverApplication.RMIServer;
 import settingMenue.Panel_SettingMenue;
+import settingMenue.SoundSettings;
 
 
 /**
@@ -165,12 +166,13 @@ public class Panel_MainMenue extends JPanel {
 	 * Methoden Kommentar
 	 */
 	public void ButtonClickSound() throws UnsupportedAudioFileException, IOException, LineUnavailableException{
+		SoundSettings myVol = new SoundSettings();
 		File file = new File("src//assets//sounds//buttonclick.wav");
 		AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
 		Clip clip = AudioSystem.getClip();
 		clip.open(audioStream);
 		FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-		gainControl.setValue((float) +volume);
+		gainControl.setValue(myVol.getVolume());
 		clip.start();
 	}
 }
