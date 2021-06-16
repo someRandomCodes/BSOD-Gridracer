@@ -22,6 +22,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import settingMenue.SoundSettings;
+
 /**
  * Klassen beschreibung
  * @author Thomas Guede Stork
@@ -273,12 +275,13 @@ public class Panel_CharacterMenue extends JPanel {
 	 * Methoden Kommentar
 	 */
     private void ButtonClickSound() throws UnsupportedAudioFileException, IOException, LineUnavailableException{
+    	SoundSettings myVol = new SoundSettings();
     	File file = new File("src\\assets\\sounds\\buttonclick.wav");
     	AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
     	Clip clip = AudioSystem.getClip();
     	clip.open(audioStream);
     	FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-    	gainControl.setValue((float) + volume);
+    	gainControl.setValue(myVol.getVolume());
     	clip.start();
     }
     
