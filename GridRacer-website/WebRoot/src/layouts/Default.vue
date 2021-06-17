@@ -43,14 +43,6 @@ export default {
           name: 'Development',
           link: '#development'
         },
-        {
-          name: 'Scoreboard',
-          link: '#scoreboard'
-        },
-        {
-          name: 'Register',
-          link: '#register'
-        }
       ]
     }
   }
