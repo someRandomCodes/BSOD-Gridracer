@@ -55,7 +55,7 @@ public class Panel_CharacterMenue extends JPanel {
 	private static final long serialVersionUID = -715260095579860078L;
 
 	/*
-	 * Methoden Kommentar
+	 * using gridbag layout to generate and position 3 characters with settings and back/save buttons for character menu
 	 */
 	public Panel_CharacterMenue() {
 		Font font = new Font("Apple Casual", Font.ITALIC|Font.BOLD, 20);
@@ -180,7 +180,7 @@ public class Panel_CharacterMenue extends JPanel {
 	}
 
 	/*
-	 * Methoden Kommentar
+	 * 
 	 */
 	private void loadCharSettings() {
 		jl_name.setText(Loadsave.loadName());
@@ -189,7 +189,7 @@ public class Panel_CharacterMenue extends JPanel {
 	}
 	
 	/*
-	 * Methoden Kommentar
+	 * sets elements invisible, returns to previous menu
 	 */
     private void btn_back_clicked() {
 		this.setVisible(false);
@@ -199,13 +199,12 @@ public class Panel_CharacterMenue extends JPanel {
 		try {
 			ButtonClickSound();
 		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     }
     
 	/*
-	 * Methoden Kommentar
+	 * highlights character 1, resets other characters, plays button click sound file
 	 */
     private void btn_charOne_clicked() {
     	jl_charOne.setIcon(new ImageIcon("src\\assets\\img\\character1selected.png"));
@@ -216,13 +215,12 @@ public class Panel_CharacterMenue extends JPanel {
     	try {
 			ButtonClickSound();
 		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     }
     
 	/*
-	 * Methoden Kommentar
+	 * highlights character 2, resets other characters, plays button click sound file
 	 */
     private void btn_charTwo_clicked() {
     	jl_charTwo.setIcon(new ImageIcon("src\\assets\\img\\character2selected.png"));
@@ -233,13 +231,12 @@ public class Panel_CharacterMenue extends JPanel {
     	try {
 			ButtonClickSound();
 		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     }
     
 	/*
-	 * Methoden Kommentar
+	 * highlights character 3, resets other characters, plays button click sound file
 	 */
     private void btn_charThree_clicked() {
     	jl_charThree.setIcon(new ImageIcon("src\\assets\\img\\character3selected.png"));
@@ -250,13 +247,12 @@ public class Panel_CharacterMenue extends JPanel {
     	try {
 			ButtonClickSound();
 		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     }
     
 	/*
-	 * Methoden Kommentar
+	 * saves selected character and applied settings to settings.txt
 	 */
     private void btn_save_clicked() {
     	Loadsave.savePlayer(jl_name.getText(), Loadsave.loadScore(), chosen);
@@ -266,13 +262,12 @@ public class Panel_CharacterMenue extends JPanel {
     	try {
 			ButtonClickSound();
 		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     }
     
 	/*
-	 * Methoden Kommentar
+	 * streams audio file for button clicks
 	 */
     private void ButtonClickSound() throws UnsupportedAudioFileException, IOException, LineUnavailableException{
     	SoundSettings myVol = new SoundSettings();
@@ -286,7 +281,7 @@ public class Panel_CharacterMenue extends JPanel {
     }
     
 	/*
-	 * Methoden Kommentar
+	 * checks for selected character to return name
 	 */
     private String getCharName(char c) {
     	String name;
