@@ -11,7 +11,7 @@ import java.rmi.registry.Registry;
  * @author Islyam Makanalin
  * @author Lukas Mohrbacher
  */
-public class RMIServer extends Thread {
+public class RMIServer {
 	
 	/*
 	 * Starts the "server" and registered the objects to the registry

@@ -82,7 +82,7 @@ public class Main{
 
 		while (!(myVol.getMusik() == 3)) {
 			switch(myVol.getMusik()) {
-			case(1):gainControl.setValue(myVol.getVolume()); clip.loop(clip.LOOP_CONTINUOUSLY);
+			case(1):gainControl.setValue(myVol.getVolume()); clip.loop(Clip.LOOP_CONTINUOUSLY);
 			break;
 			case(2):clip.stop();clip.setMicrosecondPosition(0);
 			break;

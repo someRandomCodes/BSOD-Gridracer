@@ -11,12 +11,15 @@
       <div class="row">
         <div class="col-6">
           <p>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
-            et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-            Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
-            amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
-            aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
-            kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+            <span class="font-weight-bold">Gridracer:</span> <br>ist ein Spiel, basierend auf den alten Film Tron.<br>
+            Ablauf des Spiels:<br>
+            Es gibt ein Feld worauf 2 konkurrierende Fahrer versuchen den Gegner auszuspielen, indem man Sie
+            Zwingt gegen die Wand zu fahren oder gegen die eigene Linie, die gezogen wird, sobald man sich bewegt.<br>
+            <br><br>
+            Es gibt die Möglichkeit, Online gegen einen anderen zu Spielen, sowie die Möglichkeit an einen PC
+            zu 2 gegeneinander zu fahren.
+            <br><br>
+            Um das Spiel zu Starten, muss der Server sein "GO" geben und dies passiert automatisch, wenn beide Spieler eine Startrichtung gewählt haben.
           </p>
         </div>
         <div class="col-6">

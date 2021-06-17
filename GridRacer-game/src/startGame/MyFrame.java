@@ -1,22 +1,18 @@
 package startGame;
 
-import java.awt.Desktop;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import characterSettings.Loadsave;
 
-
+/**
+ * This class creates the Standard Frame 
+ */
 public class MyFrame extends JFrame {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 483402340805838478L;
 
 	/*
@@ -35,7 +31,6 @@ public class MyFrame extends JFrame {
 		
 		/*
 		 * Listener is for closing operations
-		 * open a website by closing the Frame
 		 */
         public void windowClosing(WindowEvent e) {
         	JOptionPane.showMessageDialog(null, "Auf wiedersehen " + Loadsave.loadName());

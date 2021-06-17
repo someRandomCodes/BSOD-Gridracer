@@ -31,7 +31,6 @@ public class Panel_Sounds extends JPanel {
 	JLabel backgroundGif = new JLabel(new ImageIcon("src/assets/img/test3.gif"));
 	SoundSettings myVol = new SoundSettings();
 	
-	
 	JButton btn_back = new JButton();
 	JButton btn_musicOff = new JButton();
 	JButton btn_musicOn = new JButton();
@@ -42,11 +41,7 @@ public class Panel_Sounds extends JPanel {
 	
 	static int a = 1;
 	
-	
-	
-	
-	 
-	
+
 	public Panel_Sounds() {
 		setPreferredSize(new Dimension(1280, 640));
 		setLayout(null);
@@ -56,9 +51,6 @@ public class Panel_Sounds extends JPanel {
 		backgroundGif.setBounds(0,0,1280,640);
 		backgroundGif.setVisible(true);
 		this.add(backgroundGif);
-
-		
-		
 	}
 
 	
@@ -128,6 +120,7 @@ public class Panel_Sounds extends JPanel {
 			e.printStackTrace();
 		}  
     }
+	
 	private void btn_musicOff_clicked() {
 		a = 2;
 	    try {
@@ -138,6 +131,7 @@ public class Panel_Sounds extends JPanel {
 		} 
 	    
     }
+	
 	private void btn_musicOn_clicked() {
 		a = 1;
 	    try {

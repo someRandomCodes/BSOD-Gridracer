@@ -32,6 +32,7 @@ public class Panel_startGame extends JPanel implements ActionListener {
 
 	Panel_startGame() {
 		this.setPreferredSize(new Dimension(1280, 640));
+		this.setLayout(null);
 		this.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {

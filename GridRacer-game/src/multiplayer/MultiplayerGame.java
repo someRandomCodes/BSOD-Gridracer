@@ -40,7 +40,7 @@ public class MultiplayerGame {
 		
 		frame.setVisible(true);		
 		frame.setSize(1200,800);
-		frame.setLayout(new BorderLayout());
+		frameContent.setLayout(new BorderLayout());
 		frame.setLocationRelativeTo(null);
 		frame.setResizable(true);
 		

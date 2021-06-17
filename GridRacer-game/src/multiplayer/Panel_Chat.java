@@ -8,7 +8,10 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 
+import javax.swing.InputVerifier;
 import javax.swing.JButton;
+import javax.swing.JComponent;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -96,5 +99,4 @@ public class Panel_Chat extends JPanel {
 			e.printStackTrace();
 		}
 	}
-
 }
