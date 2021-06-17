@@ -103,8 +103,6 @@
           <g-image src="~/assets/img/i-o.png" alt="Repository" class="w-100"/>
         </div>
       </div>
-
-
       <div class="row">
         <div class="col-6 text-frame">
           <span>Nebenläufigkeit</span>

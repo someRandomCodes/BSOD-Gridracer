@@ -53,6 +53,7 @@ public class MultiplayerGame {
 				System.out.println(e);
 			}
 		}
+		
 		frameContent.add(game, BorderLayout.CENTER);
 		game.requestFocus();
 	}

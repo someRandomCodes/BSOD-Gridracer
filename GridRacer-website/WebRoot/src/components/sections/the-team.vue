@@ -10,13 +10,13 @@
     <div class="container">
       <div class="row">
         <div class="col-4 d-flex align-items-center flex-column">
-          <g-image src="~/assets/img/placeholder.jpg" alt="profil"/>
+          <g-image src="~/assets/img/drunkthomas.png" alt="profil"/>
           <div class="name">
             Thomas <br> Guede Stork
           </div>
         </div>
         <div class="col-4 d-flex align-items-center flex-column">
-          <g-image src="~/assets/img/placeholder.jpg" alt="profil"/>
+          <g-image src="~/assets/img/drunklukas.png" alt="profil"/>
           <div class="name">
             Lukas <br> Mohrbacher
           </div>
