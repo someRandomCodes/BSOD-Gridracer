@@ -49,7 +49,7 @@ public class Panel_MainMenue extends JPanel {
 	private static final long serialVersionUID = -715260095579860078L;
 
 	/*
-	 * Creating a Panel as a GIF background and putting the buttons on it and position them using absolute positioning and also creating a new font for the buttons
+	 * creats a panel as a GIF background and puts the buttons on it and positions them using absolute positioning and also creats a new font for the buttons
 	 */
 	public Panel_MainMenue() {
 		Font font = new Font("Apple Casual", Font.ITALIC|Font.BOLD, 20);
