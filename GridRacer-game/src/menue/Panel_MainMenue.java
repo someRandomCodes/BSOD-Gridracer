@@ -49,7 +49,7 @@ public class Panel_MainMenue extends JPanel {
 	private static final long serialVersionUID = -715260095579860078L;
 
 	/*
-	 * creats a panel as a GIF background and puts the buttons on it and positions them using absolute positioning and also creats a new font for the buttons
+	 * creates a panel as a GIF background and puts the buttons on it and positions them using absolute positioning and also creates a new font for the buttons
 	 */
 	public Panel_MainMenue() {
 		Font font = new Font("Apple Casual", Font.ITALIC|Font.BOLD, 20);
@@ -163,7 +163,7 @@ public class Panel_MainMenue extends JPanel {
     }
     
 	/*
-	 * creats a new buttonclicksound wav file, creats a new audioinputstream with the file and a new clip wich starts everytime the method is called
+	 * creates a new buttonclicksound.wav file, creates a new audioinputstream with the file and a new clip, which starts every time the method is called
 	 */
 	public void ButtonClickSound() throws UnsupportedAudioFileException, IOException, LineUnavailableException{
 		SoundSettings myVol = new SoundSettings();

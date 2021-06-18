@@ -50,7 +50,7 @@ public class Panel_SettingMenue extends JPanel {
 	private static final long serialVersionUID = -715260095579860078L;
 
 	/*
-	 * uses methods createComponents and addComponents to creat and add buttons and creats a label for the GIF background
+	 * uses methods createComponents and addComponents to create and add buttons and creates a label for the GIF background
 	 */
 	public Panel_SettingMenue() {
 		setPreferredSize(new Dimension(1280, 640));
@@ -63,7 +63,7 @@ public class Panel_SettingMenue extends JPanel {
 	}
 	
 	/*
-	 * adds a text to the buttons and uses lambda exression for listener code
+	 * adds a text to the buttons and uses lambda expression for listener code
 	 */
 	public void createComponents() {
 		btn_back.setText("Back");
@@ -129,7 +129,7 @@ public class Panel_SettingMenue extends JPanel {
     }
     
 	/*
-	 * sets Settings_Menue panel invisible, opens Sounds panel und sets it visible and replays the buttonclick sound
+	 * sets Settings_Menue panel invisible, opens Sounds panel and sets it visible and replays the buttonclick sound
 	 */
     private void btn_sound_clicked() {
     	try {
@@ -173,7 +173,7 @@ public class Panel_SettingMenue extends JPanel {
     }
     
 	/*
-	 * opens a new frame with maximazied size and adds the Credits panel to it and replays the buttonclick sound
+	 * opens a new frame with maximized size and adds the Credits panel to it and replays the buttonclick sound
 	 */
     private void btn_credits_clicked() {
     	MyFrame frame = new MyFrame(false);
@@ -189,7 +189,7 @@ public class Panel_SettingMenue extends JPanel {
     }
     
 	/*
-	 * creats a new buttonclicksound wav file, creats a new audioinputstream with the file and a new clip wich starts everytime the method is called
+	 * creates a new buttonclicksound.wav file, creates a new audioinputstream with the file and a new clip, which starts every time the method is called
 	 */
 	public  void buttonClickSound() throws UnsupportedAudioFileException, IOException, LineUnavailableException{
 		
