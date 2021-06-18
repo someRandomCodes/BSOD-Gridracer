@@ -21,7 +21,7 @@ import javax.swing.Timer;
 public class Panel_Credits extends JPanel implements ActionListener {
 	
 	/**
-	 * 
+	 * creats a new timer, 2 variables text and textY, and a new color for the background
 	 */
 	private static final long serialVersionUID = -1328399414907651111L;
 	
@@ -31,7 +31,7 @@ public class Panel_Credits extends JPanel implements ActionListener {
 	Color myColor = new Color(1, 84, 153);
 	
 	/*
-	 * 
+	 * adds the creditstext to the variable text, starts the timer and creats 4 labels wich makes the background looks like the bsod in windows
 	 */
 	public Panel_Credits() {
 		this.setPreferredSize(new Dimension(1280, 400));
@@ -39,12 +39,12 @@ public class Panel_Credits extends JPanel implements ActionListener {
 		this.setLayout(null);
 		this.setBackground(myColor);
 		
-		text = "GRID RACER wird Ihnen präsentiert von...\n\n"
+		text = "GRID RACER wird Ihnen prÃ¤sentiert von...\n\n"
 				+ "B.S.O.D\n"
 				+"THOMAS\n"
 				+"LUKAS\n"
 				+"AMAN\n\n"
-				+"Danke f�rs Zocken";
+				+"Danke fürs Zocken";
 		
 		creditTimer.start();
 		
@@ -56,14 +56,14 @@ public class Panel_Credits extends JPanel implements ActionListener {
 		bsodlabel1.setBounds(200,100,400,400);
 		
 		JLabel bsodlabel2 = new JLabel();
-		bsodlabel2.setText("Your PC ran into a problem and needs to restart. We�re ");
+		bsodlabel2.setText("Your PC ran into a problem and needs to restart. We´re ");
 		bsodlabel2.setVisible(true);
 		bsodlabel2.setFont(new Font("ARIAL",100,30));
 		bsodlabel2.setForeground(Color.white);
 		bsodlabel2.setBounds(200,200,1100,400);
 		
 		JLabel bsodlabel3 = new JLabel();
-		bsodlabel3.setText("just collecting some error info, and then we�ll restart for");
+		bsodlabel3.setText("just collecting some error info, and then we´ll restart for");
 		bsodlabel3.setVisible(true);
 		bsodlabel3.setFont(new Font("ARIAL",100,30));
 		bsodlabel3.setForeground(Color.white);
