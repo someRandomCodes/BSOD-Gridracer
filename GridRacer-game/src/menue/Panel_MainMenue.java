@@ -49,7 +49,7 @@ public class Panel_MainMenue extends JPanel {
 	private static final long serialVersionUID = -715260095579860078L;
 
 	/*
-	 * Methoden Kommentar
+	 * Creating a Panel as a GIF background and putting the buttons on it and position them using absolute positioning and also creating a new font for the buttons
 	 */
 	public Panel_MainMenue() {
 		Font font = new Font("Apple Casual", Font.ITALIC|Font.BOLD, 20);
@@ -98,7 +98,7 @@ public class Panel_MainMenue extends JPanel {
 	}
 	
 	/*
-	 * Methoden Kommentar
+	 * allows to launch associated applications registered on the native desktop and to open up our URI and replays the buttonclick sound
 	 */
     private void btn_website_clicked() {
 		if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
@@ -119,7 +119,7 @@ public class Panel_MainMenue extends JPanel {
 	}
 
 	/*
-	 * Methoden Kommentar
+	 * starts MultiplayerGame and RMIServer method and replays the buttonclick sound
 	 */
     private void  btn_StartMultiplayer_clicked() throws RemoteException {
     	new MultiplayerGame();
@@ -133,7 +133,7 @@ public class Panel_MainMenue extends JPanel {
     }
     
 	/*
-	 * Methoden Kommentar
+	 * sets Settings_MainMenue panel invisible, opens CharacterSettings panel, sets it visible and replays the buttonclick sound
 	 */
     private void btn_CharacterSettings_clicked() {
 		this.setVisible(false);
@@ -148,7 +148,7 @@ public class Panel_MainMenue extends JPanel {
     }
     
 	/*
-	 * Methoden Kommentar
+	 * sets Settings_MainMenue panel invisible, opens Settings panel, sets it visible and replays the buttonclick sound
 	 */
     private void btn_Settings_clicked() {
 		this.setVisible(false);
@@ -163,7 +163,7 @@ public class Panel_MainMenue extends JPanel {
     }
     
 	/*
-	 * Methoden Kommentar
+	 * creats a new buttonclicksound wav file, creats a new audioinputstream with the file and a new clip wich starts everytime the method is called
 	 */
 	public void ButtonClickSound() throws UnsupportedAudioFileException, IOException, LineUnavailableException{
 		SoundSettings myVol = new SoundSettings();
