@@ -31,7 +31,7 @@ public class Panel_Credits extends JPanel implements ActionListener {
 	Color myColor = new Color(1, 84, 153);
 	
 	/*
-	 * adds the creditstext to the variable text, starts the timer and creats 4 labels wich makes the background looks like the bsod in windows
+	 * adds the credits to the variable text, starts the timer and creats 4 labels wich makes the background looks like the bsod in windows
 	 */
 	public Panel_Credits() {
 		this.setPreferredSize(new Dimension(1280, 400));
