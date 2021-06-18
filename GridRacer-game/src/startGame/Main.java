@@ -10,12 +10,9 @@ import javax.sound.sampled.Clip;
 import javax.sound.sampled.FloatControl;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
-import javax.swing.JFrame;
 import javax.swing.JProgressBar;
 
-import characterSettings.Loadsave;
 import settingMenue.Panel_Sounds;
-import settingMenue.SoundSettings;
 
 public class Main{
 	private static JProgressBar LoadingBar = new JProgressBar();
@@ -71,22 +68,31 @@ public class Main{
 	}
 	
 	/*
-	 * 
+	 * creates 2 audio streams with different wav files
+	 * streams one of those if music is turned on in settings in a while loop
 	 */
 	public static  void backGroundMusic() throws UnsupportedAudioFileException, IOException, LineUnavailableException{
-		SoundSettings myVol = new SoundSettings();
 		File file = new File("src//assets//sounds//baba.wav");
 		AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
 		Clip clip = AudioSystem.getClip();
 		clip.open(audioStream);
 		FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+		
+		File file2 = new File("src//assets//sounds//baba2.wav");
+		AudioInputStream audioStream2 = AudioSystem.getAudioInputStream(file2);
+		Clip clip2 = AudioSystem.getClip();
+		clip2.open(audioStream2);
+		FloatControl gainControl2 = (FloatControl) clip2.getControl(FloatControl.Type.MASTER_GAIN);
 
-		while (!(myVol.getMusik() == 3)) {
-			switch(myVol.getMusik()) {
-			case(1):gainControl.setValue(Panel_Sounds.volume()); clip.loop(Clip.LOOP_CONTINUOUSLY);
+		while (!(Panel_Sounds.a == 5)) {
+			switch(Panel_Sounds.a) {
+			case(1):clip2.stop();
+					gainControl.setValue(Panel_Sounds.volume()); clip.loop(Clip.LOOP_CONTINUOUSLY);
 			break;
-			case(2):clip.stop();clip.setMicrosecondPosition(0);
+			case(2):clip.stop(); clip.setMicrosecondPosition(0);
 			break;
+			case(3):clip.stop(); clip.setMicrosecondPosition(0);
+					gainControl2.setValue(Panel_Sounds.volume()); clip2.loop(Clip.LOOP_CONTINUOUSLY);
 			}
 		}
 		

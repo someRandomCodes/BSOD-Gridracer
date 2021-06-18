@@ -21,7 +21,7 @@ import javax.swing.Timer;
 public class Panel_Credits extends JPanel implements ActionListener {
 	
 	/**
-	 * creats a new timer, 2 variables text and textY, and a new color for the background
+	 * creates a new timer, 2 variables text and textY, and a new color for the background
 	 */
 	private static final long serialVersionUID = -1328399414907651111L;
 	
@@ -83,7 +83,8 @@ public class Panel_Credits extends JPanel implements ActionListener {
 	}
 	
 	/*
-	 * 
+	 * method including for loop witch creates a new line between every /n in the variable text
+	 * sets a font and a font size for text
 	 */
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g); 
@@ -104,7 +105,8 @@ public class Panel_Credits extends JPanel implements ActionListener {
 	}
 	
 		/*
-		 * 
+		 * reduces the textY which makes the text move from the bottom to the top
+		 * stops the text if the textY reaches 170
 		 */
 	public void actionPerformed(ActionEvent e) {
 		System.out.println(textY);

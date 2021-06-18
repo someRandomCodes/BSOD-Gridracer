@@ -8,6 +8,7 @@ import java.rmi.RemoteException;
 import javax.swing.JOptionPane;
 
 import serverApplication.RMIServer;
+import settingMenue.Panel_Sounds;
 import startGame.MyFrame;
 
 /**
@@ -31,6 +32,13 @@ public class MultiplayerGame {
 		if (id == 1 || id == 3) {
 			new RMIServer();
 		}
+		if (Panel_Sounds.a == 2 ||Panel_Sounds.a == 3 ) {
+			
+		}else {
+			Panel_Sounds.a = 3;
+		}
+			
+		
 		
 		Panel_PlayerInfo playerStats = new Panel_PlayerInfo(id);
 		Panel_TheGame game = new Panel_TheGame(id);		
@@ -43,6 +51,26 @@ public class MultiplayerGame {
 		frameContent.setLayout(new BorderLayout());
 		frame.setLocationRelativeTo(null);
 		frame.setResizable(true);
+		frame.addWindowListener(new java.awt.event.WindowAdapter() {
+			/*
+			 *opens JOptionPane with yes or no options
+			 *turns menu music on and game music off 
+			 */
+		    public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+		        if (JOptionPane.showConfirmDialog(frame, 
+		            "Are you sure you want to quit the game?", "Quit game?", 
+		            JOptionPane.YES_NO_OPTION,
+		            JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
+		        	if (Panel_Sounds.a==1 || Panel_Sounds.a == 2) {
+		        		
+		        	}else {
+		        		Panel_Sounds.a = 1;
+		        	}
+		        	
+		        }
+		    }
+		});
+		
 		
 		if (id != 3) {
 			frameContent.add(playerStats, BorderLayout.NORTH);

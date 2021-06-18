@@ -1,4 +1,4 @@
 playername:VeqwmiLevxqerr
 score:4
-char:7
+char:6
 rated:false

@@ -1,7 +1,6 @@
 package characterSettings;
 
 import java.awt.Insets;
-import java.io.File;
 import java.io.IOException;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -9,10 +8,6 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.FloatControl;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.ImageIcon;
@@ -23,7 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import settingMenue.Panel_Sounds;
-import settingMenue.SoundSettings;
+
 
 /**
  * Klassen beschreibung
@@ -32,7 +27,7 @@ import settingMenue.SoundSettings;
  * @author Lukas Mohrbacher
  */
 public class Panel_CharacterMenue extends JPanel {
-	public char chosen = ' ';
+	public char chosen = 0;
 	private JButton btn_back = new JButton("Back");
 	private JButton btn_charOne = new JButton("Lvl 1 crook");
 	private JButton btn_charTwo = new JButton("Lvl 69 gangster");
@@ -50,7 +45,7 @@ public class Panel_CharacterMenue extends JPanel {
 	
 	private GridBagConstraints gbc = new GridBagConstraints();
 	
-	int volume = -20;
+	
 
 	
 	private static final long serialVersionUID = -715260095579860078L;
@@ -256,9 +251,16 @@ public class Panel_CharacterMenue extends JPanel {
 	 * saves selected character and applied settings to settings.txt
 	 */
     private void btn_save_clicked() {
-    	Loadsave.savePlayer(jl_name.getText(), Loadsave.loadScore(), chosen);
-    	JOptionPane.showMessageDialog(null, "Auswahl wurde Gespeichert");
-    	loadCharSettings();
+    	if (chosen==0) {
+    		JOptionPane.showMessageDialog(null,"Keinen Charakter ausgewählt.");
+    	}
+    		else {
+    			Loadsave.savePlayer(jl_name.getText(), Loadsave.loadScore(), chosen);
+    	    	JOptionPane.showMessageDialog(null, "Auswahl wurde Gespeichert");
+    	    	loadCharSettings();
+    		}
+    	
+    	
     	
     	try {
     		Panel_Sounds.buttonClickSound();

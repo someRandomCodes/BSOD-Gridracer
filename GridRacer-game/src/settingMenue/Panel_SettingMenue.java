@@ -1,26 +1,18 @@
 package settingMenue;
 
-import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.GridLayout;
 import java.awt.Color;
 import java.awt.Font;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.FloatControl;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
-import java.io.File;
 import java.io.IOException;
 
 import characterSettings.Loadsave;
@@ -34,7 +26,7 @@ import startGame.MyFrame;
  */
 public class Panel_SettingMenue extends JPanel {
 	Panel_Sounds p_sound = new Panel_Sounds();
-	SoundSettings myVol = new SoundSettings();
+	
 	
 	JButton btn_back = new JButton();
 	JButton btn_sound = new JButton();
@@ -114,7 +106,7 @@ public class Panel_SettingMenue extends JPanel {
     }
     
 	/*
-	 * 
+	 * sets elements invisible, returns to previous menu
 	 */
     private void btn_back_clicked() {
 		this.setVisible(false);
@@ -144,7 +136,7 @@ public class Panel_SettingMenue extends JPanel {
     }
     
 	/*
-	 * 
+	 * replays the buttonclick sound
 	 */
     private void btn_updates_clicked() {
     	try {
@@ -156,7 +148,8 @@ public class Panel_SettingMenue extends JPanel {
     }
     
 	/*
-	 * opens a JOptionPane 
+	 * opens a JOptionPane witch allows user to type in the secret password
+	 * allows the user to choose the score he wants
 	 */
     private void btn_doNotPress_clicked() {
     	String eingabe = JOptionPane.showInputDialog("");
@@ -173,7 +166,7 @@ public class Panel_SettingMenue extends JPanel {
     }
     
 	/*
-	 * opens a new frame with maximized size and adds the Credits panel to it and replays the buttonclick sound
+	 * opens a new frame with maximized size and adds the credits panel on it and replays the buttonclick sound
 	 */
     private void btn_credits_clicked() {
     	MyFrame frame = new MyFrame(false);

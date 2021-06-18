@@ -27,9 +27,13 @@ import javax.swing.event.ChangeListener;
  * @author Lukas Mohrbacher
  */
 public class Panel_Sounds extends JPanel {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7767668161602340122L;
 	Font font = new Font("Apple Casual", Font.ITALIC|Font.BOLD, 20);
 	JLabel backgroundGif = new JLabel(new ImageIcon("src/assets/img/test3.gif"));
-	SoundSettings myVol = new SoundSettings();
+	
 	
 	JButton btn_back = new JButton();
 	JButton btn_musicOff = new JButton();
@@ -39,9 +43,11 @@ public class Panel_Sounds extends JPanel {
 	
 	JLabel jl_volumeAnzeige = new JLabel();
 	
-	static int a = 1;
+	public static int a = 1;
 	
-
+	/*
+	 * creates a panel as a GIF background
+	 */
 	public Panel_Sounds() {
 		setPreferredSize(new Dimension(1280, 640));
 		setLayout(null);
@@ -54,7 +60,9 @@ public class Panel_Sounds extends JPanel {
 	}
 
 	
-
+	/*
+	 * gives the buttons a text and adds lambda expression for listener code 
+	 */
 	private void createComponents() {
 		btn_back.setText("Back");
 		btn_back.addActionListener(e -> btn_back_clicked());
@@ -62,8 +70,11 @@ public class Panel_Sounds extends JPanel {
 		btn_musicOff.addActionListener(e -> btn_musicOff_clicked());
 		btn_musicOn.setText("On");
 		btn_musicOn.addActionListener(e -> btn_musicOn_clicked());
-		
 	}
+	/*
+	 * adds the buttons to the background GIF panel and positions them using absolute positioning
+	 * sets new colors to the buttons and a new font
+	 */
 	private void addComponents() {
 		backgroundGif.add(btn_back);
 		btn_back.setBounds(540,260,200,40);
@@ -108,7 +119,9 @@ public class Panel_Sounds extends JPanel {
 			   }
 			 });
 	}
-	
+	/*
+	 * sets elements invisible, returns to main menu and replays buttonclick sound
+	 */
 	private void btn_back_clicked() {
 		this.setVisible(false);
 		this.getParent().getComponents()[0].setVisible(true);
@@ -120,43 +133,44 @@ public class Panel_Sounds extends JPanel {
 			e.printStackTrace();
 		}  
     }
-	
+	/*
+	 * sets the variable a to 2, witch turns the background music off
+	 */
 	private void btn_musicOff_clicked() {
-		a = 2;
+		Panel_Sounds.a = 2;
 	    try {
 			buttonClickSound();
 		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} 
-	    
+		}    
     }
-	
+	/*
+	 * sets the variable a to 1, witch turns the background music on
+	 */
 	private void btn_musicOn_clicked() {
-		a = 1;
+		Panel_Sounds.a = 1;
 	    try {
 			buttonClickSound();
 		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
-	    
     }
+	/*
+	 * a method, witch always returns the current volume value from the slider
+	 */
 	public static int volume() {
 		int vol= -80;
 		vol += js_sound.getValue();
 		return vol;
-		
 	}
-	
-	public static int music() {
-		int music = a;
-		return music;
-	}
+	/*
+	 * creates audio streams with a wav file
+	 * streams the file when method is called
+	 */
 	public static  void buttonClickSound() throws UnsupportedAudioFileException, IOException, LineUnavailableException{
-		
 		File file = new File("src//assets//sounds//buttonclick.wav");
-		
 		
 		AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
 		Clip clip = AudioSystem.getClip();
@@ -165,5 +179,4 @@ public class Panel_Sounds extends JPanel {
 		gainControl.setValue(Panel_Sounds.volume());
 		clip.start();
 		}
-	
 }
