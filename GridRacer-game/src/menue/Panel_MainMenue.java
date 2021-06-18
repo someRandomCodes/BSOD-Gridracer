@@ -25,6 +25,7 @@ import characterSettings.Panel_CharacterMenue;
 import multiplayer.MultiplayerGame;
 import serverApplication.RMIServer;
 import settingMenue.Panel_SettingMenue;
+import settingMenue.Panel_Sounds;
 import settingMenue.SoundSettings;
 
 
@@ -111,7 +112,7 @@ public class Panel_MainMenue extends JPanel {
 			}
 		}
 	    try {
-			ButtonClickSound();
+	    	Panel_Sounds.buttonClickSound();
 		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -125,7 +126,7 @@ public class Panel_MainMenue extends JPanel {
     	new MultiplayerGame();
     	new RMIServer();
 	    try {
-			ButtonClickSound();
+	    	Panel_Sounds.buttonClickSound();
 		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -140,7 +141,7 @@ public class Panel_MainMenue extends JPanel {
 		this.getParent().add(p_characterMenue);
 		p_characterMenue.setVisible(true);
 	   	try {
-			ButtonClickSound();
+	   		Panel_Sounds.buttonClickSound();
 		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -155,24 +156,10 @@ public class Panel_MainMenue extends JPanel {
 		this.getParent().add(p_settingMenue);
 		p_settingMenue.setVisible(true);
 	    	try {
-			ButtonClickSound();
+			Panel_Sounds.buttonClickSound();
 		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     }
-    
-	/*
-	 * creates a new buttonclicksound.wav file, creates a new audioinputstream with the file and a new clip, which starts every time the method is called
-	 */
-	public void ButtonClickSound() throws UnsupportedAudioFileException, IOException, LineUnavailableException{
-		SoundSettings myVol = new SoundSettings();
-		File file = new File("src//assets//sounds//buttonclick.wav");
-		AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
-		Clip clip = AudioSystem.getClip();
-		clip.open(audioStream);
-		FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-		gainControl.setValue(myVol.getVolume());
-		clip.start();
-	}
 }

@@ -121,7 +121,7 @@ public class Panel_SettingMenue extends JPanel {
 		this.getParent().getComponents()[0].setVisible(true);
 		this.getParent().remove(this);
 	    try {
-			buttonClickSound();
+	    	Panel_Sounds.buttonClickSound();
 		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -133,7 +133,7 @@ public class Panel_SettingMenue extends JPanel {
 	 */
     private void btn_sound_clicked() {
     	try {
-			buttonClickSound();
+    		Panel_Sounds.buttonClickSound();
 		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -148,7 +148,7 @@ public class Panel_SettingMenue extends JPanel {
 	 */
     private void btn_updates_clicked() {
     	try {
-			buttonClickSound();
+    		Panel_Sounds.buttonClickSound();
 		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -165,7 +165,7 @@ public class Panel_SettingMenue extends JPanel {
     		Loadsave.savePlayer(Loadsave.loadName(), newScore, '4');
     	}
 	    try {
-			buttonClickSound();
+	    	Panel_Sounds.buttonClickSound();
 		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -181,25 +181,10 @@ public class Panel_SettingMenue extends JPanel {
     	frame.add(new Panel_Credits());
     	frame.setVisible(true);
 	    try {
-			buttonClickSound();
+	    	Panel_Sounds.buttonClickSound();
 		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     }
-    
-	/*
-	 * creates a new buttonclicksound.wav file, creates a new audioinputstream with the file and a new clip, which starts every time the method is called
-	 */
-	public  void buttonClickSound() throws UnsupportedAudioFileException, IOException, LineUnavailableException{
-		
-	File file = new File("src//assets//sounds//buttonclick.wav");
-	
-	AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
-	Clip clip = AudioSystem.getClip();
-	clip.open(audioStream);
-	FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-	gainControl.setValue(myVol.getVolume());
-	clip.start();
-	}
 }

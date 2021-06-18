@@ -153,14 +153,7 @@ public class Panel_Sounds extends JPanel {
 		int music = a;
 		return music;
 	}
-	
-	
-	
-	
-	
-	
-	
-	public  void buttonClickSound() throws UnsupportedAudioFileException, IOException, LineUnavailableException{
+	public static  void buttonClickSound() throws UnsupportedAudioFileException, IOException, LineUnavailableException{
 		
 		File file = new File("src//assets//sounds//buttonclick.wav");
 		
@@ -169,7 +162,7 @@ public class Panel_Sounds extends JPanel {
 		Clip clip = AudioSystem.getClip();
 		clip.open(audioStream);
 		FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-		gainControl.setValue(myVol.getVolume());
+		gainControl.setValue(Panel_Sounds.volume());
 		clip.start();
 		}
 	
