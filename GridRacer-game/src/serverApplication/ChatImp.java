@@ -2,6 +2,7 @@ package serverApplication;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
 
 /**
  * This class is for Chat Logic on Server Side
@@ -15,8 +16,7 @@ public class ChatImp extends UnicastRemoteObject implements ChatInterface {
 	 * 
 	 */
 	private static final long serialVersionUID = 6475519343166703452L;
-	String msg = "";
-	
+	private ArrayList<chatmessage<String>> chathistory = new ArrayList<>();
     protected ChatImp() throws RemoteException {
 		super();
 	}
@@ -28,6 +28,10 @@ public class ChatImp extends UnicastRemoteObject implements ChatInterface {
      */
 	@Override
 	public String check() throws RemoteException {
+		String msg = null;
+		for (int i = 0; i < chathistory.size(); i++) {
+			msg += chathistory.get(i).getMessage();
+		}
 		return msg;
 	}
 	
@@ -39,6 +43,6 @@ public class ChatImp extends UnicastRemoteObject implements ChatInterface {
      */
 	@Override
 	public void newMsg(String msg) throws RemoteException {
-		this.msg += msg + "\n";
+		chathistory.add(new chatmessage<String>(msg + "\n"));
 	}
 }
