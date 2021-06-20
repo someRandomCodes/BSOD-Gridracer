@@ -157,8 +157,8 @@ public class Panel_SettingMenue extends JPanel {
     private void btn_doNotPress_clicked() {
     	String eingabe = JOptionPane.showInputDialog("");
     	if (eingabe.equals("BSOD")) {
-    		int newScore = Integer.parseInt(JOptionPane.showInputDialog("Score"));
-    		Loadsave.savePlayer(Loadsave.loadName(), newScore, '4');
+    		Loadsave.savePlayer(Loadsave.loadName(), 9000, '4', Loadsave.loadGamerated());
+    		JOptionPane.showMessageDialog(null, "unlock character");
     	}
 	    try {
 	    	Panel_Sounds.buttonClickSound();

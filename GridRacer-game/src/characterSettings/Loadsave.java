@@ -1,6 +1,5 @@
 package characterSettings;
 
-import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -19,8 +18,8 @@ import javax.swing.JOptionPane;
  * @author Lukas Mohrbacher
  */
 public class Loadsave {
-	static File settings = new File(".\\settings\\settings.txt");
-	static File clientSettings = new File(".\\settings\\clientsettings.txt");
+	private static File settings = new File(".\\settings\\settings.txt");
+	private static File clientSettings = new File(".\\settings\\clientsettings.txt");
 	private static char[] alphabet = 
 			{ 'a', 'b', 'c','d',
 			'e','f','g','h','i','j','k','l',
@@ -120,14 +119,18 @@ public class Loadsave {
 	/*
 	 * save the player settings in file
 	 */
-	public static void savePlayer(String name, int score, char character) {
+	public static void savePlayer(String name, int score, char character, boolean rated) {
 		try {
 			settings.createNewFile();
 			PrintWriter write = new PrintWriter(new FileWriter(settings));
 			write.println("playername:" + encode(name));
 			write.println("score:" + encode(Integer.toString(score)));
 			write.println("char:" + encode(String.valueOf(character)));
-			write.println("rated:" + loadGamerated());
+			if (rated) {
+				write.println("rated:true");
+			} else {
+				write.println("rated:" + loadGamerated());
+			}
 			write.flush();
 			write.close();
 		} catch (IOException e) {

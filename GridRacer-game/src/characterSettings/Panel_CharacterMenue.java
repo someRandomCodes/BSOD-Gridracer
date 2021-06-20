@@ -255,7 +255,7 @@ public class Panel_CharacterMenue extends JPanel {
     		JOptionPane.showMessageDialog(null,"Keinen Charakter ausgewählt.");
     	}
     		else {
-    			Loadsave.savePlayer(jl_name.getText(), Loadsave.loadScore(), chosen);
+    			Loadsave.savePlayer(jl_name.getText(), Loadsave.loadScore(), chosen, Loadsave.loadGamerated());
     	    	JOptionPane.showMessageDialog(null, "Auswahl wurde Gespeichert");
     	    	loadCharSettings();
     		}
