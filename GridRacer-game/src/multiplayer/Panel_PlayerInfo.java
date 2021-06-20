@@ -53,7 +53,7 @@ public class Panel_PlayerInfo extends JPanel{
 	 */
 	Panel_PlayerInfo(int id) {
 		try {
-			charstatInterface charstatinterface = (charstatInterface)Naming.lookup("rmi://localhost:1099/CharStat");	
+			charstatInterface charstatinterface = (charstatInterface)Naming.lookup("rmi://" + Loadsave.loadServerAdress() + "/CharStat");	
 	        server = charstatinterface;
 	        
 		} catch(Exception e) {

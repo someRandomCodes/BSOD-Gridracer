@@ -24,6 +24,8 @@ import javax.swing.JTextField;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+import characterSettings.Loadsave;
+
 /**
  * Klassen beschreibung
  * @author Thomas Guede Stork
@@ -67,7 +69,7 @@ public class Panel_ClientSettings extends JPanel {
 		btn_back.setText("Back");
 		btn_back.addActionListener(e -> btn_back_clicked());
 		btn_save.setText("Save");
-		btn_save.addActionListener(e -> btn_back_clicked());
+		btn_save.addActionListener(e -> btn_save_clicked());
 	}
 	
 	/*
@@ -89,6 +91,13 @@ public class Panel_ClientSettings extends JPanel {
 		
 		btn_save.setBounds(540,420,200,40);
 		backgroundGif.add(btn_save);	
+	}
+	
+	/*
+	 * sets elements invisible, returns to main menu and replays Button click sound
+	 */
+	private void btn_save_clicked() {
+		Loadsave.saveClientSettings(tf_ip.getText(), tf_port.getText());
 	}
 	
 	/*

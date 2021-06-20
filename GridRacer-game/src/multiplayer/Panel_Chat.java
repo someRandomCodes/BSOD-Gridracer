@@ -69,7 +69,7 @@ public class Panel_Chat extends JPanel {
 		this.add(btn_send);	
 		
 		try {
-	        ChatInterface chatinterface = (ChatInterface)Naming.lookup("rmi://localhost:1099/ChatSrv");	
+	        ChatInterface chatinterface = (ChatInterface)Naming.lookup("rmi://" + Loadsave.loadServerAdress() + "/ChatSrv");	
 	        server = chatinterface;
 	        
 		} catch(Exception e) {

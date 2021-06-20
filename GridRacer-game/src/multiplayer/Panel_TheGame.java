@@ -10,6 +10,7 @@ import java.rmi.RemoteException;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import characterSettings.Loadsave;
 import serverApplication.GameInterface;
 
 /**
@@ -57,7 +58,7 @@ public class Panel_TheGame extends JPanel {
 		System.out.println(playerId);
 		System.out.println(enemyId);
 		try {
-			GameInterface gameinterface = (GameInterface)Naming.lookup("rmi://localhost:1099/GameSrv");	
+			GameInterface gameinterface = (GameInterface)Naming.lookup("rmi://" + Loadsave.loadServerAdress() + "/GameSrv");	
 			server = gameinterface;   
 		} catch(Exception e) {
 			System.out.println(e);

@@ -105,6 +105,18 @@
       </div>
       <div class="row">
         <div class="col-6 text-frame">
+          <span>FileWriter</span>
+          Für das Projekt haben wir den FileWriter so umgesetzt,<br>
+          dass er für das laden der Character daten zuständig ist,<br>
+          so wie für die Server adresse.<br>
+          <a href="/filewriter/">Weitere details</a>
+        </div>
+        <div class="col-6 image-frame">
+          <g-image src="~/assets/img/filewriter.png" alt="Repository" class="w-100"/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6 text-frame">
           <span>Nebenläufigkeit</span>
           Die Nebenläufigkeit haben wir in unseren Spiel oft benutzt.<br>
           Aber meistens für abfragen an den Server.<br>

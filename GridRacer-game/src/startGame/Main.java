@@ -12,6 +12,7 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JProgressBar;
 
+import characterSettings.Loadsave;
 import settingMenue.Panel_Sounds;
 
 public class Main{
@@ -45,7 +46,7 @@ public class Main{
 		
 		LoadingBar.setValue(0);
 		LoadingBar.setStringPainted(true);
-		
+
 		mainFrame.setSize(400,200);
 		frameContent.add(LoadingBar);
 		mainFrame.setVisible(true);	

@@ -1,11 +1,16 @@
 package characterSettings;
 
+import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.Scanner;
+
+import javax.swing.JOptionPane;
 
 /**
  * Klassen beschreibung
@@ -14,7 +19,8 @@ import java.util.Scanner;
  * @author Lukas Mohrbacher
  */
 public class Loadsave {
-	static File settings = new File("settings\\settings.txt");
+	static File settings = new File(".\\settings\\settings.txt");
+	static File clientSettings = new File(".\\settings\\clientsettings.txt");
 	private static char[] alphabet = 
 			{ 'a', 'b', 'c','d',
 			'e','f','g','h','i','j','k','l',
@@ -28,7 +34,7 @@ public class Loadsave {
 	
 	/*
 	 * load the player name from file
-	 * @return String playername
+	 * @return String Player name
 	 */
 	public static String loadName() {
 		try {
@@ -157,5 +163,49 @@ public class Loadsave {
 			}
 		}	
 		return decoded;
+	}
+	
+	/*
+	 * Save the ip adress and port number to 
+	 * clientsetting.txt
+	 * 
+	 * @param String port address
+	 * @param String ip adress
+	 */
+	public static void saveClientSettings(String ip, String port) {
+		try {
+			FileOutputStream fos = new FileOutputStream(clientSettings);
+			OutputStreamWriter writer = new OutputStreamWriter(fos);
+			writer.write(ip + ":" + port);
+			writer.flush();
+			writer.close();
+			JOptionPane.showInternalMessageDialog(null, "Adresse und Port wurde gespeichert");
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	/*
+	 * load ip adress and port number from
+	 * clientsetting.txt
+	 * 
+	 * @return String  Serveradress and port
+	 */
+	public static String loadServerAdress() {
+		try {
+			String address;
+			Scanner scan = new Scanner(clientSettings);
+			address = scan.next();
+			scan.close();	
+			return address;
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		System.out.println("No saved name found: Enter a name in Character Settings");
+		return "player1";
 	}
 }
