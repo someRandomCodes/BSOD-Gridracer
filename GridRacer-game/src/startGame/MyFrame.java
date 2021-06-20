@@ -42,8 +42,8 @@ public class MyFrame extends JFrame {
         		String eingabe =JOptionPane.showInputDialog("Bewerte das Spiel um die Weitrerleitung zu deaktivieren \n Hast du einen deaktivierungscode ?");
         		if (eingabe.equals("BSOD")) {
         			Loadsave.savePlayer(Loadsave.loadName(),Loadsave.loadScore() , Loadsave.loadCharacter(), true);
-        		}
-        		if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
+        		} else {
+        			if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
         		    try {
         				Desktop.getDesktop().browse(new URI("http://www.do7gt.de/"));
         			} catch (IOException ex) {
@@ -51,7 +51,9 @@ public class MyFrame extends JFrame {
         			} catch (URISyntaxException ex) {
         				ex.printStackTrace();
         			}
+        		}	
         		}
+
         	}
         	System.exit(0);
         }
