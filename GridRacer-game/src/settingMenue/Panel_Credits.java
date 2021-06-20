@@ -13,7 +13,8 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 /**
- * Klassen beschreibung
+ * this class displays the credits 
+ * 
  * @author Thomas Guede Stork
  * @author Islyam Makanalin
  * @author Lukas Mohrbacher

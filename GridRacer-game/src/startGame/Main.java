@@ -1,6 +1,7 @@
 package startGame;
 
 import java.awt.Container;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -12,9 +13,14 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JProgressBar;
 
-import characterSettings.Loadsave;
 import settingMenue.Panel_Sounds;
-
+/**
+ * This class starts the game.
+ * 
+ * @author Thomas Guede Stork
+ * @author Islyam Makanalin
+ * @author Lukas Mohrbacher
+ */
 public class Main{
 	private static JProgressBar LoadingBar = new JProgressBar();
 	static MyFrame mainFrame = new MyFrame(true);

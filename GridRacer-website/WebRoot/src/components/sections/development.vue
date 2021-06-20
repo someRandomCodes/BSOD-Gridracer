@@ -31,7 +31,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-12 text-center"><h2>GUI Umsetzung</h2></div>
+        <div class="col-12 text-center"><h2>Programmier Umsetzung</h2></div>
         <div class="col-6 text-frame">
           <span>Das Frameset</span>
           Umsetzung der GUI als JFrame,<br>
@@ -90,6 +90,20 @@
           <g-image src="~/assets/img/rmi.png" alt="Repository" class="w-100"/>
         </div>
       </div>
+      <div class="row">
+        <div class="col-6 text-frame">
+          <span>Generics</span>
+          Die umsetzung einer Generic class haben wir zur<br>
+          chathistory genutzt<br>
+
+          <br>
+          <a href="/generic/">Weitere details</a>
+        </div>
+        <div class="col-6 image-frame">
+          <g-image src="~/assets/img/generic.png" alt="Repository" class="w-100"/>
+        </div>
+      </div>
+
       <div class="row">
         <div class="col-6 text-frame">
           <span>Input / Output</span>

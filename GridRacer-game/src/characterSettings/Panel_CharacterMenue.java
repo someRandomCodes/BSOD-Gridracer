@@ -21,7 +21,8 @@ import settingMenue.Panel_Sounds;
 
 
 /**
- * Klassen beschreibung
+ * this class is to set the came character and name 
+ * 
  * @author Thomas Guede Stork
  * @author Islyam Makanalin
  * @author Lukas Mohrbacher

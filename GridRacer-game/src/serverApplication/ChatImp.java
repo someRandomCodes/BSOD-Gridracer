@@ -28,7 +28,7 @@ public class ChatImp extends UnicastRemoteObject implements ChatInterface {
      */
 	@Override
 	public String check() throws RemoteException {
-		String msg = null;
+		String msg = "";
 		for (int i = 0; i < chathistory.size(); i++) {
 			msg += chathistory.get(i).getMessage();
 		}

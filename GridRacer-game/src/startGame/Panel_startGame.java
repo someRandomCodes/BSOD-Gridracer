@@ -10,7 +10,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -18,6 +17,13 @@ import javax.swing.Timer;
 
 import menue.Panel_MainMenue;
 
+/**
+ * This class is the first panel to see
+ * 
+ * @author Thomas Guede Stork
+ * @author Islyam Makanalin
+ * @author Lukas Mohrbacher
+ */
 public class Panel_startGame extends JPanel implements ActionListener {
 	private static final long serialVersionUID = -715260095579860078L;
 	int backGroundMoveLeft = 0;
@@ -29,7 +35,10 @@ public class Panel_startGame extends JPanel implements ActionListener {
 	String welc = "Welcome to";
 	String gridRacer = "GRIDRACER";
 
-
+	/*
+	 * constructor add the keylistener keyadapter
+	 * and do some other stuff
+	 */
 	Panel_startGame() {
 		this.setPreferredSize(new Dimension(1280, 640));
 		this.setLayout(null);
@@ -47,6 +56,9 @@ public class Panel_startGame extends JPanel implements ActionListener {
 		timer.start();
 	}
 	
+	/*
+	 * paints the background
+	 */
 	public void paint(Graphics g) {
 		Graphics2D g2D = (Graphics2D) g;
 		
@@ -60,6 +72,9 @@ public class Panel_startGame extends JPanel implements ActionListener {
 		g2D.drawString("press any key to continue", 405, 300);
 	}
 	
+	/*
+	 * loads the menue and remove this class/panel
+	 */
 	public void loadMenue() {
 		this.setVisible(false);
 		this.removeAll();
@@ -68,6 +83,10 @@ public class Panel_startGame extends JPanel implements ActionListener {
 	}
 
 
+	/*
+	 * this method (action performed listen to the timer
+	 * and move the background image
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (backGroundMoveLeft >= 5000) {

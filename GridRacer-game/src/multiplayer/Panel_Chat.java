@@ -8,10 +8,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 
-import javax.swing.InputVerifier;
 import javax.swing.JButton;
-import javax.swing.JComponent;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -68,6 +65,7 @@ public class Panel_Chat extends JPanel {
 		this.add(tf_sendChatText);
 		this.add(btn_send);	
 		
+		//Connect to server
 		try {
 	        ChatInterface chatinterface = (ChatInterface)Naming.lookup("rmi://" + Loadsave.loadServerAdress() + "/ChatSrv");	
 	        server = chatinterface;
@@ -78,6 +76,9 @@ public class Panel_Chat extends JPanel {
 		
 		Timer timer = new Timer();
 		timer.scheduleAtFixedRate(new TimerTask() {
+			/*
+			 * get the message from server
+			 */
 			public void run() {
 				try {
 					ep_chatFrame.setText(server.check());

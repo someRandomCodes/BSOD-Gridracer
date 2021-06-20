@@ -28,6 +28,10 @@ public class Gameplace extends JLabel {
 		this.setText(" ");
 	}
 	
+	/*
+	 * Returns the standard background color
+	 * @return Color
+	 */
 	public Color getCheckColor() {
 		return background;
 	}

@@ -29,6 +29,7 @@ public class MultiplayerGame {
 	 */
 	public MultiplayerGame() throws RemoteException {
 		int id = Integer.parseInt(JOptionPane.showInputDialog("type 1 for Server | 2 for Client | 3 for 2 on 1 pc"));
+		
 		if (id == 1 || id == 3) {
 			new RMIServer();
 		}
@@ -39,19 +40,20 @@ public class MultiplayerGame {
 		}
 			
 		
-		
 		Panel_PlayerInfo playerStats = new Panel_PlayerInfo(id);
 		Panel_TheGame game = new Panel_TheGame(id);		
 		MyFrame frame = new MyFrame(false);
 		Container frameContent = frame.getContentPane();
+
 		frameContent.setBackground(Color.BLACK);
+		frameContent.setLayout(new BorderLayout());
 		
 		frame.setVisible(true);		
 		frame.setSize(1200,800);
-		frameContent.setLayout(new BorderLayout());
 		frame.setLocationRelativeTo(null);
 		frame.setResizable(true);
 		frame.addWindowListener(new java.awt.event.WindowAdapter() {
+			
 			/*
 			 *opens JOptionPane with yes or no options
 			 *turns menu music on and game music off 
@@ -71,7 +73,7 @@ public class MultiplayerGame {
 		    }
 		});
 		
-		
+
 		if (id != 3) {
 			frameContent.add(playerStats, BorderLayout.NORTH);
 			try {

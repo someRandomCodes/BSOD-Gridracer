@@ -21,7 +21,8 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 /**
- * Klassen beschreibung
+ * this class is for the background music loudness
+ * 
  * @author Thomas Guede Stork
  * @author Islyam Makanalin
  * @author Lukas Mohrbacher
@@ -71,6 +72,7 @@ public class Panel_Sounds extends JPanel {
 		btn_musicOn.setText("On");
 		btn_musicOn.addActionListener(e -> btn_musicOn_clicked());
 	}
+	
 	/*
 	 * adds the buttons to the background GIF panel and positions them using absolute positioning
 	 * sets new colors to the buttons and a new font
@@ -119,6 +121,7 @@ public class Panel_Sounds extends JPanel {
 			   }
 			 });
 	}
+	
 	/*
 	 * sets elements invisible, returns to main menu and replays buttonclick sound
 	 */
@@ -133,6 +136,7 @@ public class Panel_Sounds extends JPanel {
 			e.printStackTrace();
 		}  
     }
+	
 	/*
 	 * sets the variable a to 2, witch turns the background music off
 	 */
@@ -145,6 +149,7 @@ public class Panel_Sounds extends JPanel {
 			e.printStackTrace();
 		}    
     }
+	
 	/*
 	 * sets the variable a to 1, witch turns the background music on
 	 */
@@ -157,6 +162,7 @@ public class Panel_Sounds extends JPanel {
 			e.printStackTrace();
 		} 
     }
+	
 	/*
 	 * a method, witch always returns the current volume value from the slider
 	 */
@@ -165,6 +171,7 @@ public class Panel_Sounds extends JPanel {
 		vol += js_sound.getValue();
 		return vol;
 	}
+	
 	/*
 	 * creates audio streams with a wav file
 	 * streams the file when method is called

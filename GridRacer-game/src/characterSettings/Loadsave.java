@@ -12,7 +12,8 @@ import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 /**
- * Klassen beschreibung
+ * this class is to used to save into txt files and load from them
+ * 
  * @author Thomas Guede Stork
  * @author Islyam Makanalin
  * @author Lukas Mohrbacher

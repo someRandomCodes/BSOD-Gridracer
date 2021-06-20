@@ -89,6 +89,9 @@ public class Panel_PlayerInfo extends JPanel{
 		
 		Timer timer = new Timer();
 		timer.scheduleAtFixedRate(new TimerTask() {
+			/*
+			 * get the char information from server
+			 */
 			public void run() {
 				if (id == 1) {
 					try {
