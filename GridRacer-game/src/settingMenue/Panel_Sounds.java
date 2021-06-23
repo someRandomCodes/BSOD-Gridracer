@@ -33,7 +33,7 @@ public class Panel_Sounds extends JPanel {
 	 */
 	private static final long serialVersionUID = -7767668161602340122L;
 	Font font = new Font("Apple Casual", Font.ITALIC|Font.BOLD, 20);
-	JLabel backgroundGif = new JLabel(new ImageIcon("src/assets/img/test3.gif"));
+	JLabel backgroundGif = new JLabel(new ImageIcon("src/assets/img/sound.gif"));
 	
 	
 	JButton btn_back = new JButton();

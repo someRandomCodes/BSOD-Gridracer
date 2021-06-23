@@ -33,7 +33,7 @@ public class Panel_ClientSettings extends JPanel {
 	 */
 	private static final long serialVersionUID = -7767668161602340122L;
 	Font font = new Font("Apple Casual", Font.ITALIC|Font.BOLD, 20);
-	JLabel backgroundGif = new JLabel(new ImageIcon("src/assets/img/test3.gif"));
+	JLabel backgroundGif = new JLabel(new ImageIcon("src/assets/img/client.gif"));
 	
 	
 	JButton btn_back = new JButton();
@@ -79,13 +79,22 @@ public class Panel_ClientSettings extends JPanel {
 		btn_back.setForeground(Color.white);
 		
 		tf_ip.setBounds(540,310,200,40);
+		tf_ip.setBackground(Color.black);
+		tf_ip.setFont(font);
+		tf_ip.setForeground(Color.white);
 		backgroundGif.add(tf_ip);
 		
 		tf_port.setBounds(540,360,200,40);
+		tf_port.setBackground(Color.black);
+		tf_port.setFont(font);
+		tf_port.setForeground(Color.white);
 		backgroundGif.add(tf_port);	
 		
 		btn_save.setBounds(540,420,200,40);
-		backgroundGif.add(btn_save);	
+		btn_save.setBackground(Color.black);
+		btn_save.setFont(font);
+		btn_save.setForeground(Color.white);
+		backgroundGif.add(btn_save);
 	}
 	
 	/*

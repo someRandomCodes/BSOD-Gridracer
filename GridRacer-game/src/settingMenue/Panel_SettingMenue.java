@@ -34,7 +34,7 @@ public class Panel_SettingMenue extends JPanel {
 	JButton btn_doNotPress = new JButton();
 	JButton btn_credits = new JButton();
 	
-	JLabel backgroundGif = new JLabel(new ImageIcon("src/assets/img/test3.gif"));
+	JLabel backgroundGif = new JLabel(new ImageIcon("src/assets/img/settings.gif"));
 	Font font = new Font("Apple Casual", Font.ITALIC|Font.BOLD, 20);
 	
 
