@@ -40,12 +40,14 @@ public class Panel_Credits extends JPanel implements ActionListener {
 		this.setLayout(null);
 		this.setBackground(myColor);
 		
-		text = "GRID RACER wird Ihnen prÃ¤sentiert von...\n\n"
-				+ "B.S.O.D\n"
-				+"THOMAS\n"
-				+"LUKAS\n"
-				+"AMAN\n\n"
-				+"Danke fürs Zocken";
+		text = "GRID RACER wird Ihnen praesentiert von...\n\n\n"
+				+ "DEV Team: B.S.O.D\n\n"
+				+"THOMAS GUEDE STORK\n"
+				+"LUKAS MOHRBACHER\n"
+				+"ISLYAM MAKANALIN aka AMAN\n\n\n\n"
+				+"MUSIK:\n\n"
+				+"patrickdearteaga.com\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+				+"Danke fuers Zocken";
 		
 		creditTimer.start();
 		
@@ -57,14 +59,14 @@ public class Panel_Credits extends JPanel implements ActionListener {
 		bsodlabel1.setBounds(200,100,400,400);
 		
 		JLabel bsodlabel2 = new JLabel();
-		bsodlabel2.setText("Your PC ran into a problem and needs to restart. We´re ");
+		bsodlabel2.setText("Your PC ran into a problem and needs to restart. We�re ");
 		bsodlabel2.setVisible(true);
 		bsodlabel2.setFont(new Font("ARIAL",100,30));
 		bsodlabel2.setForeground(Color.white);
 		bsodlabel2.setBounds(200,200,1100,400);
 		
 		JLabel bsodlabel3 = new JLabel();
-		bsodlabel3.setText("just collecting some error info, and then we´ll restart for");
+		bsodlabel3.setText("just collecting some error info, and then we�ll restart for");
 		bsodlabel3.setVisible(true);
 		bsodlabel3.setFont(new Font("ARIAL",100,30));
 		bsodlabel3.setForeground(Color.white);
@@ -77,10 +79,18 @@ public class Panel_Credits extends JPanel implements ActionListener {
 		bsodlabel4.setForeground(Color.white);
 		bsodlabel4.setBounds(200,280,1100,400);
 		
+		JLabel bsodlabel5 = new JLabel();
+		bsodlabel5.setText("100% complete");
+		bsodlabel5.setVisible(true);
+		bsodlabel5.setFont(new Font("ARIAL",100,30));
+		bsodlabel5.setForeground(Color.white);
+		bsodlabel5.setBounds(200,340,1100,400);
+		
 		this.add(bsodlabel1);
 		this.add(bsodlabel2);
 		this.add(bsodlabel3);
 		this.add(bsodlabel4);
+		this.add(bsodlabel5);
 	}
 	
 	/*
@@ -100,7 +110,7 @@ public class Panel_Credits extends JPanel implements ActionListener {
 		for(String line: text.split("\n")) {
 			
 			int stringLength =(int)g2d.getFontMetrics().getStringBounds(line, g2d).getWidth();
-			int x = getWidth()/2 -stringLength/2;
+			int x = getWidth()/2 -stringLength/2;	
 			g2d.drawString(line, x, y+=50);
 			}
 	}
@@ -112,7 +122,7 @@ public class Panel_Credits extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		System.out.println(textY);
 		textY--;
-		if (textY < -170) {
+		if (textY < -900) {
 			creditTimer.stop();
 		}
 		repaint();
