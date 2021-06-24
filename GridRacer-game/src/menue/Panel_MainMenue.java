@@ -42,7 +42,6 @@ public class Panel_MainMenue extends JPanel {
 	private JButton btn_Website = new JButton("Website");
 	
 	private JLabel backgroundGif = new JLabel(new ImageIcon("src/assets/img/title.gif"));
-	private int volume = -20;
 	
 	private static final long serialVersionUID = -715260095579860078L;
 
