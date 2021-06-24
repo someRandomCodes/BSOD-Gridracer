@@ -120,7 +120,6 @@ public class Panel_Credits extends JPanel implements ActionListener {
 		 * stops the text if the textY reaches 170
 		 */
 	public void actionPerformed(ActionEvent e) {
-		System.out.println(textY);
 		textY--;
 		if (textY < -900) {
 			creditTimer.stop();
