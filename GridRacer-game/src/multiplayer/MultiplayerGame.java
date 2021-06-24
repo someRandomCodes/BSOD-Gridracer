@@ -33,10 +33,10 @@ public class MultiplayerGame {
 		if (id == 1 || id == 3) {
 			new RMIServer();
 		}
-		if (Panel_Sounds.a == 2 ||Panel_Sounds.a == 3 ) {
+		if (Panel_Sounds.music_on_off == 2 ||Panel_Sounds.music_on_off == 3 ) {
 			
 		}else {
-			Panel_Sounds.a = 3;
+			Panel_Sounds.music_on_off = 3;
 		}
 			
 		
@@ -63,10 +63,10 @@ public class MultiplayerGame {
 		            "Are you sure you want to quit the game?", "Quit game?", 
 		            JOptionPane.YES_NO_OPTION,
 		            JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
-		        	if (Panel_Sounds.a==1 || Panel_Sounds.a == 2) {
+		        	if (Panel_Sounds.music_on_off==1 || Panel_Sounds.music_on_off == 2) {
 		        		
 		        	}else {
-		        		Panel_Sounds.a = 1;
+		        		Panel_Sounds.music_on_off = 1;
 		        	}
 		        	
 		        }

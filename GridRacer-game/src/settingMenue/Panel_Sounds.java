@@ -44,7 +44,7 @@ public class Panel_Sounds extends JPanel {
 	
 	JLabel jl_volumeAnzeige = new JLabel();
 	
-	public static int a = 1;
+	public static int music_on_off = 1;
 	
 	/*
 	 * creates a panel as a GIF background
@@ -141,7 +141,7 @@ public class Panel_Sounds extends JPanel {
 	 * sets the variable a to 2, witch turns the background music off
 	 */
 	private void btn_musicOff_clicked() {
-		Panel_Sounds.a = 2;
+		Panel_Sounds.music_on_off = 2;
 	    try {
 			buttonClickSound();
 		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
@@ -154,7 +154,7 @@ public class Panel_Sounds extends JPanel {
 	 * sets the variable a to 1, witch turns the background music on
 	 */
 	private void btn_musicOn_clicked() {
-		Panel_Sounds.a = 1;
+		Panel_Sounds.music_on_off = 1;
 	    try {
 			buttonClickSound();
 		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
