@@ -91,8 +91,8 @@ public class Main{
 		clip2.open(audioStream2);
 		FloatControl gainControl2 = (FloatControl) clip2.getControl(FloatControl.Type.MASTER_GAIN);
 
-		while (!(Panel_Sounds.a == 5)) {
-			switch(Panel_Sounds.a) {
+		while (!(Panel_Sounds.music_on_off == 5)) {
+			switch(Panel_Sounds.music_on_off) {
 			case(1):clip2.stop();
 					gainControl.setValue(Panel_Sounds.volume()); clip.loop(Clip.LOOP_CONTINUOUSLY);
 			break;
