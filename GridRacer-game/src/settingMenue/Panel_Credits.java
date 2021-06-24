@@ -26,19 +26,19 @@ public class Panel_Credits extends JPanel implements ActionListener {
 	 */
 	private static final long serialVersionUID = -1328399414907651111L;
 	
-	Timer creditTimer = new Timer(20,this);
-	String text;
-	int textY =  1000;
-	Color myColor = new Color(1, 84, 153);
+	private Timer creditTimer = new Timer(20,this);
+	private String text;
+	private int textY =  1000;
+	private Color myColor = new Color(1, 84, 153);
 	
 	/*
 	 * adds the credits to the variable text, starts the timer and creates 4 labels which makes the background looks like the b.s.o.d in windows
 	 */
 	public Panel_Credits() {
-		this.setPreferredSize(new Dimension(1280, 400));
-		this.setVisible(true);
-		this.setLayout(null);
-		this.setBackground(myColor);
+		setPreferredSize(new Dimension(1280, 400));
+		setVisible(true);
+		setLayout(null);
+		setBackground(myColor);
 		
 		text = "GRID RACER wird Ihnen praesentiert von...\n\n\n"
 				+ "DEV Team: B.S.O.D\n\n"
@@ -86,11 +86,11 @@ public class Panel_Credits extends JPanel implements ActionListener {
 		bsodlabel5.setForeground(Color.white);
 		bsodlabel5.setBounds(200,340,1100,400);
 		
-		this.add(bsodlabel1);
-		this.add(bsodlabel2);
-		this.add(bsodlabel3);
-		this.add(bsodlabel4);
-		this.add(bsodlabel5);
+		add(bsodlabel1);
+		add(bsodlabel2);
+		add(bsodlabel3);
+		add(bsodlabel4);
+		add(bsodlabel5);
 	}
 	
 	/*
@@ -112,13 +112,13 @@ public class Panel_Credits extends JPanel implements ActionListener {
 			int stringLength =(int)g2d.getFontMetrics().getStringBounds(line, g2d).getWidth();
 			int x = getWidth()/2 -stringLength/2;	
 			g2d.drawString(line, x, y+=50);
-			}
+		}
 	}
 	
-		/*
-		 * reduces the textY which makes the text move from the bottom to the top
-		 * stops the text if the textY reaches 170
-		 */
+	/*
+	 * reduces the textY which makes the text move from the bottom to the top
+	 * stops the text if the textY reaches 170
+	 */
 	public void actionPerformed(ActionEvent e) {
 		textY--;
 		if (textY < -900) {
@@ -126,5 +126,4 @@ public class Panel_Credits extends JPanel implements ActionListener {
 		}
 		repaint();
 	}
-
 }

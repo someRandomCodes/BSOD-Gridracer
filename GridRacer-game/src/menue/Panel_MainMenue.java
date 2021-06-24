@@ -50,11 +50,11 @@ public class Panel_MainMenue extends JPanel {
 	 */
 	public Panel_MainMenue() {
 		Font font = new Font("Apple Casual", Font.ITALIC|Font.BOLD, 20);
-		this.setPreferredSize(new Dimension(1280, 640));
+		setPreferredSize(new Dimension(1280, 640));
 		
 		backgroundGif.setBounds(1,1,1280,640);
 		backgroundGif.setVisible(true);
-		this.add(backgroundGif);
+		add(backgroundGif);
 		
 		btn_StartMultiplayer.addActionListener(e -> {
 			try {
@@ -133,9 +133,12 @@ public class Panel_MainMenue extends JPanel {
 	 * sets Settings_MainMenue panel invisible, opens CharacterSettings panel, sets it visible and replays the buttonclick sound
 	 */
     private void btn_CharacterSettings_clicked() {
-		this.setVisible(false);
-		this.getParent().add(p_characterMenue);
+		setVisible(false);
+		getParent().add(p_characterMenue);
+		
+		p_characterMenue.loadCharSettings();
 		p_characterMenue.setVisible(true);
+		
 	   	try {
 	   		Panel_Sounds.buttonClickSound();
 		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
@@ -148,9 +151,11 @@ public class Panel_MainMenue extends JPanel {
 	 * sets Settings_MainMenue panel invisible, opens Settings panel, sets it visible and replays the buttonclick sound
 	 */
     private void btn_Settings_clicked() {
-		this.setVisible(false);
-		this.getParent().add(p_settingMenue);
+		setVisible(false);
+		getParent().add(p_settingMenue);
+		
 		p_settingMenue.setVisible(true);
+		
 	    	try {
 			Panel_Sounds.buttonClickSound();
 		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {

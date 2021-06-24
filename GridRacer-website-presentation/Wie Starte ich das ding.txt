@@ -1,0 +1,2 @@
+Den MiniWebserver.exe starten.
+im Webbrowser auf Localhost gehen mit den angegebenen port aus dem programm.

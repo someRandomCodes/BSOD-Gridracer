@@ -14,7 +14,7 @@ import characterSettings.Loadsave;
 import serverApplication.GameInterface;
 
 /**
- * This class contains the Game itself with Server connection and Colide logic
+ * This class contains the Game itself with Server connection and collide logic
  * 
  * @author Thomas Guede Stork
  * @author Islyam Makanalin
@@ -22,15 +22,19 @@ import serverApplication.GameInterface;
  */
 public class Panel_TheGame extends JPanel {
 	GameInterface server;
+	
 	private int speed = 100;
 	private int gameboardSizeW = 80;
 	private int gameboardSizeH = 60;
 	private int gameboardSize = gameboardSizeH * gameboardSizeW;
+	
 	private boolean gamerun = false;
+	
 	private gamestart gameStart = new gamestart();
 	private movings movingSelfThread = new movings();
 	private enemy enemyMovingThread = new enemy();
 	private Gameplace[] place = new Gameplace[gameboardSize];
+	
 	private int id;
 	private int enemyId;
 	private int playerId;
@@ -55,8 +59,6 @@ public class Panel_TheGame extends JPanel {
 		// id 1 for Server id 2 for client id 3 for 2 on 1 Computer.
 		this.playerId = (id == 1 || id == 3) ? 1 : 2;
 		this.enemyId = (id == 2) ? 1 : 2;
-		System.out.println(playerId);
-		System.out.println(enemyId);
 		try {
 			GameInterface gameinterface = (GameInterface)Naming.lookup("rmi://" + Loadsave.loadServerAdress() + "/GameSrv");	
 			server = gameinterface;   
@@ -114,13 +116,22 @@ public class Panel_TheGame extends JPanel {
 	 * or Collide to the Border
 	 */
 	void collide(int id) {
-		JOptionPane.showMessageDialog(null, "colide from " + id );
+		if (id == 2) {
+			Loadsave.savePlayer(Loadsave.loadName(), Loadsave.loadScore()+ 5, Loadsave.loadCharacter(), Loadsave.loadGamerated());
+		}
 		try {
+			try {
+				Thread.sleep(speed);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 			server.resetGame();
+			
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
 		drawGamefield();
+		JOptionPane.showMessageDialog(null, "colide from " + id );		
 	}
 	
 	/**
@@ -249,25 +260,21 @@ public class Panel_TheGame extends JPanel {
 	}
 
 	/**
-	 * This class implements the Keylistener to load the 
-	 * setted moving direction to the server.
+	 * This class implements the Key listener to load the 
+	 * moving direction to the server.
 	 * 
 	 */
 	private class MovingListener implements KeyListener{
 
 		@Override
 		public void keyTyped(KeyEvent e) {
-			//System.out.println(e.getKeyChar());
 			if (e.getKeyChar() == 'w' 
 					|| e.getKeyChar() == 'a' 
 					|| e.getKeyChar() == 's' 
 					|| e.getKeyChar() == 'd')
 				try {
 					server.ChangeDirection(playerId, e.getKeyChar());
-					System.out.print(playerId);
-					System.out.println(server.getDirection(playerId));
 				} catch (RemoteException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}  ;
 			
@@ -291,7 +298,6 @@ public class Panel_TheGame extends JPanel {
 						break;
 					}
 				} catch (RemoteException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				} 
 		}

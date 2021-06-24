@@ -28,18 +28,18 @@ import characterSettings.Loadsave;
  * @author Lukas Mohrbacher
  */
 public class Panel_ClientSettings extends JPanel {
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = -7767668161602340122L;
 	Font font = new Font("Apple Casual", Font.ITALIC|Font.BOLD, 20);
+	
 	JLabel backgroundGif = new JLabel(new ImageIcon("src/assets/img/client.gif"));
 	
-	
+	JButton btn_save = new JButton();	
 	JButton btn_back = new JButton();
+	
 	JTextField tf_ip = new JTextField("localhost");
 	JTextField tf_port = new JTextField("1099");
-	JButton btn_save = new JButton();
+
 	
 	/*
 	 * creates a panel as a GIF background
@@ -47,13 +47,14 @@ public class Panel_ClientSettings extends JPanel {
 	public Panel_ClientSettings() {
 		setPreferredSize(new Dimension(1280, 640));
 		setLayout(null);
+		
 		createComponents();
 		addComponents();
 		
 		backgroundGif.setBounds(0,0,1280,640);
 		backgroundGif.setLayout(null);
 		backgroundGif.setVisible(true);
-		this.add(backgroundGif);
+		add(backgroundGif);
 	}
 
 	
@@ -108,9 +109,10 @@ public class Panel_ClientSettings extends JPanel {
 	 * sets elements invisible, returns to main menu and replays Button click sound
 	 */
 	private void btn_back_clicked() {
-		this.setVisible(false);
-		this.getParent().getComponents()[0].setVisible(true);
-		this.getParent().remove(this);
+		setVisible(false);
+		getParent().getComponents()[0].setVisible(true);
+		getParent().remove(this);
+		
 	    try {
 			buttonClickSound();
 		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
@@ -123,14 +125,16 @@ public class Panel_ClientSettings extends JPanel {
 	 * creates audio streams with a wave file
 	 * streams the file when method is called
 	 */
-	public static  void buttonClickSound() throws UnsupportedAudioFileException, IOException, LineUnavailableException{
+	public static  void buttonClickSound() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
 		File file = new File("src//assets//sounds//buttonclick.wav");
 		
 		AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
 		Clip clip = AudioSystem.getClip();
 		clip.open(audioStream);
+		
 		FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
 		gainControl.setValue(Panel_Sounds.volume());
+		
 		clip.start();
 		}
 }

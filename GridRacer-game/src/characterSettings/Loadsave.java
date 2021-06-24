@@ -170,11 +170,11 @@ public class Loadsave {
 	}
 	
 	/*
-	 * Save the ip adress and port number to 
+	 * Save the IP address and port number to 
 	 * clientsetting.txt
 	 * 
 	 * @param String port address
-	 * @param String ip adress
+	 * @param String IP address
 	 */
 	public static void saveClientSettings(String ip, String port) {
 		try {
@@ -185,19 +185,17 @@ public class Loadsave {
 			writer.close();
 			JOptionPane.showInternalMessageDialog(null, "Adresse und Port wurde gespeichert");
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	
 	/*
-	 * load ip adress and port number from
+	 * load IP Address and port number from
 	 * clientsetting.txt
 	 * 
-	 * @return String  Serveradress and port
+	 * @return String  Server address and port
 	 */
 	public static String loadServerAdress() {
 		try {

@@ -63,6 +63,7 @@ public class Main{
 		
 		frameContent.remove(LoadingBar);
 		frameContent.add(p_startGame);
+		
 		mainFrame.pack();
 		mainFrame.setLocationRelativeTo(null);
 		
@@ -78,28 +79,38 @@ public class Main{
 	 * creates 2 audio streams with different wav files
 	 * streams one of those if music is turned on in settings in a while loop
 	 */
-	public static  void backGroundMusic() throws UnsupportedAudioFileException, IOException, LineUnavailableException{
+	public static  void backGroundMusic() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
 		File file = new File("src//assets//sounds//baba.wav");
 		AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
+		
 		Clip clip = AudioSystem.getClip();
 		clip.open(audioStream);
+		
 		FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
 		
 		File file2 = new File("src//assets//sounds//baba2.wav");
 		AudioInputStream audioStream2 = AudioSystem.getAudioInputStream(file2);
+		
 		Clip clip2 = AudioSystem.getClip();
 		clip2.open(audioStream2);
+		
 		FloatControl gainControl2 = (FloatControl) clip2.getControl(FloatControl.Type.MASTER_GAIN);
 
 		while (!(Panel_Sounds.music_on_off == 5)) {
 			switch(Panel_Sounds.music_on_off) {
-			case(1):clip2.stop();
+				case(1):
+					clip2.stop();
 					gainControl.setValue(Panel_Sounds.volume()); clip.loop(Clip.LOOP_CONTINUOUSLY);
-			break;
-			case(2):clip.stop(); clip.setMicrosecondPosition(0);
-			break;
-			case(3):clip.stop(); clip.setMicrosecondPosition(0);
+					break;
+					
+				case(2):
+					clip.stop(); clip.setMicrosecondPosition(0);
+					break;
+					
+				case(3):
+					clip.stop(); clip.setMicrosecondPosition(0);
 					gainControl2.setValue(Panel_Sounds.volume()); clip2.loop(Clip.LOOP_CONTINUOUSLY);
+					break;
 			}
 		}
 		

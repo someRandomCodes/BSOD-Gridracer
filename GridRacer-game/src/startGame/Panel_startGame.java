@@ -26,29 +26,30 @@ import menue.Panel_MainMenue;
  */
 public class Panel_startGame extends JPanel implements ActionListener {
 	private static final long serialVersionUID = -715260095579860078L;
-	int backGroundMoveLeft = 0;
-	boolean leftMove = true;
+	private int backGroundMoveLeft = 0;
+	private boolean leftMove = true;
 	
-	Panel_MainMenue p_mainMenue = new Panel_MainMenue();
-	Image img;
-	Timer timer;
-	String welc = "Welcome to";
-	String gridRacer = "GRIDRACER";
+	private Panel_MainMenue p_mainMenue = new Panel_MainMenue();
+	private Image img;
+	private Timer timer;
+	private String welc = "Welcome to";
+	private String gridRacer = "GRIDRACER";
 
 	/*
-	 * constructor add the keylistener keyadapter
+	 * constructor add the key listener key adapter
 	 * and do some other stuff
 	 */
 	Panel_startGame() {
-		this.setPreferredSize(new Dimension(1280, 640));
-		this.setLayout(null);
-		this.addKeyListener(new KeyAdapter() {
+		setPreferredSize(new Dimension(1280, 640));
+		setLayout(null);
+		addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
 				loadMenue();
 			}	
 		});
-		this.setFocusable(true);
+		
+		setFocusable(true);
 
 		img = new ImageIcon("src/assets/img/background_start.png").getImage();
 		
@@ -73,13 +74,13 @@ public class Panel_startGame extends JPanel implements ActionListener {
 	}
 	
 	/*
-	 * loads the menue and remove this class/panel
+	 * loads the menu and remove this class/panel
 	 */
 	public void loadMenue() {
-		this.setVisible(false);
-		this.removeAll();
-		this.getParent().add(p_mainMenue);
-		this.getParent().remove(this);
+		setVisible(false);
+		removeAll();
+		getParent().add(p_mainMenue);
+		getParent().remove(this);
 	}
 
 

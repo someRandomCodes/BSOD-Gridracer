@@ -19,23 +19,24 @@ import characterSettings.Loadsave;
 import startGame.MyFrame;
 
 /**
- * Klassen beschreibung
+ * this class shows all valuable settings
+ * 
  * @author Thomas Guede Stork
  * @author Islyam Makanalin
  * @author Lukas Mohrbacher
  */
 public class Panel_SettingMenue extends JPanel {
-	Panel_Sounds p_sound = new Panel_Sounds();
-	Panel_ClientSettings p_clientSettings = new Panel_ClientSettings();	
+	private Panel_Sounds p_sound = new Panel_Sounds();
+	private Panel_ClientSettings p_clientSettings = new Panel_ClientSettings();	
 	
-	JButton btn_back = new JButton();
-	JButton btn_sound = new JButton();
-	JButton btn_clientSettings = new JButton();
-	JButton btn_doNotPress = new JButton();
-	JButton btn_credits = new JButton();
+	private JButton btn_back = new JButton();
+	private JButton btn_sound = new JButton();
+	private JButton btn_clientSettings = new JButton();
+	private JButton btn_doNotPress = new JButton();
+	private JButton btn_credits = new JButton();
 	
-	JLabel backgroundGif = new JLabel(new ImageIcon("src/assets/img/settings.gif"));
-	Font font = new Font("Apple Casual", Font.ITALIC|Font.BOLD, 20);
+	private JLabel backgroundGif = new JLabel(new ImageIcon("src/assets/img/settings.gif"));
+	private Font font = new Font("Apple Casual", Font.ITALIC|Font.BOLD, 20);
 	
 
 	
@@ -51,7 +52,7 @@ public class Panel_SettingMenue extends JPanel {
 		
 		backgroundGif.setBounds(1,1,1280,640);
 		backgroundGif.setVisible(true);
-		this.add(backgroundGif);
+		add(backgroundGif);
 	}
 	
 	/*
@@ -109,9 +110,9 @@ public class Panel_SettingMenue extends JPanel {
 	 * sets elements invisible, returns to previous menu
 	 */
     private void btn_back_clicked() {
-		this.setVisible(false);
-		this.getParent().getComponents()[0].setVisible(true);
-		this.getParent().remove(this);
+		setVisible(false);
+		getParent().getComponents()[0].setVisible(true);
+		getParent().remove(this);
 	    try {
 	    	Panel_Sounds.buttonClickSound();
 		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
@@ -130,19 +131,21 @@ public class Panel_SettingMenue extends JPanel {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		this.setVisible(false);
-		this.getParent().add(p_sound);
+		setVisible(false);
+		getParent().add(p_sound);
 		p_sound.setVisible(true);
     }
     
 	/*
-	 * replays the buttonclick sound
+	 * opens the client setting menu 
+	 * 
+	 * replays the Button Click sound
 	 */
     private void btn_clientSettings_clicked() {
     	try {
-    		this.setVisible(false);
-    		this.getParent().add(p_clientSettings);
-    		p_sound.setVisible(true);
+    		setVisible(false);
+    		getParent().add(p_clientSettings);
+    		p_clientSettings.setVisible(true);
     		Panel_Sounds.buttonClickSound();
 		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
 			// TODO Auto-generated catch block

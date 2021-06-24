@@ -40,24 +40,19 @@ public class Panel_CharacterMenue extends JPanel {
 	private JLabel jl_charThree = new JLabel("Charakter3");
 	private JLabel jl_charDesc = new JLabel("Charakter");
 	private JLabel backgroundGif = new JLabel(new ImageIcon("src\\assets\\img\\test3.gif"));	
-	
 	private JLabel jl_score = new JLabel("Score");
+	
 	private JTextField jl_name = new JTextField(15);
 	
 	private GridBagConstraints gbc = new GridBagConstraints();
-	
-	
 
-	
 	private static final long serialVersionUID = -715260095579860078L;
 
 	/*
-	 * using gridbag layout to generate and position 3 characters with settings and back/save buttons for character menu
+	 * using Grid Bag layout to generate and position 3 characters with settings and back/save buttons for character menu
 	 */
 	public Panel_CharacterMenue() {
 		Font font = new Font("Apple Casual", Font.ITALIC|Font.BOLD, 20);
-
-		loadCharSettings();
 		
 		jl_name.setBounds(540,260,200,40);
 		jl_name.setBackground(Color.black);
@@ -174,12 +169,13 @@ public class Panel_CharacterMenue extends JPanel {
 		gbc.gridx = 4;
 		gbc.gridy = 3;
 		backgroundGif.add(btn_save, gbc);
+		
 	}
 
 	/*
-	 * 
+	 * loads the default or sets settings from TXT file
 	 */
-	private void loadCharSettings() {
+	public void loadCharSettings() {
 		jl_name.setText(Loadsave.loadName());
 		jl_score.setText("Score: " + Integer.toString(Loadsave.loadScore()));
 		jl_charDesc.setText(getCharName(Loadsave.loadCharacter()));
@@ -254,21 +250,19 @@ public class Panel_CharacterMenue extends JPanel {
     private void btn_save_clicked() {
     	if (chosen==0) {
     		JOptionPane.showMessageDialog(null,"Keinen Charakter ausgewählt.");
-    	}
-    		else {
+    	} else {
     			Loadsave.savePlayer(jl_name.getText(), Loadsave.loadScore(), chosen, Loadsave.loadGamerated());
     	    	JOptionPane.showMessageDialog(null, "Auswahl wurde Gespeichert");
     	    	loadCharSettings();
-    		}
-    	
-    	
-    	
+    	    	}
+
     	try {
     		Panel_Sounds.buttonClickSound();
 		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
 			e.printStackTrace();
 		}
     }
+    
 	/*
 	 * checks for selected character to return name
 	 */

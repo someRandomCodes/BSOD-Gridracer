@@ -28,28 +28,25 @@ import javax.swing.event.ChangeListener;
  * @author Lukas Mohrbacher
  */
 public class Panel_Sounds extends JPanel {
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = -7767668161602340122L;
-	Font font = new Font("Apple Casual", Font.ITALIC|Font.BOLD, 20);
-	JLabel backgroundGif = new JLabel(new ImageIcon("src/assets/img/sound.gif"));
+	private Font font = new Font("Apple Casual", Font.ITALIC|Font.BOLD, 20);
+	private JLabel backgroundGif = new JLabel(new ImageIcon("src/assets/img/sound.gif"));
 	
+	private JButton btn_back = new JButton();
+	private JButton btn_musicOff = new JButton();
+	private JButton btn_musicOn = new JButton();
 	
-	JButton btn_back = new JButton();
-	JButton btn_musicOff = new JButton();
-	JButton btn_musicOn = new JButton();
+	private static JSlider js_sound = new JSlider(0,80,40);
 	
-	static JSlider js_sound = new JSlider(0,80,40);
-	
-	JLabel jl_volumeAnzeige = new JLabel();
+	private JLabel jl_volumeAnzeige = new JLabel();
 	
 	public static int music_on_off = 1;
 	
 	/*
 	 * creates a panel as a GIF background
 	 */
-	public Panel_Sounds() {
+	Panel_Sounds() {
 		setPreferredSize(new Dimension(1280, 640));
 		setLayout(null);
 		createComponents();
@@ -57,7 +54,7 @@ public class Panel_Sounds extends JPanel {
 		
 		backgroundGif.setBounds(0,0,1280,640);
 		backgroundGif.setVisible(true);
-		this.add(backgroundGif);
+		add(backgroundGif);
 	}
 
 	
@@ -110,9 +107,7 @@ public class Panel_Sounds extends JPanel {
 		jl_volumeAnzeige.setText(""+volumeAnzeige+"%");
 		jl_volumeAnzeige.setFont(font);
 		jl_volumeAnzeige.setForeground(Color.white);
-		
-		
-		
+
 		js_sound.addChangeListener(new ChangeListener() {
 			   public void stateChanged(ChangeEvent e) {
 				   double js_soundValue = js_sound.getValue();
@@ -126,9 +121,10 @@ public class Panel_Sounds extends JPanel {
 	 * sets elements invisible, returns to main menu and replays buttonclick sound
 	 */
 	private void btn_back_clicked() {
-		this.setVisible(false);
-		this.getParent().getComponents()[0].setVisible(true);
-		this.getParent().remove(this);
+		setVisible(false);
+		getParent().getComponents()[0].setVisible(true);
+		getParent().remove(this);
+		
 	    try {
 			buttonClickSound();
 		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
@@ -176,14 +172,15 @@ public class Panel_Sounds extends JPanel {
 	 * creates audio streams with a wav file
 	 * streams the file when method is called
 	 */
-	public static  void buttonClickSound() throws UnsupportedAudioFileException, IOException, LineUnavailableException{
+	public static void buttonClickSound() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
 		File file = new File("src//assets//sounds//buttonclick.wav");
 		
 		AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
 		Clip clip = AudioSystem.getClip();
 		clip.open(audioStream);
+		
 		FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
 		gainControl.setValue(Panel_Sounds.volume());
 		clip.start();
-		}
+	}
 }

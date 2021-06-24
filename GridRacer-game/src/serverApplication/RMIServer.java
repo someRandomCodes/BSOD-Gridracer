@@ -33,7 +33,6 @@ public class RMIServer {
     		} catch (RemoteException e) {
     			registry = LocateRegistry.createRegistry(1099);
     			System.out.println(e);
-    			System.out.println("wtf keine ahnung wieso das nicht geht");
     		}
     	}
     }
