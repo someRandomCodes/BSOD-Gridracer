@@ -1,4 +1,4 @@
 playername:JvimfexNsrr2
 score:9
 char:7
-rated:false
+rated:true
