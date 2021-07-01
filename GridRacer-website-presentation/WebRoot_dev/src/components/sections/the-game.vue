@@ -9,7 +9,7 @@
     </div>
     <div class="container">
       <div class="row">
-        <div class="col-6">
+        <div class="col-md-6 col-12">
           <p>
             <span class="font-weight-bold">Gridracer:</span> <br>ist ein Spiel, basierend auf den alten Film Tron.<br>
             Ablauf des Spiels:<br>
@@ -22,8 +22,8 @@
             Um das Spiel zu Starten, muss der Server sein "GO" geben und dies passiert automatisch, wenn beide Spieler eine Startrichtung gewählt haben.
           </p>
         </div>
-        <div class="col-6">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/3rb0Ld1cdGw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>        </div>
+        <div class="col-md-6 col-12 text-center">
+          <iframe src="https://www.youtube.com/embed/U33Fq-RLW2o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>        </div>
       </div>
     </div>
   </section>
@@ -37,20 +37,41 @@ export default {
 
 <style lang="scss" scoped>
 .the-game {
-  padding: 130px 0;
+  margin: 100px 0;
 
   .headline {
-    font-size: 35px;
+    font-size: 50px;
     font-weight: bold;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
   p {
-    padding-right: 130px;
-    transform: translateY(30%);
-    border: 1px solid black;
+    border: 2px solid black;
+    padding: 15px;
   }
   iframe {
-    transform: translateX(-20%);
+    width: 600px;
+    height: 300px;
+    transform: translateX(-8%);
+  }
+}
+@media only screen and (max-width: 600px) {
+  .the-game {
+    margin: 140px 0;
+
+    .headline {
+      font-size: 30px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    p {
+      border: 2px solid black;
+      padding: 15px;
+      font-size: 10px;
+    }
+    iframe {
+      width: 300px;
+      height: 150px;
+    }
   }
 }
 </style>

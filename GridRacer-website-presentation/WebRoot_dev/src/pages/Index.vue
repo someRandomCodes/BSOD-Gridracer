@@ -24,7 +24,6 @@ import Bewertung from "../components/sections/bewertung";
 export default {
   components: {Bewertung, DownloadGame, Development, TheTeam, TheGame},
   metaInfo: {
-    title: 'Hello, world!'
   }
 }
 </script>

@@ -2,10 +2,12 @@
 <section class="topbar">
   <div class="container">
     <div class="row">
-      <div class="col-12 d-flex align-items-center justify-content-between">
+      <div class="col-md-4 col-12 text-md-left text-center">
         <div class="logo">
           <a href="/" style="color:black">GRIDRACER</a>
         </div>
+      </div>
+      <div class="col-md-8 col-12 text-md-right text-center">
         <div class="menue">
           <ul>
             <li v-for="item in links">

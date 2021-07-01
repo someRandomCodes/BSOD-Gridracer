@@ -20,6 +20,12 @@ query {
 html {
   scroll-behavior: smooth;
 }
+
+@media only screen and (max-width: 600px) {
+  p {
+    font-size: 13px;
+  }
+}
 </style>
 <script>
 import Topbar from "../components/layout/topbar";
