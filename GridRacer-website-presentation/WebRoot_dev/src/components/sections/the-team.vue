@@ -22,7 +22,7 @@
           </div>
         </div>
         <div class="col-4 d-flex align-items-center flex-column">
-          <g-image src="~/assets/img/drunkaman.png" alt="profil" class="w-75"/>
+          <g-image src="~/assets/img/drunkaman.jpg" alt="profil" class="w-75"/>
           <div class="name">
             Islyam <br> Makanalin
           </div>

@@ -6,11 +6,11 @@
           <span>
             Download the Game <br> and source code
           </span>
-          <button href="https://drive.google.com/drive/folders/1ERatq8qbK_ZRUrH7zimkmcJkliIdaCid?usp=sharing">
+          <button href="https://drive.google.com/drive/folders/1ERatq8qbK_ZRUrH7zimkmcJkliIdaCid?usp=sharing" target="_blank">
             Download the Game<br>(Jar file but source needed)
           </button>
           <br>
-          <button>
+          <button href="https://github.com/someRandomCodes/BSOD-Gridracer/archive/refs/heads/main.zip" target="_blank">
             Download the source code<br>(Jar files not needed)
           </button>
         </div>

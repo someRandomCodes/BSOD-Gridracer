@@ -1,7 +1,7 @@
 <template>
   <layout>
     <div class="io">
-      <div class="container-fluid mx-2">
+      <div class="container">
         <div class="row">
           <div class="col-12">
             <g-image src="~/assets/img/filewriter/loadsavefile.png" class="w-100"></g-image>

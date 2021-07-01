@@ -11,6 +11,7 @@
 
     <div id="download"></div>
     <download-game/>
+
   </Layout>
 </template>
 
@@ -19,8 +20,9 @@ import TheGame from "../components/sections/the-game";
 import TheTeam from "../components/sections/the-team";
 import Development from "../components/sections/development";
 import DownloadGame from "../components/sections/download-game";
+import Bewertung from "../components/sections/bewertung";
 export default {
-  components: {DownloadGame, Development, TheTeam, TheGame},
+  components: {Bewertung, DownloadGame, Development, TheTeam, TheGame},
   metaInfo: {
     title: 'Hello, world!'
   }
