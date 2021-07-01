@@ -6,12 +6,12 @@
           <span>
             Download the Game <br> and source code
           </span>
-          <button>
-            Download the Game
+          <button href="https://drive.google.com/drive/folders/1ERatq8qbK_ZRUrH7zimkmcJkliIdaCid?usp=sharing">
+            Download the Game<br>(Jar file but source needed)
           </button>
           <br>
           <button>
-            Download the source code
+            Download the source code<br>(Jar files not needed)
           </button>
         </div>
       </div>

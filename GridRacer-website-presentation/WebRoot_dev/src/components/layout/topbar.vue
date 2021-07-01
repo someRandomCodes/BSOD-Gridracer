@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-12 d-flex align-items-center justify-content-between">
         <div class="logo">
-          GRIDRACER
+          <a href="/" style="color:black">GRIDRACER</a>
         </div>
         <div class="menue">
           <ul>

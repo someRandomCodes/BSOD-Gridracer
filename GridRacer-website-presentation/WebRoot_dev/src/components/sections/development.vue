@@ -60,7 +60,7 @@
           <span>Listener</span>
           Während der Programmierung haben wir auch unterschiedliche Listener mit eingebaut.<br>
           Manche als anonyme klasse oder als innere klasse<br>
-          <a href="/Listner">Weitere details</a>
+          <a href="/Listener">Weitere details</a>
         </div>
         <div class="col-6 image-frame">
           <g-image src="~/assets/img/listener.png" alt="Repository" class="w-100"/>

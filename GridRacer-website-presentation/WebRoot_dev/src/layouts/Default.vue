@@ -17,7 +17,9 @@ query {
 </static-query>
 
 <style>
-
+html {
+  scroll-behavior: smooth;
+}
 </style>
 <script>
 import Topbar from "../components/layout/topbar";

@@ -1,8 +1,15 @@
 <template>
   <Layout>
+    <div id="thegame"></div>
     <the-game/>
+
+    <div id="theteam"></div>
     <the-team/>
+
+    <div id="development"></div>
     <development/>
+
+    <div id="download"></div>
     <download-game/>
   </Layout>
 </template>
